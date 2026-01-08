@@ -3,6 +3,14 @@ import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 const config = defineConfig({
   theme: {
     tokens: {
+      sizes: {
+        container: {
+          sm: { value: "640px" },
+          md: { value: "768px" },
+          lg: { value: "1024px" },
+          xl: { value: "1440px" },
+        },
+      },
       colors: {
         brand: {
           main: { value: "#3188E1" },
@@ -66,7 +74,7 @@ const config = defineConfig({
         black: { value: "900" },
       },
 
-      radii: {
+      radius: {
         md: { value: "0.5rem" },
         lg: { value: "0.75rem" },
         xl: { value: "1rem" },
@@ -78,7 +86,7 @@ const config = defineConfig({
     semanticTokens: {
       colors: {
         "bg.primary": {
-          default: { value: "#FFFFFF" },
+          default: { value: "#FFFAFA" },
           _dark: { value: "#1A202C" },
         },
         "bg.secondary": {
@@ -97,7 +105,7 @@ const config = defineConfig({
           _dark: { value: "{colors.brand.600}" },
         },
         "button.primary.text": {
-          value: "#FFFFFF",
+          value: "#F1F1F1",
         },
         "product.bread.bg": {
           default: { value: "{colors.product.bread}" },
@@ -134,8 +142,8 @@ const config = defineConfig({
   globalCss: {
     "html, body": {
       fontFamily: "{fonts.body}",
-      backgroundColor: "{colors.bg.primary}",
-      color: "{colors.text.primary}",
+      backgroundColor: "bg.primary",
+      color: "text.primary",
     },
     h1: {
       fontFamily: "{fonts.heading}",
