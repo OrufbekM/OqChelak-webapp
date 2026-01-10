@@ -38,6 +38,19 @@ const config = defineConfig({
           error: { value: "#EF4444" },
           warning: { value: "#F59E0B" },
         },
+        accent: {
+          orange: { value: "#FF4D00" },
+          orange50: { value: "#FFF5F0" }, 
+          orange100: { value: "#FFE8D6" }, 
+          orange600: { value: "#E63E00" }, 
+          yellow: { value: "#FFEC73" },
+          yellow50: { value: "#FFFBE6" },
+          yellow100: { value: "#FFF7CC" },
+          yellow600: { value: "#FFD700" },
+          lightBlue: { value: "#62D3FF" },
+          blue: {value: "#377EDA" }
+
+        },
       },
 
       fonts: {

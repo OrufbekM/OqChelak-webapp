@@ -1,8 +1,10 @@
 import PrimaryButton from "@/components/PrimaryButton";
 import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
+  const navigate = useNavigate();
   return (
     <Box bg={"bg.primary"}>
       <Container>
@@ -21,7 +23,7 @@ const Welcome = () => {
               Oqchelakka xush kelibsiz!
             </Text>
           </Flex>
-          <PrimaryButton>Boshlash</PrimaryButton>
+          <PrimaryButton onClick={() => navigate("/register")}>Boshlash</PrimaryButton>
         </Flex>
       </Container>
     </Box>
