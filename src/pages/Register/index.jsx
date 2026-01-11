@@ -1,68 +1,100 @@
-import { Container, Flex, Image, Text, Box, Heading, SimpleGrid } from '@chakra-ui/react'
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import RoleCards from "./components/RoleCards";
+import PhoneVerification from "./components/PhoneVerification";
+import VerifyCode from "./components/VerifyCode";
+import NameInput from "./components/NameInput";
 
 function Register() {
-  const navigate = useNavigate()
+  const [step, setStep] = useState("role");
+  const [userType, setUserType] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [userName, setUserName] = useState("");
 
   const handleCustomerClick = () => {
-    navigate('/verifyphone', { 
-      state: { userType: 'customer' } 
-    });
+    setUserType("customer");
+    setStep("phone");
   };
 
   const handleSellerClick = () => {
-    navigate('/verifyphone', { 
-      state: { userType: 'seller' } 
-    });
+    setUserType("seller");
+    setStep("phone");
   };
-  return (
-    <Container maxW="container.xl">
-      <Flex
-      py={5} px={2}
-        flexDirection={"column"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        gap={12}
-      >
-        <Flex
-          flexDirection={"column"}
-          justifyContent='center'
-          gap='10px'
-          alignItems={"center"}
-        >
-          <Image src={"/images/oqchelak-logo-rounded.svg"} w={"100px"} />
-          <Text fontSize={"2xl"} fontWeight={"semibold"} textAlign="center">
-            Qaysi biri sizga ko'proq mos keladi?
-          </Text>
-        </Flex>
-        <Flex display={"flex"} flexDirection={"column"} gap={2}>
-          <Box onClick={handleCustomerClick} p={2} display={'flex'} gap={"10px"} bg={'accent.yellow'} borderRadius={"16px"} border={"3px solid white"}>
-            <Image src={"/public/images/customer.png"} />
-             <Box display={'flex'} flexDirection={"column"}>
-              <Heading color={'accent.orange'}>
-                Haridor
-              </Heading>
-              <Text color={"accent.orange"}>
-                Siz mahsulotlarni tanlaysiz, buyurtma berasiz va yetkazib berilishini kutasiz.
-              </Text>
-             </Box>
+
+  const handlePhoneNext = (phone) => {
+    setPhoneNumber(phone);
+    setStep("verify");
+  };
+
+  const handlePhoneBack = () => {
+    setStep("role");
+    setPhoneNumber("");
+  };
+
+  const handleVerifyNext = (code) => {
+    console.log("Verification code:", code);
+    setStep("name");
+  };
+
+  const handleVerifyBack = () => {
+    setStep("phone");
+  };
+
+  const handleNameNext = (name) => {
+    setUserName(name);
+    console.log("Registration complete:", { userType, phoneNumber, name });
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case "role":
+        return (
+          <Box bg="bg.primary" minH="100vh" display="flex" alignItems="center" justifyContent="center">
+            <Container maxW="container.sm" px={4}>
+              <Flex
+                flexDirection="column"
+                alignItems="center"
+                gap={8}
+                py={10}
+              >
+                <Flex flexDirection="column" alignItems="center" gap={4}>
+                  <Image src="/images/oqchelak-logo-rounded.svg" w="100px" h="100px" objectFit="contain" />
+                  <Text fontSize="2xl" fontWeight="bold" textAlign="center" color="text.primary">
+                    Qaysi biri sizga ko'proq mos keladi?
+                  </Text>
+                </Flex>
+
+                <RoleCards
+                  onCustomerClick={handleCustomerClick}
+                  onSellerClick={handleSellerClick}
+                />
+              </Flex>
+            </Container>
           </Box>
-          <Box onClick={handleSellerClick} p={2} display={'flex'} gap={"10px"} bg={'accent.lightBlue'} borderRadius={"16px"} border={"3px solid white"}>
-            <Image src={"/public/images/seller.png"} />
-             <Box display={'flex'} flexDirection={"column"}>
-              <Heading color={'accent.blue'}>
-              Sotuvchi
-              </Heading>
-              <Text color={"accent.blue"}>
-              Siz buyurtmalarni qabul qilasiz, tayyorlaysiz va mijozlarga yetkazib berasiz.
-              </Text>
-             </Box>
-          </Box>
-        </Flex>
-      </Flex>
-    </Container>
-  )
+        );
+      case "phone":
+        return (
+          <PhoneVerification
+            onNext={handlePhoneNext}
+            onBack={handlePhoneBack}
+          />
+        );
+      case "verify":
+        return (
+          <VerifyCode
+            phoneNumber={phoneNumber}
+            onNext={handleVerifyNext}
+            onBack={handleVerifyBack}
+          />
+        );
+      case "name":
+        return <NameInput onNext={handleNameNext} userName={userName} />;
+      default:
+        return null;
+    }
+  };
+
+  return renderStep();
 }
 
 export default Register;

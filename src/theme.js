@@ -5,6 +5,7 @@ const config = defineConfig({
     tokens: {
       sizes: {
         container: {
+          xs: {value: "320px"},
           sm: { value: "640px" },
           md: { value: "768px" },
           lg: { value: "1024px" },
@@ -38,6 +39,9 @@ const config = defineConfig({
           error: { value: "#EF4444" },
           warning: { value: "#F59E0B" },
         },
+        surface: {
+          dark: { value: "#121212" },
+        },
         accent: {
           orange: { value: "#FF4D00" },
           orange50: { value: "#FFF5F0" }, 
@@ -48,8 +52,13 @@ const config = defineConfig({
           yellow100: { value: "#FFF7CC" },
           yellow600: { value: "#FFD700" },
           lightBlue: { value: "#62D3FF" },
-          blue: {value: "#377EDA" }
-
+          blue: {value: "#377EDA" },
+          yellowLight: { value: "#FFF490" },
+          yellowBorder: { value: "#FBC02D" },
+          orangeDark: { value: "#E65100" },
+          blueLightAlt: { value: "#90CAF9" },
+          blueBorder: { value: "#1976D2" },
+          blueDarkAlt: { value: "#0D47A1" }
         },
       },
 
