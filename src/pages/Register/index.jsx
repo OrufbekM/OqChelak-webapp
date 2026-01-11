@@ -88,7 +88,7 @@ function Register() {
           />
         );
       case "name":
-        return <NameInput onNext={handleNameNext} userName={userName} />;
+        return <NameInput onNext={handleNameNext} userName={userName} role={userType}/>;
       default:
         return null;
     }

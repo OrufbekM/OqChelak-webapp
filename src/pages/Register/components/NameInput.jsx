@@ -11,15 +11,26 @@ import {
 import PrimaryButton from "@/components/PrimaryButton";
 import PrimaryInput from "@/components/PrimaryInput";
 import { useColorModeValue } from "@/components/ui/color-mode";
+import { useNavigate } from "react-router-dom";
 
-const NameInput = ({ onNext, userName }) => {
+const NameInput = ({ onNext, userName, role }) => {
   const [name, setName] = useState(userName || "");
   const labelBg = useColorModeValue("#FFFAFA", "#1A202C");
   const containerRef = useRef(null);
-
+  const navigate = useNavigate()
+  
   const handleNext = () => {
     if (name.length >= 3) {
       onNext(name);
+
+      // Role bo'yicha yo'naltirish
+      if (role === "customer") {
+        navigate("/customer-home");
+      } else if (role === "seller") {
+        navigate("/seller-home");
+      } else {
+        navigate("/404"); 
+      }
     }
   };
 
