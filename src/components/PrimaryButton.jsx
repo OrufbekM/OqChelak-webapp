@@ -20,15 +20,11 @@ const PrimaryButton = ({ children, variant = "primary", ...props }) => {
       maxW="320px"
       _hover={{
         bg: "brand.600",
-        boxShadow: "lg",
         transition: "all 0.2s ease-in-out",
       }}
       _active={{
         transform: "translateY(0px)",
         boxShadow: "md",
-      }}
-      _focus={{
-        boxShadow: "outline",
       }}
       transition="all 0.2s ease-in-out"
       {...props}

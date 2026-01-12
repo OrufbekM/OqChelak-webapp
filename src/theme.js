@@ -5,60 +5,72 @@ const config = defineConfig({
     tokens: {
       sizes: {
         container: {
-          xs: {value: "320px"},
+          xs: { value: "320px" },
           sm: { value: "640px" },
           md: { value: "768px" },
           lg: { value: "1024px" },
           xl: { value: "1440px" },
         },
       },
+
       colors: {
         brand: {
           main: { value: "#3188E1" },
           50: { value: "#EFF6FF" },
           100: { value: "#DBEAFE" },
           600: { value: "#2563EB" },
+          500: { value: "#FFFAFA" },
+          700: { value: "#1A202C" },
+          800: { value: "#F7FAFC" },
+          900: { value: "#2d3748" },
         },
+
         text: {
           dark: { value: "#1F1F1F" },
           light: { value: "#F1F1F1" },
           timer: { value: "#8C8C8C" },
         },
+
         product: {
           bread: { value: "#FFF9E6" },
           milk: { value: "#F0F9FF" },
           yogurt: { value: "#F5F0FF" },
           cream: { value: "#FFF5F0" },
+
           breadDark: { value: "#2C261F" },
           milkDark: { value: "#1A2835" },
           yogurtDark: { value: "#2A2233" },
           creamDark: { value: "#352724" },
         },
-        semantic: {
-          success: { value: "#10B981" },
-          error: { value: "#EF4444" },
-          warning: { value: "#F59E0B" },
-        },
-        surface: {
-          dark: { value: "#121212" },
-        },
+
         accent: {
           orange: { value: "#FF4D00" },
-          orange50: { value: "#FFF5F0" }, 
-          orange100: { value: "#FFE8D6" }, 
-          orange600: { value: "#E63E00" }, 
+          orange50: { value: "#FFF5F0" },
+          orange100: { value: "#FFE8D6" },
+          orange600: { value: "#E63E00" },
+
           yellow: { value: "#FFEC73" },
           yellow50: { value: "#FFFBE6" },
           yellow100: { value: "#FFF7CC" },
           yellow600: { value: "#FFD700" },
+          yellowBright: { value: "#FFE330" },
+          yellowBorder: { value: "#FCE83B" },
+          yellowPale: { value: "#FFF5B7" },
+          yellowCard: { value: "#FDFBEB" },
+
+          peach: { value: "#FFB39C" },
+          grayDark: { value: "#57585D" },
+          grayButton: { value: "#4A4A4A" },
+
           lightBlue: { value: "#62D3FF" },
-          blue: {value: "#377EDA" },
-          yellowLight: { value: "#FFF490" },
-          yellowBorder: { value: "#FBC02D" },
-          orangeDark: { value: "#E65100" },
-          blueLightAlt: { value: "#90CAF9" },
+          blue: { value: "#377EDA" },
           blueBorder: { value: "#1976D2" },
-          blueDarkAlt: { value: "#0D47A1" }
+          blueLightAlt: { value: "#90CAF9" },
+          blueDarkAlt: { value: "#0D47A1" },
+          blueCard: { value: "#2C3E50" },
+
+          green: { value: "#4CAF50" },
+          greenSuccess: { value: "#4CAF50" },
         },
       },
 
@@ -73,7 +85,7 @@ const config = defineConfig({
         },
         mono: {
           value:
-            "'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace",
+            "'JetBrains Mono', SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace",
         },
       },
 
@@ -93,7 +105,6 @@ const config = defineConfig({
         semibold: { value: "600" },
         bold: { value: "700" },
         extrabold: { value: "800" },
-        black: { value: "900" },
       },
 
       radius: {
@@ -107,74 +118,98 @@ const config = defineConfig({
 
     semanticTokens: {
       colors: {
-        "bg.primary": {
-          default: { value: "#FFFAFA" },
-          _dark: { value: "#1A202C" },
+        bg: {
+          primary: {
+            value: { base: "#FFFAFA", _dark: "#1E1E1E" },
+          },
+          secondary: {
+            value: { base: "#FAFAF9", _dark: "#212121" },
+          },
+          input: {
+            value: { base: "#F4F6F5", _dark: "#3F3F3F" },
+          },
         },
-        "bg.secondary": {
-          default: { value: "#F7FAFC" },
-          _dark: { value: "#2D3748" },
-        },
-        "text.primary": {
-          default: { value: "{colors.text.dark}" },
-          _dark: { value: "{colors.text.light}" },
-        },
-        "text.timer": {
-          value: "{colors.text.timer}",
-        },
-        "button.primary.bg": {
-          default: { value: "{colors.brand.main}" },
-          _dark: { value: "{colors.brand.600}" },
-        },
-        "button.primary.text": {
-          value: "#F1F1F1",
-        },
-        "product.bread.bg": {
-          default: { value: "{colors.product.bread}" },
-          _dark: { value: "{colors.product.breadDark}" },
-        },
-        "product.milk.bg": {
-          default: { value: "{colors.product.milk}" },
-          _dark: { value: "{colors.product.milkDark}" },
-        },
-        "product.yogurt.bg": {
-          default: { value: "{colors.product.yogurt}" },
-          _dark: { value: "{colors.product.yogurtDark}" },
-        },
-        "product.cream.bg": {
-          default: { value: "{colors.product.cream}" },
-          _dark: { value: "{colors.product.creamDark}" },
-        },
-      },
 
-      fontSizes: {
-        "hero.title": { value: "{fontSizes.4xl}" },
-        "section.title": { value: "{fontSizes.2xl}" },
-        "button.text": { value: "{fontSizes.md}" },
-      },
+        text: {
+          primary: {
+            value: { base: "{colors.text.dark}", _dark: "{colors.text.light}" },
+          },
+          timer: {
+            value: "{colors.text.timer}",
+          },
+        },
 
-      fontWeights: {
-        "hero.title": { value: "{fontWeights.extrabold}" },
-        "section.title": { value: "{fontWeights.bold}" },
-        "button.text": { value: "{fontWeights.medium}" },
+        button: {
+          primary: {
+            bg: {
+              value: { base: "{colors.brand.main}", _dark: "{colors.brand.600}" },
+            },
+            text: {
+              value: "{colors.text.light}",
+            },
+          },
+        },
+
+        product: {
+          bread: {
+            bg: {
+              value: { base: "{colors.product.bread}", _dark: "{colors.product.breadDark}" },
+            },
+          },
+          milk: {
+            bg: {
+              value: { base: "{colors.product.milk}", _dark: "{colors.product.milkDark}" },
+            },
+          },
+          yogurt: {
+            bg: {
+              value: { base: "{colors.product.yogurt}", _dark: "{colors.product.yogurtDark}" },
+            },
+          },
+          cream: {
+            bg: {
+              value: { base: "{colors.product.cream}", _dark: "{colors.product.creamDark}" },
+            },
+          },
+        },
       },
     },
   },
 
   globalCss: {
+    "*": {
+      boxSizing: "border-box",
+    },
     "html, body": {
       fontFamily: "{fonts.body}",
-      backgroundColor: "bg.primary",
+      bg: "bg.primary",
       color: "text.primary",
+      overflowX: "hidden",
+      maxWidth: "100vw",
+      margin: 0,
+      padding: 0,
     },
+    body: {
+      position: "relative",
+      width: "100%",
+    },
+    "#root": {
+      width: "100%",
+      maxWidth: "100vw",
+      overflowX: "hidden",
+      position: "relative",
+    },
+
     h1: {
       fontFamily: "{fonts.heading}",
       fontWeight: "{fontWeights.extrabold}",
     },
+
     h2: {
       fontFamily: "{fonts.heading}",
       fontWeight: "{fontWeights.bold}",
     },
+
     button: {
       fontFamily: "{fonts.body}",
       fontWeight: "{fontWeights.medium}",

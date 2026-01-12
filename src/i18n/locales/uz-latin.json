@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "Oqchelaka xush kelibsiz!",
+    "titleLine1": "Oqchelaka xush",
+    "titleLine2": "kelibsiz!",
+    "registerButton": "Ro'yxatdan o'tish"
+  },
+  "register": {
+    "roleQuestion": "Qaysi biri sizga ko'proq mos keladi?",
+    "customer": "Xaridor",
+    "customerDescription": "Siz mahsulotlarni tanlaysiz, buyurtma berasiz va yetkazib berilishini kutasiz.",
+    "seller": "Sotuvchi",
+    "sellerDescription": "Siz buyurtmalarni qabul qilasiz, tayyorlaysiz va mijozlarga yetkazib berasiz.",
+    "title": "Ro'yxatdan o'tish",
+    "phoneLabel": "telefon raqamingiz",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "phoneError": "Iltimos, telefon raqamingizni to'liq kiriting",
+    "confirm": "Tasdiqlash",
+    "codeSent": "Raqamingizga kod yubordik",
+    "codeNotReceived": "Kodni olmadingizmi?",
+    "resendCode": "Yangisini olish",
+    "resendCodeIn": "Yangisini olish:",
+    "enterName": "Ismingizni kiriting:",
+    "nameLabel": "ismingiz"
+  },
+  "customer": {
+    "search": "Qidiruv...",
+    "milk": "Sut",
+    "milkDescription": "Sut ko'p bo'lsa, qaymoqi ham ko'p bo'ladi.",
+    "price": "Narxi:",
+    "onlyProduct": "Hozircha faqat shu",
+    "continueUsing": "Bizdan foydalanishni davom eting",
+    "moreProducts": "albatta boshqa mahsulotlar ham bo'ladi =)"
+  },
+  "seller": {
+    "orders": "Buyurtmalar",
+    "search": "Qidiruv...",
+    "new": "Yangi",
+    "old": "Eski",
+    "remainingTime": "qolgan vaqt:",
+    "address": "Manzil:",
+    "client": "Mijoz:",
+    "price": "Narx:",
+    "accept": "Qabul qilish",
+    "cancel": "Bekor qilish"
+  },
+  "common": {
+    "search": "Qidiruv...",
+    "confirm": "Tasdiqlash"
+  },
+  "settings": {
+    "title": "Sozlamalar"
+  }
+}

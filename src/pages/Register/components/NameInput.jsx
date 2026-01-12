@@ -8,12 +8,14 @@ import {
   Text,
   Field,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 import PrimaryButton from "@/components/PrimaryButton";
 import PrimaryInput from "@/components/PrimaryInput";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import { useNavigate } from "react-router-dom";
 
 const NameInput = ({ onNext, userName, role }) => {
+  const { t } = useTranslation();
   const [name, setName] = useState(userName || "");
   const labelBg = useColorModeValue("#FFFAFA", "#1A202C");
   const containerRef = useRef(null);
@@ -97,7 +99,7 @@ const NameInput = ({ onNext, userName, role }) => {
                 />
               </Box>
               <Text fontSize="2xl" fontWeight="semibold" color="text.primary">
-                Ismingizni kiriting:
+                {t("register.enterName")}
               </Text>
             </VStack>
 
@@ -119,7 +121,7 @@ const NameInput = ({ onNext, userName, role }) => {
                 xl={{ maxW: "320px" }}
               >
                 <Text fontSize="sm" color="text.primary">
-                  ismingiz
+                  {t("register.nameLabel")}
                 </Text>
               </Box>
               <PrimaryInput
@@ -141,7 +143,7 @@ const NameInput = ({ onNext, userName, role }) => {
             pt={4}
           >
             <PrimaryButton isDisabled={name.length < 3} onClick={handleNext}>
-              Tasdiqlash
+              {t("register.confirm")}
             </PrimaryButton>
           </Box>
         </Flex>

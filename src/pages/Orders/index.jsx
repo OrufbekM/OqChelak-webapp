@@ -1,4 +1,4 @@
-import BottomNav from '@/components/BottomNav'
+import BottomNav from '@/components/MobileNav'
 import React from 'react'
 
 const index = () => {

@@ -8,11 +8,13 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 import PrimaryButton from "@/components/PrimaryButton";
 import PrimaryInput from "@/components/PrimaryInput";
 import { useColorModeValue } from "@/components/ui/color-mode";
 
 const PhoneVerification = ({ onNext, onBack }) => {
+  const { t } = useTranslation();
   const [phone, setPhone] = useState("+998 ");
   const labelBg = useColorModeValue("#FFFAFA", "#1A202C");
   const containerRef = useRef(null);
@@ -22,7 +24,7 @@ const PhoneVerification = ({ onNext, onBack }) => {
     if (digitsOnly.length >= 12) {
       onNext(phone);
     } else {
-      alert("Iltimos, telefon raqamingizni to'liq kiriting");
+      alert(t("register.phoneError"));
     }
   };
 
@@ -113,7 +115,7 @@ const PhoneVerification = ({ onNext, onBack }) => {
                 />
               </Box>
               <Text fontSize="2xl" fontWeight="semibold" color="text.primary">
-                Ro'yxatdan o'tish
+                {t("register.title")}
               </Text>
             </VStack>
 
@@ -136,11 +138,11 @@ const PhoneVerification = ({ onNext, onBack }) => {
                 xl={{ maxW: "320px" }}
               >
                 <Text fontSize="sm" color="text.primary">
-                  telefon raqamingiz
+                  {t("register.phoneLabel")}
                 </Text>
               </Box>
               <PrimaryInput
-                placeholder="+998 90 123 45 67"
+                placeholder={t("register.phonePlaceholder")}
                 type="tel"
                 value={phone}
                 onChange={handlePhoneChange}
@@ -160,7 +162,7 @@ const PhoneVerification = ({ onNext, onBack }) => {
             bg="bg.primary"
             pt={4}
           >
-            <PrimaryButton onClick={handleSendCode}>Tasdiqlash</PrimaryButton>
+            <PrimaryButton onClick={handleSendCode}>{t("register.confirm")}</PrimaryButton>
           </Box>
         </Flex>
       </Container>

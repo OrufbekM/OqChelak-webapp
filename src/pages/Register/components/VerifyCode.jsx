@@ -12,9 +12,11 @@ import {
   PinInput,
 } from "@chakra-ui/react";
 import { MdEdit } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 import PrimaryButton from "@/components/PrimaryButton";
 
 const VerifyCode = ({ phoneNumber, onNext, onBack }) => {
+  const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState(59);
   const [code, setCode] = useState(["", "", "", "", ""]);
   const containerRef = useRef(null);
@@ -124,11 +126,11 @@ const VerifyCode = ({ phoneNumber, onNext, onBack }) => {
                   {phoneNumber}
                 </Text>
                 <Box as="button" onClick={onBack} display="flex">
-                  <Icon as={MdEdit} boxSize={5} color="white" />
+                  <Icon as={MdEdit} boxSize={5} color="text.primary" />
                 </Box>
               </HStack>
               <Text color="gray.400" textAlign="center">
-                Raqamingizga kod yubordik
+                {t("register.codeSent")}
               </Text>
             </VStack>
 
@@ -167,11 +169,11 @@ const VerifyCode = ({ phoneNumber, onNext, onBack }) => {
 
             <VStack gap={2}>
               <Text color="gray.400" fontSize="sm">
-                Kodni olmadingizmi?
+                {t("register.codeNotReceived")}
               </Text>
               {timeLeft > 0 ? (
                 <Text fontSize="md">
-                  Yangisini olish:{" "}
+                  {t("register.resendCodeIn")}{" "}
                   <Text as="span" color="gray.500">
                     {timeLeft}s
                   </Text>
@@ -183,7 +185,7 @@ const VerifyCode = ({ phoneNumber, onNext, onBack }) => {
                   onClick={handleResend}
                   style={{ textDecoration: "none" }}
                 >
-                  Yangisini olish
+                  {t("register.resendCode")}
                 </Link>
               )}
             </VStack>
@@ -204,7 +206,7 @@ const VerifyCode = ({ phoneNumber, onNext, onBack }) => {
               onClick={onNext}
               isDisabled={!Array.isArray(code) || code.join("").length !== 5}
             >
-              Tasdiqlash
+              {t("register.confirm")}
             </PrimaryButton>
           </Box>
         </Flex>

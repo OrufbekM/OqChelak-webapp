@@ -1,7 +1,9 @@
 import { Box, Flex, Heading, Image, Text, useToken } from "@chakra-ui/react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const RoleCards = ({ onCustomerClick, onSellerClick }) => {
+  const { t } = useTranslation();
   const [yellowBorder, blueBorder] = useToken("colors", [
     "accent.yellowBorder",
     "accent.blueBorder",
@@ -17,7 +19,7 @@ const RoleCards = ({ onCustomerClick, onSellerClick }) => {
         alignItems="center"
         textAlign="left"
         gap={6}
-        bg="accent.yellowLight"
+        bg="accent.yellowCard"
         borderRadius="2xl"
         borderWidth="3px"
         borderColor="accent.yellowBorder"
@@ -40,20 +42,19 @@ const RoleCards = ({ onCustomerClick, onSellerClick }) => {
         <Box flex={1}>
           <Heading
             size="lg"
-            color="accent.orangeDark"
+            color="accent.orange"
             fontWeight="black"
             mb={1}
           >
-            Xaridor
+            {t("register.customer")}
           </Heading>
           <Text
-            color="accent.orangeDark"
+            color="accent.orange"
             fontWeight="600"
             fontSize="md"
             lineHeight="1.3"
           >
-            Siz mahsulotlarni tanlaysiz, buyurtma berasiz va yetkazib
-            berilishini kutasiz.
+            {t("register.customerDescription")}
           </Text>
         </Box>
       </Box>
@@ -95,7 +96,7 @@ const RoleCards = ({ onCustomerClick, onSellerClick }) => {
             fontWeight="black"
             mb={1}
           >
-            Sotuvchi
+            {t("register.seller")}
           </Heading>
           <Text
             color="accent.blueDarkAlt"
@@ -103,8 +104,7 @@ const RoleCards = ({ onCustomerClick, onSellerClick }) => {
             fontSize="md"
             lineHeight="1.3"
           >
-            Siz buyurtmalarni qabul qilasiz, tayyorlaysiz va mijozlarga yetkazib
-            berasiz.
+            {t("register.sellerDescription")}
           </Text>
         </Box>
       </Box>

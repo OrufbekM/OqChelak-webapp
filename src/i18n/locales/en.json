@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "Welcome to Oqchelaka!",
+    "titleLine1": "Welcome to",
+    "titleLine2": "Oqchelaka!",
+    "registerButton": "Register"
+  },
+  "register": {
+    "roleQuestion": "Which one suits you better?",
+    "customer": "Customer",
+    "customerDescription": "You choose products, place orders and wait for delivery.",
+    "seller": "Seller",
+    "sellerDescription": "You accept orders, prepare them and deliver to customers.",
+    "title": "Registration",
+    "phoneLabel": "your phone number",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "phoneError": "Please enter your phone number completely",
+    "confirm": "Confirm",
+    "codeSent": "We sent a code to your number",
+    "codeNotReceived": "Didn't receive the code?",
+    "resendCode": "Resend",
+    "resendCodeIn": "Resend in:",
+    "enterName": "Enter your name:",
+    "nameLabel": "your name"
+  },
+  "customer": {
+    "search": "Search...",
+    "milk": "Milk",
+    "milkDescription": "If there's a lot of milk, there will be a lot of cream too.",
+    "price": "Price:",
+    "onlyProduct": "Only this for now",
+    "continueUsing": "Continue using our service",
+    "moreProducts": "surely there will be other products too =)"
+  },
+  "seller": {
+    "orders": "Orders",
+    "search": "Search...",
+    "new": "New",
+    "old": "Old",
+    "remainingTime": "remaining time:",
+    "address": "Address:",
+    "client": "Client:",
+    "price": "Price:",
+    "accept": "Accept",
+    "cancel": "Cancel"
+  },
+  "common": {
+    "search": "Search...",
+    "confirm": "Confirm"
+  },
+  "settings": {
+    "title": "Settings"
+  }
+}

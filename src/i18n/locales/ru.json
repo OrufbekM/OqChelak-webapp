@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "Добро пожаловать в Oqchelaka!",
+    "titleLine1": "Добро пожаловать",
+    "titleLine2": "в Oqchelaka!",
+    "registerButton": "Регистрация"
+  },
+  "register": {
+    "roleQuestion": "Какая из них вам больше подходит?",
+    "customer": "Покупатель",
+    "customerDescription": "Вы выбираете товары, делаете заказы и ждете доставки.",
+    "seller": "Продавец",
+    "sellerDescription": "Вы принимаете заказы, готовите их и доставляете клиентам.",
+    "title": "Регистрация",
+    "phoneLabel": "ваш номер телефона",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "phoneError": "Пожалуйста, введите номер телефона полностью",
+    "confirm": "Подтвердить",
+    "codeSent": "Мы отправили код на ваш номер",
+    "codeNotReceived": "Не получили код?",
+    "resendCode": "Отправить снова",
+    "resendCodeIn": "Отправить снова через:",
+    "enterName": "Введите ваше имя:",
+    "nameLabel": "ваше имя"
+  },
+  "customer": {
+    "search": "Поиск...",
+    "milk": "Молоко",
+    "milkDescription": "Если молока много, то и сливок будет много.",
+    "price": "Цена:",
+    "onlyProduct": "Пока только это",
+    "continueUsing": "Продолжайте пользоваться нашим сервисом",
+    "moreProducts": "конечно будут и другие продукты =)"
+  },
+  "seller": {
+    "orders": "Заказы",
+    "search": "Поиск...",
+    "new": "Новые",
+    "old": "Старые",
+    "remainingTime": "осталось времени:",
+    "address": "Адрес:",
+    "client": "Клиент:",
+    "price": "Цена:",
+    "accept": "Принять",
+    "cancel": "Отменить"
+  },
+  "common": {
+    "search": "Поиск...",
+    "confirm": "Подтвердить"
+  }, 
+  "settings": {
+    "title": "Настройки"
+  }
+}

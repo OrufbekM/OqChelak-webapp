@@ -17,6 +17,7 @@ const App = () => {
         <Route path="/seller-home" element={<SellerHome />} />
         <Route path="myorders" element={<Orders />} />
         {/* Dinnaxuy djala */}
+        {/* xop */}
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>

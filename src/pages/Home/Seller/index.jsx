@@ -3,14 +3,14 @@ import {
   Box,
   Flex,
   Text,
-  Input,
-  InputGroup,
   Button,
   VStack,
   Image,
+  Container,
 } from "@chakra-ui/react";
-import { LuSearch } from "react-icons/lu";
-import BottomNav from "@/components/BottomNav";
+import { useTranslation } from "react-i18next";
+import BottomNav from "@/components/MobileNav";
+import SecondaryInput from "@/components/SecondaryInput";
 
 const INITIAL_TIME = 20 * 60;
 
@@ -45,6 +45,7 @@ const ordersData = [
 ];
 
 const Index = () => {
+  const { t } = useTranslation();
   const [orders, setOrders] = useState(ordersData);
   const [filter, setFilter] = useState("new");
 
@@ -69,9 +70,9 @@ const Index = () => {
   };
 
   const getColor = (time) => {
-    if (time <= 5 * 60) return "semantic.error";
-    if (time <= 10 * 60) return "semantic.warning";
-    return "semantic.success";
+    if (time <= 5 * 60) return "accent.orange";
+    if (time <= 10 * 60) return "accent.yellow";
+    return "accent.blue";
   };
 
   const filteredOrders = orders.filter(
@@ -79,131 +80,118 @@ const Index = () => {
   );
 
   return (
-    <Flex direction="column" minH="100vh" bg="surface.dark" pt={20}>
-      <Box px="4" pt="6" flexShrink={0}>
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
-          Buyurtmalar
-        </Text>
+    <Box bg="bg.primary" minH="100vh" display="flex" alignItems="center" justifyContent="center">
+      <Container maxW="container.sm" px={4} w="100%">
+        <Flex direction="column" minH="100vh" pt={20} pb="80px">
+          <Box pt="6" flexShrink={0}>
+            <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
+              {t("seller.orders")}
+            </Text>
 
-        <InputGroup
-          bg="text.timer"
-          borderRadius="full"
-          mb="4"
-          endElement={<LuSearch size={18} />}
-        >
-          <Input
-            placeholder="Qidiruv..."
-            bg="text.timer"
-            border="1"
-            borderRadius={'16px'}
-            _focus={{ boxShadow: "none" }}
-          />
-        </InputGroup>
+            <SecondaryInput />
 
-        <Flex justify="center" gap="8">
-          {["new", "old"].map((t) => (
-            <Box
-              key={t}
-              cursor="pointer"
-              onClick={() => setFilter(t)}
-              position="relative"
-              pb="2"
-            >
-              <Text fontWeight="medium" color={filter === t ? "white" : "text.timer"}>
-                {t === "new" ? "Yangi" : "Eski"}
-              </Text>
-
-              {filter === t && (
+            <Flex justify="center" gap="8">
+              {["new", "old"].map((t) => (
                 <Box
-                  position="absolute"
-                  bottom="0"
-                  left="0"
-                  right="0"
-                  h="3px"
-                  bg="brand.main"
-                  borderRadius="full"
-                />
-              )}
-            </Box>
-          ))}
-        </Flex>
-      </Box>
+                  key={t}
+                  cursor="pointer"
+                  onClick={() => setFilter(t)}
+                  position="relative"
+                  pb="2"
+                >
+                  <Text fontWeight="medium" color={filter === t ? "text.light" : "text.timer"}>
+                    {t === "new" ? t("seller.new") : t("seller.old")}
+                  </Text>
 
-      <Box flex="1" overflowY="auto" px="4" py="4">
-        <VStack spacing="4">
-          {filteredOrders.map((order) => {
-            const progress = (order.time / INITIAL_TIME) * 100;
+                  {filter === t && (
+                    <Box
+                      position="absolute"
+                      bottom="0"
+                      left="0"
+                      right="0"
+                      h="3px"
+                      bg="brand.main"
+                      borderRadius="full"
+                    />
+                  )}
+                </Box>
+              ))}
+            </Flex>
+          </Box>
 
-            return (
-              <Box
-                key={order.id}
-                w="100%"
-                bg="bg.secondary"
-                borderRadius="xl"
-                overflow="hidden"
-                position="relative"
-              >
-                <Box
-                  position="absolute"
-                  top="0"
-                  left="0"
-                  h="4px"
-                  w={`${progress}%`}
-                  bg={getColor(order.time)}
-                  transition="width 1s linear"
-                />
+          <Box flex="1" overflowY="auto" py="4">
+            <VStack spacing="4">
+              {filteredOrders.map((order) => {
+                const progress = (order.time / INITIAL_TIME) * 100;
 
-                <Flex p="4" gap="3">
-                  <Flex
-                    w="100px"
-                    h="100px"
-                    align="center"
-                    justify="center"
-                    borderRadius="lg"
-                    bg="product.milk.bg"
+                return (
+                  <Box
+                    key={order.id}
+                    w="100%"
+                    bg="bg.secondary"
+                    borderRadius="xl"
+                    overflow="hidden"
+                    position="relative"
                   >
-                    <Image src="/images/milk.png" alt="milk" />
-                  </Flex>
+                    <Box
+                      position="absolute"
+                      top="0"
+                      left="0"
+                      h="4px"
+                      w={`${progress}%`}
+                      bg={getColor(order.time)}
+                      transition="width 1s linear"
+                    />
 
-                  <Box flex="1">
-                    <Flex justify="space-between">
-                      <Text fontWeight="semibold">{order.product}</Text>
-                      <Text fontSize="sm" color="text.timer">
-                        qolgan vaqt:{" "}
-                        <Text as="span" color={getColor(order.time)} fontWeight="medium">
-                          {formatTime(order.time)}
+                    <Flex p="4" gap="3">
+                      <Flex
+                        w="100px"
+                        h="100px"
+                        align="center"
+                        justify="center"
+                        borderRadius="lg"
+                        bg="product.milk.bg"
+                      >
+                        <Image src="/images/milk.png" alt="milk" />
+                      </Flex>
+
+                      <Box flex="1">
+                        <Flex justify="space-between">
+                          <Text fontWeight="semibold">{order.product}</Text>
+                          <Text fontSize="sm" color="text.timer">
+                            {t("seller.remainingTime")}{" "}
+                            <Text as="span" color={getColor(order.time)} fontWeight="medium">
+                              {formatTime(order.time)}
+                            </Text>
+                          </Text>
+                        </Flex>
+
+                        <Text fontSize="sm">{t("seller.address")} {order.address}</Text>
+                        <Text fontSize="sm">{t("seller.client")} {order.client}</Text>
+                        <Text fontSize="sm" fontWeight="medium">
+                          {t("seller.price")} {order.price}
                         </Text>
-                      </Text>
+                      </Box>
                     </Flex>
 
-                    <Text fontSize="sm">Manzil: {order.address}</Text>
-                    <Text fontSize="sm">Mijoz: {order.client}</Text>
-                    <Text fontSize="sm" fontWeight="medium">
-                      Narx: {order.price}
-                    </Text>
+                    {/* Action Buttons */}
+                    <Flex>
+                      <Button flex="1" borderRadius="0" bg="accent.blue" color="text.light">
+                        {t("seller.accept")}
+                      </Button>
+                      <Button flex="1" borderRadius="0" bg="accent.orange" color="text.light">
+                        {t("seller.cancel")}
+                      </Button>
+                    </Flex>
                   </Box>
-                </Flex>
-
-                {/* Action Buttons */}
-                <Flex>
-                  <Button flex="1" borderRadius="0" bg="semantic.success" color="white">
-                    Qabul qilish
-                  </Button>
-                  <Button flex="1" borderRadius="0" bg="semantic.error" color="white">
-                    Bekor qilish
-                  </Button>
-                </Flex>
-              </Box>
-            );
-          })}
-        </VStack>
-
-        
-      </Box>
-      <Box flexShrink={0}>
-        <BottomNav />
-      </Box>
-    </Flex>
+                );
+              })}
+            </VStack>
+          </Box>
+        </Flex>
+      </Container>
+      <BottomNav role="seller" />
+    </Box>
   );
 };
 
