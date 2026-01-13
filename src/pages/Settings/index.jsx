@@ -41,7 +41,7 @@ const Settings = () => {
         </SettingsSection>
       </Box>
 
-      <BottomNav />
+      <BottomNav role={localStorage.getItem("role")} />
     </Container>
   );
 };

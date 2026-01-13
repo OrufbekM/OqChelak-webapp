@@ -7,14 +7,27 @@ const BottomNav = ({ role }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Prefer explicit prop, otherwise fall back to persisted role from registration/login
+  const userRole = role || localStorage.getItem("role");
+
   const navItems = [
     {
       icon: Package,
-      path: role === "customer" ? "/customer-orders" : "/seller-orders",
+      path:
+        userRole === "customer"
+          ? "/customer-orders"
+          : userRole === "seller"
+          ? "/seller-orders"
+          : "/login",
     },
     {
       icon: Home,
-      path: role === "customer" ? "/customer-home" : "/seller-home",
+      path:
+        userRole === "customer"
+          ? "/customer-home"
+          : userRole === "seller"
+          ? "/seller-home"
+          : "/login",
     },
     {
       icon: Settings,
@@ -53,7 +66,21 @@ const BottomNav = ({ role }) => {
                 align="center"
                 gap={3}
                 cursor="pointer"
-                onClick={() => navigate(item.path)}
+                onClick={() => {
+                  // Protect cross-role navigation: if an item points to seller/customer pages
+                  // but current user role doesn't match, redirect to the correct home or login
+                  if (item.path.includes("/seller") && userRole !== "seller") {
+                    navigate(userRole === "customer" ? "/customer-home" : "/login");
+                    return;
+                  }
+
+                  if (item.path.includes("/customer") && userRole !== "customer") {
+                    navigate(userRole === "seller" ? "/seller-home" : "/login");
+                    return;
+                  }
+
+                  navigate(item.path);
+                }}
                 color={isActive ? "brand.main" : "text.timer"}
                 _hover={{ color: "brand.600" }}
               >

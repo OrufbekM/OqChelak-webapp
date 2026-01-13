@@ -11,8 +11,19 @@ import {
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
 import SecondaryInput from "@/components/SecondaryInput";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_TIME = 20 * 60;
+
+// Ensure only sellers can access this page
+function useSellerGuard(navigate) {
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole && storedRole !== "seller") {
+      navigate(storedRole === "customer" ? "/customer-home" : "/login", { replace: true });
+    }
+  }, [navigate]);
+}
 
 const ordersData = [
   {
@@ -46,6 +57,11 @@ const ordersData = [
 
 const Index = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  // Enforce seller-only access for this page
+  useSellerGuard(navigate);
+
   const [orders, setOrders] = useState(ordersData);
   const [filter, setFilter] = useState("new");
 

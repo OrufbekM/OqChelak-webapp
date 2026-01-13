@@ -4,7 +4,7 @@ import React from 'react'
 const index = () => {
   return (
     <div>
-      <BottomNav/>
+      <BottomNav role={localStorage.getItem("role")} />
     </div>
   )
 }

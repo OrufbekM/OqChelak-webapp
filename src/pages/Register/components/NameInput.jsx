@@ -25,13 +25,18 @@ const NameInput = ({ onNext, userName, role }) => {
     if (name.length >= 3) {
       onNext(name);
 
+      // Persist role so other parts of the app know the current user type
+      if (role) {
+        localStorage.setItem("role", role);
+      }
+
       // Role bo'yicha yo'naltirish
       if (role === "customer") {
         navigate("/customer-home");
       } else if (role === "seller") {
         navigate("/seller-home");
       } else {
-        navigate("/404"); 
+        navigate("/404");
       }
     }
   };

@@ -27,6 +27,9 @@ const RoleCards = ({ onCustomerClick, onSellerClick }) => {
         transition="all 0.15s ease"
         cursor="pointer"
         w="full"
+        _hover={{
+          transform: "translateY(-2px)",
+        }}
         _active={{
           transform: "translateY(4px)",
           boxShadow: `0 8px 0 ${yellowBorder}`,
@@ -40,12 +43,7 @@ const RoleCards = ({ onCustomerClick, onSellerClick }) => {
         />
 
         <Box flex={1}>
-          <Heading
-            size="lg"
-            color="accent.orange"
-            fontWeight="black"
-            mb={1}
-          >
+          <Heading size="lg" color="accent.orange" fontWeight="black" mb={1}>
             {t("register.customer")}
           </Heading>
           <Text

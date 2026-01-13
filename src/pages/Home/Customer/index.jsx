@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Flex, Text, Image, Container } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
 import SecondaryInput from "@/components/SecondaryInput";
+import { useNavigate } from "react-router-dom";
 
 const index = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole && storedRole !== "customer") {
+      // Redirect users to their proper home if roles don't match
+      navigate(storedRole === "seller" ? "/seller-home" : "/login", { replace: true });
+    }
+  }, [navigate]);
+
   return (
     <Box minH="100vh" display="flex" alignItems="center" justifyContent="center">
       <Container maxW="container.sm" px={4} w="100%">
