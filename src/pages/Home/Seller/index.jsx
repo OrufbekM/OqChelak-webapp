@@ -91,31 +91,26 @@ const Index = () => {
             <SecondaryInput />
 
             <Flex justify="center" gap="8">
-              {["new", "old"].map((t) => (
-                <Box
-                  key={t}
-                  cursor="pointer"
-                  onClick={() => setFilter(t)}
-                  position="relative"
-                  pb="2"
-                >
-                  <Text fontWeight="medium" color={filter === t ? "text.light" : "text.timer"}>
-                    {t === "new" ? t("seller.new") : t("seller.old")}
-                  </Text>
+            {["new", "old"].map((typeKey) => (
+  <Box key={typeKey} cursor="pointer" onClick={() => setFilter(typeKey)} position="relative" pb="2">
+    <Text fontWeight="medium" color={filter === typeKey ? "text.light" : "text.timer"}>
+      {typeKey === "new" ? t("seller.new") : t("seller.old")}
+    </Text>
 
-                  {filter === t && (
-                    <Box
-                      position="absolute"
-                      bottom="0"
-                      left="0"
-                      right="0"
-                      h="3px"
-                      bg="brand.main"
-                      borderRadius="full"
-                    />
-                  )}
-                </Box>
-              ))}
+    {filter === typeKey && (
+      <Box
+        position="absolute"
+        bottom="0"
+        left="0"
+        right="0"
+        h="3px"
+        bg="brand.main"
+        borderRadius="full"
+      />
+    )}
+  </Box>
+))}
+
             </Flex>
           </Box>
 

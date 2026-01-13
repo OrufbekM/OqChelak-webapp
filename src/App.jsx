@@ -18,6 +18,7 @@ const App = () => {
         <Route path="myorders" element={<Orders />} />
         {/* Dinnaxuy djala */}
         {/* xop */}
+        {/* Kot bla */}
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
