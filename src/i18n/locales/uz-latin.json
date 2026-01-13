@@ -24,6 +24,7 @@
     "nameLabel": "ismingiz"
   },
   "customer": {
+    "title": "Mahsulotlar",
     "search": "Qidiruv...",
     "milk": "Sut",
     "milkDescription": "Sut ko'p bo'lsa, qaymoqi ham ko'p bo'ladi.",
@@ -33,6 +34,7 @@
     "moreProducts": "albatta boshqa mahsulotlar ham bo'ladi =)"
   },
   "seller": {
+    "title": "Buyurtmalar",
     "orders": "Buyurtmalar",
     "search": "Qidiruv...",
     "new": "Yangi",
@@ -44,11 +46,40 @@
     "accept": "Qabul qilish",
     "cancel": "Bekor qilish"
   },
+  "ordersCustomer": {
+    "title": "Buyurtmalarim",
+    "search": "Buyurtmalar bo'yicha qidiruv...",
+    "noOrders": "Buyurtma topilmadi"
+  },
+  "ordersSeller": {
+    "title": "Sotuvchi buyurtmalari",
+    "search": "Buyurtmalar bo'yicha qidiruv...",
+    "noOrders": "Sotuvchi buyurtmalari topilmadi"
+  },
   "common": {
     "search": "Qidiruv...",
     "confirm": "Tasdiqlash"
   },
   "settings": {
-    "title": "Sozlamalar"
+    "title": "Sozlamalar",
+    "sections": {
+      "account": "Hisob",
+      "appearance": "Ko‘rinish",
+      "more": "Ko‘proq"
+    },
+    "items": {
+      "profile": "Profil & Hisob",
+      "privacyPolicy": "Maxfiylik siyosati",
+      "billing": "Hisob-kitob & Obuna",
+      "security": "Maxfiylik & Xavfsizlik",
+      "darkMode": "Qorong'u rejim",
+      "language": "Til",
+      "help": "Yordam",
+      "about": "Biz haqimizda",
+      "logout": "Hisobdan chiqish"
+    },
+    "search": {
+      "noResults": "Natija topilmadi"
+    }
   }
 }

@@ -20,7 +20,9 @@ function useSellerGuard(navigate) {
   useEffect(() => {
     const storedRole = localStorage.getItem("role");
     if (storedRole && storedRole !== "seller") {
-      navigate(storedRole === "customer" ? "/customer-home" : "/login", { replace: true });
+      navigate(storedRole === "customer" ? "/customer-home" : "/login", {
+        replace: true,
+      });
     }
   }, [navigate]);
 }
@@ -91,42 +93,56 @@ const Index = () => {
     return "accent.blue";
   };
 
-  const filteredOrders = orders.filter(
-    (o) => (filter === "new" ? o.type === "new" : o.type === "old")
+  const filteredOrders = orders.filter((o) =>
+    filter === "new" ? o.type === "new" : o.type === "old"
   );
 
   return (
-    <Box bg="bg.primary" minH="100vh" display="flex" alignItems="center" justifyContent="center">
+    <Box
+      bg="bg.primary"
+      minH="100vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
       <Container maxW="container.sm" px={4} w="100%">
         <Flex direction="column" minH="100vh" pt={20} pb="80px">
           <Box pt="6" flexShrink={0}>
             <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
-              {t("seller.orders")}
+              {t("seller.title")}
             </Text>
 
             <SecondaryInput />
 
             <Flex justify="center" gap="8">
-            {["new", "old"].map((typeKey) => (
-  <Box key={typeKey} cursor="pointer" onClick={() => setFilter(typeKey)} position="relative" pb="2">
-    <Text fontWeight="medium" color={filter === typeKey ? "text.light" : "text.timer"}>
-      {typeKey === "new" ? t("seller.new") : t("seller.old")}
-    </Text>
+              {["new", "old"].map((typeKey) => (
+                <Box
+                  key={typeKey}
+                  cursor="pointer"
+                  onClick={() => setFilter(typeKey)}
+                  position="relative"
+                  pb="2"
+                >
+                  <Text
+                    fontWeight="medium"
+                    color={filter === typeKey ? "text.light" : "text.timer"}
+                  >
+                    {typeKey === "new" ? t("seller.new") : t("seller.old")}
+                  </Text>
 
-    {filter === typeKey && (
-      <Box
-        position="absolute"
-        bottom="0"
-        left="0"
-        right="0"
-        h="3px"
-        bg="brand.main"
-        borderRadius="full"
-      />
-    )}
-  </Box>
-))}
-
+                  {filter === typeKey && (
+                    <Box
+                      position="absolute"
+                      bottom="0"
+                      left="0"
+                      right="0"
+                      h="3px"
+                      bg="brand.main"
+                      borderRadius="full"
+                    />
+                  )}
+                </Box>
+              ))}
             </Flex>
           </Box>
 
@@ -171,14 +187,22 @@ const Index = () => {
                           <Text fontWeight="semibold">{order.product}</Text>
                           <Text fontSize="sm" color="text.timer">
                             {t("seller.remainingTime")}{" "}
-                            <Text as="span" color={getColor(order.time)} fontWeight="medium">
+                            <Text
+                              as="span"
+                              color={getColor(order.time)}
+                              fontWeight="medium"
+                            >
                               {formatTime(order.time)}
                             </Text>
                           </Text>
                         </Flex>
 
-                        <Text fontSize="sm">{t("seller.address")} {order.address}</Text>
-                        <Text fontSize="sm">{t("seller.client")} {order.client}</Text>
+                        <Text fontSize="sm">
+                          {t("seller.address")} {order.address}
+                        </Text>
+                        <Text fontSize="sm">
+                          {t("seller.client")} {order.client}
+                        </Text>
                         <Text fontSize="sm" fontWeight="medium">
                           {t("seller.price")} {order.price}
                         </Text>
@@ -187,10 +211,20 @@ const Index = () => {
 
                     {/* Action Buttons */}
                     <Flex>
-                      <Button flex="1" borderRadius="0" bg="accent.blue" color="text.light">
+                      <Button
+                        flex="1"
+                        borderRadius="0"
+                        bg="accent.blue"
+                        color="text.light"
+                      >
                         {t("seller.accept")}
                       </Button>
-                      <Button flex="1" borderRadius="0" bg="accent.orange" color="text.light">
+                      <Button
+                        flex="1"
+                        borderRadius="0"
+                        bg="accent.orange"
+                        color="text.light"
+                      >
                         {t("seller.cancel")}
                       </Button>
                     </Flex>

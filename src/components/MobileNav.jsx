@@ -1,18 +1,16 @@
 import React from "react";
-import { Box, Flex, Icon, Container } from "@chakra-ui/react";
-import { Home, Package, Settings } from "lucide-react";
+import { Box, Flex, Image, Container } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const BottomNav = ({ role }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Prefer explicit prop, otherwise fall back to persisted role from registration/login
   const userRole = role || localStorage.getItem("role");
 
   const navItems = [
     {
-      icon: Package,
+      icon: "Package.svg",
       path:
         userRole === "customer"
           ? "/customer-orders"
@@ -21,7 +19,7 @@ const BottomNav = ({ role }) => {
           : "/login",
     },
     {
-      icon: Home,
+      icon: "Home.svg",
       path:
         userRole === "customer"
           ? "/customer-home"
@@ -30,7 +28,7 @@ const BottomNav = ({ role }) => {
           : "/login",
     },
     {
-      icon: Settings,
+      icon: "Settings.svg",
       path: "/settings",
     },
   ];
@@ -67,15 +65,13 @@ const BottomNav = ({ role }) => {
                 gap={3}
                 cursor="pointer"
                 onClick={() => {
-                  // Protect cross-role navigation: if an item points to seller/customer pages
-                  // but current user role doesn't match, redirect to the correct home or login
                   if (item.path.includes("/seller") && userRole !== "seller") {
-                    navigate(userRole === "customer" ? "/customer-home" : "/login");
+                    navigate(userRole === "customer" ? "/customer-home" : "/");
                     return;
                   }
 
                   if (item.path.includes("/customer") && userRole !== "customer") {
-                    navigate(userRole === "seller" ? "/seller-home" : "/login");
+                    navigate(userRole === "seller" ? "/seller-home" : "/");
                     return;
                   }
 
@@ -84,11 +80,18 @@ const BottomNav = ({ role }) => {
                 color={isActive ? "brand.main" : "text.timer"}
                 _hover={{ color: "brand.600" }}
               >
-                <Icon
-                  as={item.icon}
-                  boxSize={8}
-                  color={"accent.blueLightAlt"}
-                />
+                <Box w="40px" h="40px" p={2} display="flex" alignItems="center" justifyContent="center">
+                  <Image
+                    src={`/images/${item.icon}`}
+                    alt={`${item.icon} icon`}
+                    objectFit="contain"
+                    maxW="24px"
+                    maxH="24px"
+                    filter={isActive ? "none" : "grayscale(1) opacity(0.6)"}
+                    transition="filter 150ms, transform 150ms"
+                    _hover={{ transform: "scale(1.05)" }}
+                  />
+                </Box>
 
                 {isActive && (
                   <Box w="5px" h="5px" bg="accent.orange" borderRadius="full" />

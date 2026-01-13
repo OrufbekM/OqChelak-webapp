@@ -142,7 +142,10 @@ const config = defineConfig({
         button: {
           primary: {
             bg: {
-              value: { base: "{colors.brand.main}", _dark: "{colors.brand.600}" },
+              value: {
+                base: "{colors.brand.main}",
+                _dark: "{colors.brand.600}",
+              },
             },
             text: {
               value: "{colors.text.light}",
@@ -153,22 +156,34 @@ const config = defineConfig({
         product: {
           bread: {
             bg: {
-              value: { base: "{colors.product.bread}", _dark: "{colors.product.breadDark}" },
+              value: {
+                base: "{colors.product.bread}",
+                _dark: "{colors.product.breadDark}",
+              },
             },
           },
           milk: {
             bg: {
-              value: { base: "{colors.product.milk}", _dark: "{colors.product.milkDark}" },
+              value: {
+                base: "{colors.product.milk}",
+                _dark: "{colors.product.milkDark}",
+              },
             },
           },
           yogurt: {
             bg: {
-              value: { base: "{colors.product.yogurt}", _dark: "{colors.product.yogurtDark}" },
+              value: {
+                base: "{colors.product.yogurt}",
+                _dark: "{colors.product.yogurtDark}",
+              },
             },
           },
           cream: {
             bg: {
-              value: { base: "{colors.product.cream}", _dark: "{colors.product.creamDark}" },
+              value: {
+                base: "{colors.product.cream}",
+                _dark: "{colors.product.creamDark}",
+              },
             },
           },
         },
@@ -179,6 +194,11 @@ const config = defineConfig({
   globalCss: {
     "*": {
       boxSizing: "border-box",
+      // Hide scrollbar globally for all scrollable elements
+      scrollbarWidth: "none", // Firefox
+      "&::-webkit-scrollbar": {
+        display: "none", // Chrome, Safari, Edge
+      },
     },
     "html, body": {
       fontFamily: "{fonts.body}",
@@ -188,6 +208,10 @@ const config = defineConfig({
       maxWidth: "100vw",
       margin: 0,
       padding: 0,
+      scrollbarWidth: "none",
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
     },
     body: {
       position: "relative",

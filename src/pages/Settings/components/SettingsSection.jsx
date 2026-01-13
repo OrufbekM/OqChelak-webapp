@@ -6,7 +6,7 @@ const SettingsSection = ({ title, children }) => {
       {title && (
         <Text
           fontSize="sm"
-          color="gray.400"
+          color="text.timer"
           mb="2"
           px="2"
         >
@@ -15,7 +15,7 @@ const SettingsSection = ({ title, children }) => {
       )}
 
       <Box
-        bg="gray.800"
+        bg="bg.input"
         rounded="xl"
         overflow="hidden"
       >

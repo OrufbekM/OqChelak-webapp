@@ -24,6 +24,7 @@
     "nameLabel": "your name"
   },
   "customer": {
+    "title": "Products",
     "search": "Search...",
     "milk": "Milk",
     "milkDescription": "If there's a lot of milk, there will be a lot of cream too.",
@@ -33,6 +34,7 @@
     "moreProducts": "surely there will be other products too =)"
   },
   "seller": {
+    "title": "Orders",
     "orders": "Orders",
     "search": "Search...",
     "new": "New",
@@ -44,11 +46,53 @@
     "accept": "Accept",
     "cancel": "Cancel"
   },
+  "seller": {
+    "title": "Orders",
+    "orders": "Orders",
+    "search": "Search...",
+    "new": "New",
+    "old": "Old",
+    "remainingTime": "remaining time:",
+    "address": "Address:",
+    "client": "Client:",
+    "price": "Price:",
+    "accept": "Accept",
+    "cancel": "Cancel"
+  },
+  "ordersCustomer": {
+    "title": "My Orders",
+    "search": "Search orders...",
+    "noOrders": "No customer orders found"
+  },
+  "ordersSeller": {
+    "title": "Seller Orders",
+    "search": "Search orders...",
+    "noOrders": "No seller orders found"
+  },
   "common": {
     "search": "Search...",
     "confirm": "Confirm"
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "sections": {
+      "account": "Account",
+      "appearance": "Appearance",
+      "more": "More"
+    },
+    "items": {
+      "profile": "Profile & Account",
+      "privacyPolicy": "Privacy Policy",
+      "billing": "Billing & Subscriptions",
+      "security": "Privacy & Security",
+      "darkMode": "Dark Mode",
+      "language": "Language",
+      "help": "Help",
+      "about": "About",
+      "logout": "Sign out"
+    },
+    "search": {
+      "noResults": "No results found"
+    }
   }
 }
