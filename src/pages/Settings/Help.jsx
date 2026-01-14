@@ -8,7 +8,7 @@ const Help = () => {
     <Container>
       <Box pt={6}>
         <Text fontSize="2xl" fontWeight="bold">{t("settings.items.help")}</Text>
-        <Text mt={4} color="text.timer">Help content (stub)</Text>
+        <Text mt={4} color="text.timer">{t("settings.help.stub")}</Text>
       </Box>
     </Container>
   );

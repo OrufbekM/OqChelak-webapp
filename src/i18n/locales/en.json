@@ -46,19 +46,6 @@
     "accept": "Accept",
     "cancel": "Cancel"
   },
-  "seller": {
-    "title": "Orders",
-    "orders": "Orders",
-    "search": "Search...",
-    "new": "New",
-    "old": "Old",
-    "remainingTime": "remaining time:",
-    "address": "Address:",
-    "client": "Client:",
-    "price": "Price:",
-    "accept": "Accept",
-    "cancel": "Cancel"
-  },
   "ordersCustomer": {
     "title": "My Orders",
     "search": "Search orders...",
@@ -71,7 +58,10 @@
   },
   "common": {
     "search": "Search...",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "back": "Back",
+    "cancel": "Cancel",
+    "save": "Save"
   },
   "settings": {
     "title": "Settings",
@@ -90,6 +80,38 @@
       "help": "Help",
       "about": "About",
       "logout": "Sign out"
+    },
+    "billing": {
+      "historyTitle": "Billing history",
+      "nextPaymentTitle": "Next payment",
+      "planBasic": "Basic",
+      "payNow": "Pay now",
+      "amount": "Amount",
+      "date": "Date",
+      "status": {
+        "paid": "Paid",
+        "pending": "Pending",
+        "failed": "Failed",
+        "canceled": "Canceled"
+      }
+    },
+    "profile": {
+      "greeting": "Hello👋 {{name}}",
+      "sectionTitle": "Account",
+      "editTitle": "Edit {{field}}",
+      "fields": {
+        "phone": "Phone",
+        "location": "Location",
+        "email": "Email",
+        "birthday": "Birthday",
+        "role": "Role"
+      }
+    },
+    "help": {
+      "stub": "Help content (stub)"
+    },
+    "about": {
+      "stub": "About content (stub)"
     },
     "search": {
       "noResults": "No results found"

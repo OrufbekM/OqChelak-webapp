@@ -58,7 +58,10 @@
   },
   "common": {
     "search": "Qidiruv...",
-    "confirm": "Tasdiqlash"
+    "confirm": "Tasdiqlash",
+    "back": "Ortga",
+    "cancel": "Bekor qilish",
+    "save": "Saqlash"
   },
   "settings": {
     "title": "Sozlamalar",
@@ -77,6 +80,38 @@
       "help": "Yordam",
       "about": "Biz haqimizda",
       "logout": "Hisobdan chiqish"
+    },
+    "billing": {
+      "historyTitle": "Hisob-kitob tarixi",
+      "nextPaymentTitle": "Keyingi to‘lov",
+      "planBasic": "Oddiy",
+      "payNow": "Hozir to‘lash",
+      "amount": "Miqdor",
+      "date": "Sana",
+      "status": {
+        "paid": "To‘langan",
+        "pending": "Kutilmoqda",
+        "failed": "Muvaffaqiyatsiz",
+        "canceled": "Bekor qilingan"
+      }
+    },
+    "profile": {
+      "greeting": "Salom👋 {{name}}",
+      "sectionTitle": "Hisob",
+      "editTitle": "Tahrirlash: {{field}}",
+      "fields": {
+        "phone": "Telefon",
+        "location": "Manzil",
+        "email": "Email",
+        "birthday": "Tug‘ilgan sana",
+        "role": "Rol"
+      }
+    },
+    "help": {
+      "stub": "Yordam (vaqtinchalik)"
+    },
+    "about": {
+      "stub": "Biz haqimizda (vaqtinchalik)"
     },
     "search": {
       "noResults": "Natija topilmadi"

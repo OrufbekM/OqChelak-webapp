@@ -123,7 +123,7 @@ const config = defineConfig({
             value: { base: "#FFFAFA", _dark: "#1E1E1E" },
           },
           secondary: {
-            value: { base: "#FAFAF9", _dark: "#212121" },
+            value: { base: "#f5f5f5", _dark: "#212121" },
           },
           input: {
             value: { base: "#F4F6F5", _dark: "#3F3F3F" },

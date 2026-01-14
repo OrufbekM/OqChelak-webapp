@@ -58,7 +58,10 @@
   },
   "common": {
     "search": "Қидирув...",
-    "confirm": "Тасдиқлаш"
+    "confirm": "Тасдиқлаш",
+    "back": "Ортга",
+    "cancel": "Бекор қилиш",
+    "save": "Сақлаш"
   },
   "settings": {
     "title": "Созламалар",
@@ -69,14 +72,46 @@
     },
     "items": {
       "profile": "Профил & Ҳисоб",
-      "privacyPolicy": "Макфийлик сиёсати",
+      "privacyPolicy": "Маxфийлик сиёсати",
       "billing": "Ҳисоб-китоб & Обуна",
-      "security": "Макфийлик & Хавфсизлик",
+      "security": "Маxфийлик & Хавфсизлик",
       "darkMode": "Қоронғу режим",
       "language": "Тил",
       "help": "Ёрдам",
       "about": "Биз ҳақимизда",
       "logout": "Ҳисобдан чиқиш"
+    },
+    "billing": {
+      "historyTitle": "Ҳисоб-китоб тарихи",
+      "nextPaymentTitle": "Кейинги тўлов",
+      "planBasic": "Оддий",
+      "payNow": "Ҳозир тўлаш",
+      "amount": "Миқдор",
+      "date": "Сана",
+      "status": {
+        "paid": "Тўланган",
+        "pending": "Кутилмоқда",
+        "failed": "Муваффақиятсиз",
+        "canceled": "Бекор қилинган"
+      }
+    },
+    "profile": {
+      "greeting": "Салом👋 {{name}}",
+      "sectionTitle": "Ҳисоб",
+      "editTitle": "Таҳрирлаш: {{field}}",
+      "fields": {
+        "phone": "Телефон",
+        "location": "Манзил",
+        "email": "Email",
+        "birthday": "Туғилган сана",
+        "role": "Рол"
+      }
+    },
+    "help": {
+      "stub": "Ёрдам (вақтинчалик)"
+    },
+    "about": {
+      "stub": "Биз ҳақимизда (вақтинчалик)"
     },
     "search": {
       "noResults": "Натижа топилмади"

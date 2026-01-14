@@ -35,14 +35,23 @@ const Language = () => {
       flexDirection="column"
       height="100vh"
     >
-      <Box pt="6" flexShrink={0} position={"sticky"} top={"0"} zIndex={10}>
+      <Box
+        maxH={"52px"}
+        pt="6"
+        flexShrink={0}
+        position="sticky"
+        top="0"
+        zIndex={10}
+        display={"flex"}
+        justifyContent={"space-between"}
+      >
+        <BackButton />
         <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
           {t("settings.items.language")}
         </Text>
       </Box>
 
       <Box mt="6" pb={"110px"} overflowY={"auto"}>
-        <BackButton/>
         <SettingsSection>
           {languages.map((lang) => (
             <SettingsItem

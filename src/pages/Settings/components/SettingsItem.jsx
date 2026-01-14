@@ -3,7 +3,7 @@ import { ChevronRight, Check } from "lucide-react";
 import { ColorModeButton } from "@/components/ui/color-mode";
 import { useNavigate } from "react-router-dom";
 
-const SettingsItem = ({ label, right, danger, to, onClick, selected, left }) => {
+const SettingsItem = ({ label, value, right, danger, to, onClick, selected, left }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -51,13 +51,21 @@ const SettingsItem = ({ label, right, danger, to, onClick, selected, left }) => 
         </Text>
       </Box>
 
-      {selected ? (
-        <Check size={20} color="#48BB78" />
-      ) : right === "arrow" ? (
-        <ChevronRight size={20} color="#A0AEC0" />
-      ) : right === "switch" ? (
-        <ColorModeButton />
-      ) : null}
+      <Box display="flex" alignItems="center">
+        {value && (
+          <Text fontSize="sm" color="text.timer" mr={3}>
+            {value}
+          </Text>
+        )}
+
+        {selected ? (
+          <Check size={20} color="#48BB78" />
+        ) : right === "arrow" ? (
+          <ChevronRight size={20} color="#A0AEC0" />
+        ) : right === "switch" ? (
+          <ColorModeButton />
+        ) : null}
+      </Box>
     </Flex>
   );
 };

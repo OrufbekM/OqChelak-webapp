@@ -58,7 +58,10 @@
   },
   "common": {
     "search": "Поиск...",
-    "confirm": "Подтвердить"
+    "confirm": "Подтвердить",
+    "back": "Назад",
+    "cancel": "Отменить",
+    "save": "Сохранить"
   }, 
   "settings": {
     "title": "Настройки",
@@ -77,6 +80,38 @@
       "help": "Помощь",
       "about": "О нас",
       "logout": "Выйти"
+    },
+    "billing": {
+      "historyTitle": "История оплат",
+      "nextPaymentTitle": "Следующий платёж",
+      "planBasic": "Базовый",
+      "payNow": "Оплатить сейчас",
+      "amount": "Сумма",
+      "date": "Дата",
+      "status": {
+        "paid": "Оплачено",
+        "pending": "В ожидании",
+        "failed": "Ошибка",
+        "canceled": "Отменено"
+      }
+    },
+    "profile": {
+      "greeting": "Привет👋 {{name}}",
+      "sectionTitle": "Аккаунт",
+      "editTitle": "Редактировать: {{field}}",
+      "fields": {
+        "phone": "Телефон",
+        "location": "Адрес",
+        "email": "Email",
+        "birthday": "Дата рождения",
+        "role": "Роль"
+      }
+    },
+    "help": {
+      "stub": "Раздел помощи (заглушка)"
+    },
+    "about": {
+      "stub": "О нас (заглушка)"
     },
     "search": {
       "noResults": "Ничего не найдено"

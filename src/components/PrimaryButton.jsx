@@ -1,6 +1,13 @@
 import { Button as ChakraButton } from "@chakra-ui/react";
 
-const PrimaryButton = ({ children, variant = "primary", ...props }) => {
+const PrimaryButton = ({ children, variant = "primary", full, ...props }) => {
+  const isFull =
+    full === true ||
+    full === "yes" ||
+    full === "true" ||
+    full === 1 ||
+    full === "1";
+
   return (
     <ChakraButton
       bg="brand.main"
@@ -12,12 +19,16 @@ const PrimaryButton = ({ children, variant = "primary", ...props }) => {
         sm: "46px",
         md: "40px",
       }}
-      width={{
-        base: "100%",
-        sm: "280px",
-        md: "320px",
-      }}
-      maxW="320px"
+      width={
+        isFull
+          ? "100%"
+          : {
+              base: "100%",
+              sm: "280px",
+              md: "320px",
+            }
+      }
+      maxW={isFull ? "none" : "320px"}
       _hover={{
         bg: "brand.600",
         transition: "all 0.2s ease-in-out",

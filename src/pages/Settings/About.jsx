@@ -8,7 +8,7 @@ const About = () => {
     <Container>
       <Box pt={6}>
         <Text fontSize="2xl" fontWeight="bold">{t("settings.items.about")}</Text>
-        <Text mt={4} color="text.timer">About content (stub)</Text>
+        <Text mt={4} color="text.timer">{t("settings.about.stub")}</Text>
       </Box>
     </Container>
   );

@@ -16,7 +16,7 @@ const BottomNav = ({ role }) => {
           ? "/customer-orders"
           : userRole === "seller"
           ? "/seller-orders"
-          : "/login",
+          : "/",
     },
     {
       icon: "Home.svg",
@@ -25,7 +25,7 @@ const BottomNav = ({ role }) => {
           ? "/customer-home"
           : userRole === "seller"
           ? "/seller-home"
-          : "/login",
+          : "/",
     },
     {
       icon: "Settings.svg",
