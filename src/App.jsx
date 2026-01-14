@@ -32,7 +32,7 @@ const App = () => {
         {/* we have telegram btw🥀🥀🥀 */}
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/profile" element={<Profile />} />
-        <Route path="/settings/privacy" element={<Privacy />} />
+        <Route path="/settings/privacyPolicy" element={<Privacy />} />
         <Route path="/settings/billing" element={<Billing />} />
         <Route path="/settings/security" element={<Security />} />
         <Route path="/settings/language" element={<Language />} />

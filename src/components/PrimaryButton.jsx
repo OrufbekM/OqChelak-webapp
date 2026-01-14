@@ -23,7 +23,7 @@ const PrimaryButton = ({ children, variant = "primary", ...props }) => {
         transition: "all 0.2s ease-in-out",
       }}
       _active={{
-        transform: "translateY(0px)",
+        transform: "scale(0.9)",
         boxShadow: "md",
       }}
       transition="all 0.2s ease-in-out"

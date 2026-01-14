@@ -55,7 +55,9 @@ const BottomNav = ({ role }) => {
           px={4}
         >
           {navItems.map((item, index) => {
-            const isActive = location.pathname === item.path;
+            const isActive =
+              location.pathname === item.path ||
+              location.pathname.startsWith(item.path + "/");
 
             return (
               <Flex
