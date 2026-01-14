@@ -30,6 +30,7 @@ const App = () => {
         {/* xop */}
         {/* Kot bla */}
         {/* we have telegram btw🥀🥀🥀 */}
+        {/* px djala */}
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/profile" element={<Profile />} />
         <Route path="/settings/privacyPolicy" element={<Privacy />} />
