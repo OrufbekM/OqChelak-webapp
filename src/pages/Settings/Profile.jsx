@@ -9,7 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
 import BackButton from "@/components/BackButton";
-import { Pencil } from "lucide-react";
+import { Pencil, Phone, MapPin, Mail, Calendar, User } from "lucide-react";
 import SettingsSection from "./components/SettingsSection";
 import SettingsItem from "./components/SettingsItem";
 import EditFieldDrawer from "./components/EditFieldDrawer";
@@ -59,11 +59,11 @@ const Profile = () => {
   };
 
   const items = [
-    { key: "phone", label: t("settings.profile.fields.phone") },
-    { key: "location", label: t("settings.profile.fields.location") },
-    { key: "email", label: t("settings.profile.fields.email") },
-    { key: "birthday", label: t("settings.profile.fields.birthday") },
-    { key: "role", label: t("settings.profile.fields.role") },
+    { key: "phone", label: t("settings.profile.fields.phone"), icon: Phone },
+    { key: "location", label: t("settings.profile.fields.location"), icon: MapPin },
+    { key: "email", label: t("settings.profile.fields.email"), icon: Mail },
+    { key: "birthday", label: t("settings.profile.fields.birthday"), icon: Calendar },
+    { key: "role", label: t("settings.profile.fields.role"), icon: User },
   ];
 
   return (
@@ -111,6 +111,7 @@ const Profile = () => {
               bg="bg.input"
               rounded="full"
               color="text.primary"
+              _hover={{ bg: "bg.primary" }}
             >
               <Pencil size={20} />
             </Button>
@@ -129,6 +130,7 @@ const Profile = () => {
                 value={profile[it.key]}
                 right="arrow"
                 onClick={() => openEditor(it.key, it.label)}
+                left={it.icon ? <it.icon size={20} /> : undefined}
               />
             ))}
           </SettingsSection>

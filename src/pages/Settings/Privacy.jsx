@@ -14,12 +14,10 @@ const Privacy = () => {
     const fileName = `privacy-policy.pdf`;
     const fileUrl = `/assets/${fileName}`;
 
-    // Try to download the file
     const link = document.createElement("a");
     link.href = fileUrl;
     link.download = fileName;
 
-    // Fallback to English if the language-specific file doesn't exist
     link.onerror = () => {
       if (langCode !== "en") {
         const fallbackUrl = "/assets/privacy-policy-en.pdf";
@@ -61,15 +59,10 @@ const Privacy = () => {
           <Box bg="bg.secondary" p={6} borderRadius="xl" boxShadow="sm">
             <VStack spacing={6} align="stretch">
               <Text color="text.primary" lineHeight="tall">
-                {t("privacy.description", {
-                  defaultValue:
-                    "We respect your privacy and are committed to protecting your personal data. Our privacy policy explains how we look after your personal data when you visit our website and tells you about your privacy rights and how the law protects you.",
-                })}
+                {t("privacy.description")}
               </Text>
               <Text fontSize="sm" color="gray.500" mt={2}>
-                {t("privacy.lastUpdated", {
-                  defaultValue: "Last updated: January 2024",
-                })}
+                {t("privacy.lastUpdated")}
               </Text>
 
               <PrimaryButton
@@ -78,9 +71,7 @@ const Privacy = () => {
                 full={"yes"}
                 mt={4}
               >
-                {t("privacy.downloadButton", {
-                  defaultValue: "Download Privacy Policy",
-                })}
+                {t("privacy.downloadButton")}
               </PrimaryButton>
             </VStack>
           </Box>

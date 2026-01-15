@@ -3,6 +3,7 @@ import SecondaryInput from "@/components/SecondaryInput";
 import { Container, Text, Box, Flex, List } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { User, Shield, CreditCard, Palette, Globe, HelpCircle, Info, LogOut, Lock } from "lucide-react";
 import SettingsSection from "./components/SettingsSection";
 import SettingsItem from "./components/SettingsItem";
 
@@ -19,25 +20,25 @@ const Settings = () => {
     {
       key: "account",
       items: [
-        { key: "profile", right: "arrow" },
-        { key: "privacyPolicy", right: "arrow" },
-        { key: "billing", right: "arrow" },
-        { key: "security", right: "arrow" },
+        { key: "profile", right: "arrow", icon: User },
+        { key: "privacyPolicy", right: "arrow", icon: Shield },
+        { key: "billing", right: "arrow", icon: CreditCard },
+        { key: "security", right: "arrow", icon: Lock },
       ],
     },
     {
       key: "appearance",
       items: [
-        { key: "darkMode", right: "switch" },
-        { key: "language", right: "arrow" },
+        { key: "darkMode", right: "switch", icon: Palette },
+        { key: "language", right: "arrow", icon: Globe },
       ],
     },
     {
       key: "more",
       items: [
-        { key: "help", right: "arrow" },
-        { key: "about", right: "arrow" },
-        { key: "logout", danger: true },
+        { key: "help", right: "arrow", icon: HelpCircle },
+        { key: "about", right: "arrow", icon: Info },
+        { key: "logout", danger: true, icon: LogOut },
       ],
     },
   ];
@@ -79,6 +80,7 @@ const Settings = () => {
                   right={it.right}
                   danger={it.danger}
                   to={`/settings/${it.key}`}
+                  left={it.icon ? <it.icon size={20} /> : undefined}
                 />
               ))}
             </SettingsSection>

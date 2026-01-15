@@ -42,7 +42,7 @@ function EditFieldDrawer({
         </Drawer.Body>
         <Drawer.Footer>
           <Drawer.ActionTrigger asChild>
-            <Button variant="ghost" mr={3}>
+            <Button variant="ghost" mr={3} rounded={"xl"}>
               {cancelText}
             </Button>
           </Drawer.ActionTrigger>
@@ -51,6 +51,7 @@ function EditFieldDrawer({
             color={"white"}
             rounded={"xl"}
             onClick={onSave}
+            _hover={{ bg: "brand.600" }}
           >
             {saveText}
           </Button>

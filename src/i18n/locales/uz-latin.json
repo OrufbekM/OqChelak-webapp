@@ -108,13 +108,52 @@
       }
     },
     "help": {
-      "stub": "Yordam (vaqtinchalik)"
+      "stub": "Yordam (vaqtinchalik)",
+      "faqTitle": "Tez-tez beriladigan savollar",
+      "faqDesc": "Platformadan foydalanish bo'yicha kundalik savollar",
+      "contactTitle": "Qo'llab-quvvatlash xizmati",
+      "contactDesc": "Qo'shimcha yordam kerakmi? Qo'llab-quvvatlash guruhihamizga murojaat qiling",
+      "tutorialsTitle": "Video darslar",
+      "tutorialsDesc": "Boshlash uchun qadam-qadam ko'rsatmalar",
+      "communityTitle": "Jamiyat forumi",
+      "communityDesc": "Boshqa foydalanuvchilar bilan bog'laning va ko'nikmalarni bo'ling"
     },
     "about": {
-      "stub": "Biz haqimizda (vaqtinchalik)"
+      "stub": "Biz haqimizda (vaqtinchalik)",
+      "appName": "Oqchelak",
+      "version": "Versiya 1.0.0",
+      "companyTitle": "Kompaniya haqida",
+      "companyDesc": "Mijozlarimizga eng yaxshi xizmat ko'rsatishga intilib kamolot topdik",
+      "missionTitle": "Vazifamiz",
+      "missionDesc": "Mijozlar va sotuvchilarni eng samarali usulda bog'lash",
+      "contactTitle": "Biz bilan bog'lanish",
+      "contactDesc": "Biz bilan bog'laning: contact@oqchelak.uz",
+      "termsTitle": "Shartlar va qoidalarn",
+      "termsDesc": "Siyosat va xizmat ko'rsatish shartlari haqida ma'lumot oling"
     },
     "search": {
       "noResults": "Natija topilmadi"
+    },
+    "security": {
+      "changePassword": "Parolni o'zgartirish",
+      "changeEmail": "Email ni o'zgartirish",
+      "changePhone": "Telefon raqamini o'zgartirish",
+      "twoFactorAuth": "Ikki bosqichli autentifikatsiya",
+      "loginActivity": "Kirish faoliyati",
+      "devices": "Ulangan qurilmalar",
+      "dangerZone": "Xavfli zona",
+      "deleteAccount": "Hisobni o'chirish",
+      "deleteAccountWarning": "Hisobingizni o'chirib tashlaganingizdan keyin ortga qaytish yo'q. Iltimos, ishonchingiz kompil.",
+      "confirmDelete": "Ha, hisobimni o'chirib tashlang",
+      "cancelDelete": "Bekor qilish",
+      "authTitle": "Autentifikatsiya",
+      "accountInfoTitle": "Hisob ma'lumotlari",
+      "activityDevicesTitle": "Faoliyat va qurilmalar"
     }
+  },
+  "privacy": {
+    "description": "Biz sizning shaxsiy ma\"lumotlaringizni hurmat qilamiz va ulrani himoya qilishga mas\"ulmiz. Bizning maxfiylik siyosatimiz veb-saytimizga kirganda biz sizning shaxsiy ma\"lumotlaringiz bilan qanday muomala qilishimizni tushuntiradi va sizga maxfiylik huquqlaringiz va qonun sizni qanday himoya qilishini aytadi.",
+    "lastUpdated": "Oxirgi yangilanish: Yanvar 2026",
+    "downloadButton": "Maxfiylik Siyosatini Yuklab Olish"
   }
 }

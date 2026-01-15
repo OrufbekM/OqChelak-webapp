@@ -108,13 +108,52 @@
       }
     },
     "help": {
-      "stub": "Help content (stub)"
+      "stub": "Help content (stub)",
+      "faqTitle": "Frequently Asked Questions",
+      "faqDesc": "Common questions about using our platform",
+      "contactTitle": "Contact Support",
+      "contactDesc": "Need more help? Reach out to our support team",
+      "tutorialsTitle": "Video Tutorials",
+      "tutorialsDesc": "Step-by-step guides to help you get started",
+      "communityTitle": "Community Forum",
+      "communityDesc": "Connect with other users and share tips"
     },
     "about": {
-      "stub": "About content (stub)"
+      "stub": "About content (stub)",
+      "appName": "Oqchelak",
+      "version": "Version 1.0.0",
+      "companyTitle": "About Our Company",
+      "companyDesc": "We are dedicated to providing the best service to our customers",
+      "missionTitle": "Our Mission",
+      "missionDesc": "To connect customers and sellers in the most efficient way possible",
+      "contactTitle": "Contact Us",
+      "contactDesc": "Reach out to us at contact@oqchelak.uz",
+      "termsTitle": "Terms & Conditions",
+      "termsDesc": "Learn about our policies and terms of service"
     },
     "search": {
       "noResults": "No results found"
+    },
+    "security": {
+      "changePassword": "Change Password",
+      "changeEmail": "Change Email",
+      "changePhone": "Change Phone Number",
+      "twoFactorAuth": "Two-Factor Authentication",
+      "loginActivity": "Login Activity",
+      "devices": "Connected Devices",
+      "dangerZone": "Danger Zone",
+      "deleteAccount": "Delete Account",
+      "deleteAccountWarning": "Once you delete your account, there is no going back. Please be certain.",
+      "confirmDelete": "Yes, delete my account",
+      "cancelDelete": "Cancel",
+      "authTitle": "Authentication",
+      "accountInfoTitle": "Account Information",
+      "activityDevicesTitle": "Activity & Devices"
     }
+  },
+  "privacy": {
+    "description": "We respect your privacy and are committed to protecting your personal data. Our privacy policy explains how we look after your personal data when you visit our website and tells you about your privacy rights and how the law protects you.",
+    "lastUpdated": "Last updated: January 2026",
+    "downloadButton": "Download Privacy Policy"
   }
 }
