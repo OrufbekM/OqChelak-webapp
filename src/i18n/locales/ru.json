@@ -51,9 +51,12 @@
     "search": "Поиск заказов...",
     "noOrders": "Заказы покупателя не найдены"
   },
-  "ordersSeller": {
-    "title": "Заказы продавца",
+        "ordersSeller": {
+    "title": "Мои заказы",
     "search": "Поиск заказов...",
+        "inProgress": "В процессе",
+"delivered": "Доставленные",
+    "cancelled": "Отмененные",
     "noOrders": "Заказы продавца не найдены"
   },
   "common": {

@@ -1,12 +1,13 @@
 import BottomNav from "@/components/MobileNav";
 import SecondaryInput from "@/components/SecondaryInput";
-import { Box, Container, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 
 function OrdersSeller() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("inProgress");
 
   return (
     <Box
@@ -24,7 +25,7 @@ function OrdersSeller() {
         height="100vh"
       >
         <Box
-          pt="6"
+          pt="20"
           flexShrink={0}
           position={"sticky"}
           top={"0"}
@@ -35,6 +36,36 @@ function OrdersSeller() {
             {t("ordersSeller.title")}
           </Text>
           <SecondaryInput placeholder={t("ordersSeller.search")} onChange={(e) => setQuery(e.target.value)} />
+          <Flex justify="center" gap="8">
+            {[ "delivered","inProgress"].map((typeKey) => (
+              <Box
+                key={typeKey}
+                cursor="pointer"
+                onClick={() => setFilter(typeKey)}
+                position="relative"
+                pb="2"
+              >
+                <Text
+                  fontWeight="medium"
+                  color={filter === typeKey ? "text.light" : "text.timer"}
+                >
+                  {t(`ordersSeller.${typeKey}`)}
+                </Text>
+
+                {filter === typeKey && (
+                  <Box
+                    position="absolute"
+                    bottom="0"
+                    left="0"
+                    right="0"
+                    h="3px"
+                    bg="brand.main"
+                    borderRadius="full"
+                  />
+                )}
+              </Box>
+            ))}
+          </Flex>
         </Box>
       </Container>
       <BottomNav role={"seller"} />

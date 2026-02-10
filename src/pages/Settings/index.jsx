@@ -57,39 +57,54 @@ const Settings = () => {
     .filter((s) => s.items && s.items.length > 0);
 
   return (
-    <Container maxW="container.sm" px={4} w="100%" display="flex" flexDirection="column" height="100vh">
-      <Box pt="6" flexShrink={0} position={"sticky"} top={'0'} zIndex={10}
+    <Box minH="100vh" display="flex" alignItems="center" justifyContent="center">
+      <Container
+        maxW="container.sm"
+        px={4}
+        w="100%"
+        display="flex"
+        flexDirection="column"
+        height="100vh"
       >
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
-          {t("settings.title")}
-        </Text>
-        <SecondaryInput value={query} onChange={(e) => setQuery(e.target.value)} />
-      </Box>
-      <Box mt="6" pb={"110px"} overflowY={"auto"} >
-        {filteredSections.length === 0 ? (
-          <Box px={4} py={6} textAlign="center" color="text.timer">
-            {t("settings.search.noResults")}
-          </Box>
-        ) : (
-          filteredSections.map((section) => (
-            <SettingsSection key={section.key} title={t(`settings.sections.${section.key}`)}>
-              {section.items.map((it) => (
-                <SettingsItem
-                  key={it.key}
-                  label={t(`settings.items.${it.key}`)}
-                  right={it.right}
-                  danger={it.danger}
-                  to={`/settings/${it.key}`}
-                  left={it.icon ? <it.icon size={20} /> : undefined}
-                />
-              ))}
-            </SettingsSection>
-          ))
-        )}
-      </Box>
+        <Box
+          pt="20"
+          flexShrink={0}
+          position={"sticky"}
+          // top={"0"}
+          zIndex={10}
+          bg={"bg.primary"}
+        >
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
+            {t("settings.title")}
+          </Text>
+          <SecondaryInput value={query} onChange={(e) => setQuery(e.target.value)} />
+        </Box>
+        <Box flex="1" mt="0" pb={"110px"} overflowY={"auto"}>
+          {filteredSections.length === 0 ? (
+            <Box px={4} py={6} textAlign="center" color="text.timer">
+              {t("settings.search.noResults")}
+            </Box>
+          ) : (
+            filteredSections.map((section) => (
+              <SettingsSection key={section.key} title={t(`settings.sections.${section.key}`)}>
+                {section.items.map((it) => (
+                  <SettingsItem
+                    key={it.key}
+                    label={t(`settings.items.${it.key}`)}
+                    right={it.right}
+                    danger={it.danger}
+                    to={`/settings/${it.key}`}
+                    left={it.icon ? <it.icon size={20} /> : undefined}
+                  />
+                ))}
+              </SettingsSection>
+            ))
+          )}
+        </Box>
 
-      <BottomNav role={localStorage.getItem("role")} />
-    </Container>
+        <BottomNav role={localStorage.getItem("role")} />
+      </Container>
+    </Box>
   );
 };
 

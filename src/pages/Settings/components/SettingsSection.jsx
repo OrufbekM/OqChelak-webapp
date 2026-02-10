@@ -9,6 +9,11 @@ const SettingsSection = ({ title, children }) => {
           color="text.timer"
           mb="2"
           px="2"
+          position="sticky"
+          top="0"
+          zIndex="1"
+          bg="bg.primary"
+          py="1"
         >
           {title}
         </Text>

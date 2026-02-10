@@ -7,11 +7,12 @@ import {
   VStack,
   Image,
   Container,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
 import SecondaryInput from "@/components/SecondaryInput";
-import { useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 const INITIAL_TIME = 20 * 60;
 
@@ -30,30 +31,39 @@ function useSellerGuard(navigate) {
 const ordersData = [
   {
     id: 1,
-    type: "new",
     product: "Sut 1 litr",
-    address: "Andijon, 2-kichik daha",
+    address: "Neptun",
     client: "John Doe",
     price: "11,000 som",
     time: INITIAL_TIME,
+    location: { lat: 40.7821, lng: 72.8442 },
   },
   {
     id: 2,
-    type: "new",
     product: "Sut 1 litr",
-    address: "Andijon, 2-kichik daha",
+    address: "Yer",
     client: "John Doe",
     price: "11,000 som",
     time: 10 * 60,
+    location: { lat: 40.7204, lng: 72.8577 },
   },
   {
     id: 3,
-    type: "old",
     product: "Sut 1 litr",
-    address: "Andijon, 2-kichik daha",
+    address: "Mars",
     client: "John Doe",
     price: "11,000 som",
     time: 5 * 60,
+    location: { lat: 40.7758, lng: 72.8508 },
+  },
+  {
+    id: 4,
+    product: "Sut 1 litr",
+    address: "Quyosh",
+    client: "John Doe",
+    price: "11,000 som",
+    time: 0,
+    location: { lat: 40.7871, lng: 72.8419 },
   },
 ];
 
@@ -94,7 +104,7 @@ const Index = () => {
   };
 
   const filteredOrders = orders.filter((o) =>
-    filter === "new" ? o.type === "new" : o.type === "old"
+    filter === "new" ? o.time > 0 : o.time === 0
   );
 
   return (
@@ -104,9 +114,10 @@ const Index = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      overflow="hidden"
     >
-      <Container maxW="container.sm" px={4} w="100%">
-        <Flex direction="column" minH="100vh" pt={20} pb="80px">
+      <Container maxW="container.sm" px={4} w="100%" height="100vh">
+        <Flex direction="column" height="100vh" pt={20} pb="80px" overflow="hidden">
           <Box pt="6" flexShrink={0}>
             <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
               {t("seller.title")}
@@ -150,6 +161,7 @@ const Index = () => {
             <VStack spacing="4">
               {filteredOrders.map((order) => {
                 const progress = (order.time / INITIAL_TIME) * 100;
+                const isExpired = order.time === 0;
 
                 return (
                   <Box
@@ -198,7 +210,16 @@ const Index = () => {
                         </Flex>
 
                         <Text fontSize="sm">
-                          {t("seller.address")} {order.address}
+                          {t("seller.address")}{" "}
+                          <ChakraLink
+                            as={RouterLink}
+                            to={`/order-location?lat=${order.location.lat}&lng=${order.location.lng}&address=${encodeURIComponent(order.address)}`}
+                            color="brand.main"
+                            textDecoration="underline"
+                            textUnderlineOffset="2px"
+                          >
+                            {order.address}
+                          </ChakraLink>
                         </Text>
                         <Text fontSize="sm">
                           {t("seller.client")} {order.client}
@@ -209,25 +230,27 @@ const Index = () => {
                       </Box>
                     </Flex>
 
-                    {/* Action Buttons */}
-                    <Flex>
-                      <Button
-                        flex="1"
-                        borderRadius="0"
-                        bg="accent.blue"
-                        color="text.light"
-                      >
-                        {t("seller.accept")}
-                      </Button>
-                      <Button
-                        flex="1"
-                        borderRadius="0"
-                        bg="accent.orange"
-                        color="text.light"
-                      >
-                        {t("seller.cancel")}
-                      </Button>
-                    </Flex>
+                    {/* Action Buttons (only for active orders) */}
+                    {!isExpired && (
+                      <Flex>
+                        <Button
+                          flex="1"
+                          borderRadius="0"
+                          bg="accent.blue"
+                          color="text.light"
+                        >
+                          {t("seller.accept")}
+                        </Button>
+                        <Button
+                          flex="1"
+                          borderRadius="0"
+                          bg="accent.orange"
+                          color="text.light"
+                        >
+                          {t("seller.cancel")}
+                        </Button>
+                      </Flex>
+                    )}
                   </Box>
                 );
               })}

@@ -15,6 +15,7 @@ import Language from "./pages/Settings/Language";
 import Help from "./pages/Settings/Help";
 import About from "./pages/Settings/About";
 import Logout from "./pages/Settings/Logout";
+import OrderLocation from "./pages/OrderLocation/index";
 
 const App = () => {
   return (
@@ -24,8 +25,9 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/customer-home" element={<CustomerHome />} />
         <Route path="/seller-home" element={<SellerHome />} />
-        <Route path="myorders" element={<OrdersSeller />} />
+        <Route path="/seller-orders" element={<OrdersSeller />} />
         <Route path="/customer-orders" element={<OrdersCustomer />} />
+        <Route path="/order-location" element={<OrderLocation />} />
         {/* Dinnaxuy djala */}
         {/* xop */}
         {/* Kot bla */}

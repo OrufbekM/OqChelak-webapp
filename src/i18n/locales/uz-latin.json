@@ -31,7 +31,9 @@
     "price": "Narxi:",
     "onlyProduct": "Hozircha faqat shu",
     "continueUsing": "Bizdan foydalanishni davom eting",
-    "moreProducts": "albatta boshqa mahsulotlar ham bo'ladi =)"
+    "moreProducts": "albatta boshqa mahsulotlar ham bo'ladi =)",
+    "orders": "Qabul qilingan",
+    "history": "Tasdiqlanmoqda"
   },
   "seller": {
     "title": "Buyurtmalar",
@@ -52,8 +54,11 @@
     "noOrders": "Buyurtma topilmadi"
   },
   "ordersSeller": {
-    "title": "Sotuvchi buyurtmalari",
+    "title": "Mening buyurtmalarim",
     "search": "Buyurtmalar bo'yicha qidiruv...",
+    "inProgress": "Jarayonda",
+    "delivered": "Yetkazilgan",
+    "cancelled": "Bekor qilingan",
     "noOrders": "Sotuvchi buyurtmalari topilmadi"
   },
   "common": {

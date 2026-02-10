@@ -9,15 +9,21 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { useMask } from '@react-input/mask';
 import PrimaryButton from "@/components/PrimaryButton";
 import PrimaryInput from "@/components/PrimaryInput";
 import { useColorModeValue } from "@/components/ui/color-mode";
 
 const PhoneVerification = ({ onNext, onBack }) => {
   const { t } = useTranslation();
-  const [phone, setPhone] = useState("+998 ");
+  const [phone, setPhone] = useState("");
   const labelBg = useColorModeValue("#FFFAFA", "#1A202C");
   const containerRef = useRef(null);
+  
+  const inputRef = useMask({
+    mask: '+998 __ ___ __ __',
+    replacement: { _: /\d/ },
+  });
 
   const handleSendCode = () => {
     const digitsOnly = phone.replace(/\D/g, "");
@@ -61,28 +67,7 @@ const PhoneVerification = ({ onNext, onBack }) => {
   }, [phone]);
 
   const handlePhoneChange = (e) => {
-    let value = e.target.value;
-    
-    if (!value.startsWith("+998 ")) {
-      setPhone("+998 ");
-      return;
-    }
-    
-    const digitsOnly = value.replace(/[^\d]/g, "").slice(3);
-    
-    if (digitsOnly.length === 0) {
-      setPhone("+998 ");
-    } else if (digitsOnly.length <= 2) {
-      setPhone(`+998 ${digitsOnly}`);
-    } else if (digitsOnly.length <= 5) {
-      setPhone(`+998 ${digitsOnly.slice(0, 2)} ${digitsOnly.slice(2)}`);
-    } else if (digitsOnly.length <= 7) {
-      setPhone(`+998 ${digitsOnly.slice(0, 2)} ${digitsOnly.slice(2, 5)} ${digitsOnly.slice(5)}`);
-    } else if (digitsOnly.length <= 9) {
-      setPhone(`+998 ${digitsOnly.slice(0, 2)} ${digitsOnly.slice(2, 5)} ${digitsOnly.slice(5, 7)} ${digitsOnly.slice(7)}`);
-    } else {
-      setPhone(`+998 ${digitsOnly.slice(0, 2)} ${digitsOnly.slice(2, 5)} ${digitsOnly.slice(5, 7)} ${digitsOnly.slice(7, 9)}`);
-    }
+    setPhone(e.target.value);
   };
 
   return (
@@ -142,6 +127,7 @@ const PhoneVerification = ({ onNext, onBack }) => {
                 </Text>
               </Box>
               <PrimaryInput
+                ref={inputRef}
                 placeholder={t("register.phonePlaceholder")}
                 type="tel"
                 value={phone}

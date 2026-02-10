@@ -52,8 +52,11 @@
     "noOrders": "No customer orders found"
   },
   "ordersSeller": {
-    "title": "Seller Orders",
+    "title": "My Orders",
     "search": "Search orders...",
+        "inProgress": "In progress",
+"delivered": "Delivered",
+    "cancelled": "Cancelled",
     "noOrders": "No seller orders found"
   },
   "common": {
