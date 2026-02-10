@@ -31,7 +31,9 @@
     "price": "Нархи:",
     "onlyProduct": "Ҳозирча фақат шу",
     "continueUsing": "Биздан фойдаланишни давом этинг",
-    "moreProducts": "албатта бошқа маҳсулотлар ҳам бўлади =)"
+    "moreProducts": "албатта бошқа маҳсулотлар ҳам бўлади =)",
+    "orders": "Қабул қилинган",
+    "history": "Тасдиқланмоқда"
   },
   "seller": {
     "title": "Буюртмалар",
@@ -49,7 +51,28 @@
   "ordersCustomer": {
     "title": "Буюртмаларим",
     "search": "Буюртмалар бўйича қидирув...",
-    "noOrders": "Буюртма топилмади"
+    "noOrders": "Буюртма топилмади",
+    "confirmQuestion": "Буюртмани олдингизми?",
+    "thankYouPurchase": "Харидингиз учун раҳмат)",
+    "waitingSeller": "Буюртма сотувчида қайта ишланмоқда",
+    "quantity": "Миқдор:",
+    "date": "Сана:",
+    "status": "Ҳолат:",
+    "yes": "Ҳа",
+    "no": "Йўқ"
+  },
+  "orderStatus": {
+    "pending": "Тасдиқланмоқда",
+    "processing": "Жараёнда",
+    "completed": "Якунланди",
+    "cancelled": "Бекор қилинди"
+  },
+  "productPage": {
+    "title": "Fresh Whole Milk",
+    "selectVolume": "Ҳажмни танланг",
+    "fatPercentage": "Ёғ фоизи",
+    "totalPrice": "Умумий нарх",
+    "addToCart": "Add to Cart"
   },
         "ordersSeller": {
     "title": "Менинг буюртмаларим",

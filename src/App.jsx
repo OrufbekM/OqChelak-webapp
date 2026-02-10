@@ -16,6 +16,7 @@ import Help from "./pages/Settings/Help";
 import About from "./pages/Settings/About";
 import Logout from "./pages/Settings/Logout";
 import OrderLocation from "./pages/OrderLocation/index";
+import CustomerProduct from "./pages/Product/Customer/index";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/customer-home" element={<CustomerHome />} />
+        <Route path="/customer-product" element={<CustomerProduct />} />
         <Route path="/seller-home" element={<SellerHome />} />
         <Route path="/seller-orders" element={<OrdersSeller />} />
         <Route path="/customer-orders" element={<OrdersCustomer />} />

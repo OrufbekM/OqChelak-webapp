@@ -31,7 +31,9 @@
     "price": "Цена:",
     "onlyProduct": "Пока только это",
     "continueUsing": "Продолжайте пользоваться нашим сервисом",
-    "moreProducts": "конечно будут и другие продукты =)"
+    "moreProducts": "конечно будут и другие продукты =)",
+    "orders": "Принятые",
+    "history": "На подтверждении"
   },
   "seller": {
     "title": "Заказы",
@@ -49,7 +51,28 @@
   "ordersCustomer": {
     "title": "Мои заказы",
     "search": "Поиск заказов...",
-    "noOrders": "Заказы покупателя не найдены"
+    "noOrders": "Заказы покупателя не найдены",
+    "confirmQuestion": "Вы заказывали это?",
+    "thankYouPurchase": "Спасибо за покупку)",
+    "waitingSeller": "Заказ обрабатывается продавцом",
+    "quantity": "Количество:",
+    "date": "Дата:",
+    "status": "Статус:",
+    "yes": "Да",
+    "no": "Нет"
+  },
+  "orderStatus": {
+    "pending": "Ожидает подтверждения",
+    "processing": "В обработке",
+    "completed": "Завершено",
+    "cancelled": "Отменено"
+  },
+  "productPage": {
+    "title": "Свежее цельное молоко",
+    "selectVolume": "Выберите объем",
+    "fatPercentage": "Процент жирности",
+    "totalPrice": "Общая цена",
+    "addToCart": "Добавить в корзину"
   },
         "ordersSeller": {
     "title": "Мои заказы",

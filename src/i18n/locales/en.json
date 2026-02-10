@@ -31,7 +31,9 @@
     "price": "Price:",
     "onlyProduct": "Only this for now",
     "continueUsing": "Continue using our service",
-    "moreProducts": "surely there will be other products too =)"
+    "moreProducts": "surely there will be other products too =)",
+    "orders": "Accepted",
+    "history": "Pending Confirmation"
   },
   "seller": {
     "title": "Orders",
@@ -49,7 +51,28 @@
   "ordersCustomer": {
     "title": "My Orders",
     "search": "Search orders...",
-    "noOrders": "No customer orders found"
+    "noOrders": "No customer orders found",
+    "confirmQuestion": "Did you order this?",
+    "thankYouPurchase": "Thank you for your purchase)",
+    "waitingSeller": "Your order is being processed by seller",
+    "quantity": "Quantity:",
+    "date": "Date:",
+    "status": "Status:",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "orderStatus": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "productPage": {
+    "title": "Fresh Whole Milk",
+    "selectVolume": "Select Volume",
+    "fatPercentage": "Fat Percentage",
+    "totalPrice": "Total Price",
+    "addToCart": "Add to Cart"
   },
   "ordersSeller": {
     "title": "My Orders",

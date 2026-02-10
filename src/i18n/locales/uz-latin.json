@@ -51,7 +51,28 @@
   "ordersCustomer": {
     "title": "Buyurtmalarim",
     "search": "Buyurtmalar bo'yicha qidiruv...",
-    "noOrders": "Buyurtma topilmadi"
+    "noOrders": "Buyurtma topilmadi",
+    "confirmQuestion": "Buyurtmani oldingizmi?",
+    "thankYouPurchase": "Haridingiz uchun rahmat)",
+    "waitingSeller": "Buyurtma sotuvchida qayta ishlanmoqda",
+    "quantity": "Miqdor:",
+    "date": "Sana:",
+    "status": "Holat:",
+    "yes": "Ha",
+    "no": "Yo'q"
+  },
+  "orderStatus": {
+    "pending": "Tasdiqlanmoqda",
+    "processing": "Jarayonda",
+    "completed": "Yakunlandi",
+    "cancelled": "Bekor qilindi"
+  },
+  "productPage": {
+    "title": "Fresh Whole Milk",
+    "selectVolume": "Hajmni tanlang",
+    "fatPercentage": "Yog' foizi",
+    "totalPrice": "Umumiy narx",
+    "addToCart": "Add to Cart"
   },
   "ordersSeller": {
     "title": "Mening buyurtmalarim",

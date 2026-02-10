@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
 import SecondaryInput from "@/components/SecondaryInput";
 import { useNavigate } from "react-router-dom";
+import { customerProducts } from "@/data/products";
 
 const index = () => {
   const { t } = useTranslation();
@@ -13,12 +14,15 @@ const index = () => {
   useEffect(() => {
     const storedRole = localStorage.getItem("role");
     if (storedRole && storedRole !== "customer") {
-      // Redirect users to their proper home if roles don't match
       navigate(storedRole === "seller" ? "/seller-home" : "/login", {
         replace: true,
       });
     }
   }, [navigate]);
+
+  const filteredProducts = customerProducts.filter((item) =>
+    item.name.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <Box
@@ -44,40 +48,46 @@ const index = () => {
           />
         </Box>
         <Box minH="100vh" pb="80px">
-          <Box bg="product.milk.bg" borderRadius="radius.lg" p={4} m={4}>
-            <Flex align="center" gap={4}>
-              <Image
-                src="/images/milk.png"
-                alt="Sut"
-                boxSize="140px"
-                objectFit="contain"
-              />
+          {filteredProducts.map((item) => (
+            <Box
+              key={item.id}
+              bg="product.milk.bg"
+              borderRadius="xl"
+              p={4}
+              m={4}
+              
+              cursor="pointer"
+              onClick={() => navigate(`/customer-product?id=${item.id}`)}
+            >
+              <Flex align="center" gap={4}>
+                <Image src={item.image} alt={item.name} boxSize="140px" objectFit="contain" />
 
-              <Box>
-                <Text
-                  fontSize="section.title"
-                  fontWeight="section.title"
-                  color="text.primary"
-                >
-                  {t("customer.milk")}
-                </Text>
-                <Text fontSize="button.text" color="text.timer" mt={1}>
-                  {t("customer.milkDescription")}
-                </Text>
-
-                <Text mt={2} fontSize="button.text" color="text.primary">
-                  {t("customer.price")}{" "}
+                <Box>
                   <Text
-                    as="span"
-                    color="accent.orange"
-                    fontWeight="button.text"
+                    fontSize="section.title"
+                    fontWeight="section.title"
+                    color="text.primary"
                   >
-                    11,000 so'm
+                    {item.name}
                   </Text>
-                </Text>
-              </Box>
-            </Flex>
-          </Box>
+                  <Text fontSize="button.text" color="text.timer" mt={1}>
+                    {item.description}
+                  </Text>
+
+                  <Text mt={2} fontSize="button.text" color="text.primary">
+                    {t("customer.price")}{" "}
+                    <Text
+                      as="span"
+                      color="accent.orange"
+                      fontWeight="button.text"
+                    >
+                      {item.price.toLocaleString()} so'm
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+          ))}
 
           <Flex
             flex={1}
