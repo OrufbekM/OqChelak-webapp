@@ -15,8 +15,8 @@ const BottomNav = ({ role }) => {
         userRole === "customer"
           ? "/customer-orders"
           : userRole === "seller"
-          ? "/seller-orders"
-          : "/",
+            ? "/seller-orders"
+            : "/",
     },
     {
       icon: "Home.svg",
@@ -24,8 +24,8 @@ const BottomNav = ({ role }) => {
         userRole === "customer"
           ? "/customer-home"
           : userRole === "seller"
-          ? "/seller-home"
-          : "/",
+            ? "/seller-home"
+            : "/",
     },
     {
       icon: "Settings.svg",
@@ -64,7 +64,7 @@ const BottomNav = ({ role }) => {
                 key={index}
                 direction="column"
                 align="center"
-                gap={3}
+                gap={0.5}
                 cursor="pointer"
                 onClick={() => {
                   if (item.path.includes("/seller") && userRole !== "seller") {
@@ -72,7 +72,10 @@ const BottomNav = ({ role }) => {
                     return;
                   }
 
-                  if (item.path.includes("/customer") && userRole !== "customer") {
+                  if (
+                    item.path.includes("/customer") &&
+                    userRole !== "customer"
+                  ) {
                     navigate(userRole === "seller" ? "/seller-home" : "/");
                     return;
                   }
@@ -82,7 +85,14 @@ const BottomNav = ({ role }) => {
                 color={isActive ? "brand.main" : "text.timer"}
                 _hover={{ color: "brand.600" }}
               >
-                <Box w="40px" h="40px" p={2} display="flex" alignItems="center" justifyContent="center">
+                <Box
+                  w="40px"
+                  h="40px"
+                  p={2}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
                   <Image
                     src={`/images/${item.icon}`}
                     alt={`${item.icon} icon`}

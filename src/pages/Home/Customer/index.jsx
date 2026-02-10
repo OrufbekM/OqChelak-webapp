@@ -21,7 +21,7 @@ const index = () => {
   }, [navigate]);
 
   const filteredProducts = customerProducts.filter((item) =>
-    item.name.toLowerCase().includes(query.toLowerCase())
+    item.name.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
@@ -39,11 +39,19 @@ const index = () => {
         flexDirection="column"
         height="100vh"
       >
-        <Box pt="6" flexShrink={0} position={"sticky"} top={"0"} zIndex={10}bg={"bg.primary"}>
+        <Box
+          pt="20"
+          flexShrink={0}
+          position={"sticky"}
+          top={"0"}
+          zIndex={10}
+          bg={"bg.primary"}
+        >
           <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
             {t("customer.title")}
           </Text>
           <SecondaryInput
+            value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </Box>
@@ -55,12 +63,16 @@ const index = () => {
               borderRadius="xl"
               p={4}
               m={4}
-              
               cursor="pointer"
               onClick={() => navigate(`/customer-product?id=${item.id}`)}
             >
               <Flex align="center" gap={4}>
-                <Image src={item.image} alt={item.name} boxSize="140px" objectFit="contain" />
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  boxSize="140px"
+                  objectFit="contain"
+                />
 
                 <Box>
                   <Text

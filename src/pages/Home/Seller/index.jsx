@@ -76,6 +76,7 @@ const Index = () => {
 
   const [orders, setOrders] = useState(ordersData);
   const [filter, setFilter] = useState("new");
+  const [query, setQuery] = useState("");
 
   // Timer for countdown
   useEffect(() => {
@@ -84,7 +85,7 @@ const Index = () => {
         prev.map((o) => ({
           ...o,
           time: o.time > 0 ? o.time - 1 : 0,
-        }))
+        })),
       );
     }, 1000);
 
@@ -104,59 +105,77 @@ const Index = () => {
   };
 
   const filteredOrders = orders.filter((o) =>
-    filter === "new" ? o.time > 0 : o.time === 0
+    filter === "new" ? o.time > 0 : o.time === 0,
   );
 
   return (
     <Box
-      bg="bg.primary"
       minH="100vh"
       display="flex"
       alignItems="center"
       justifyContent="center"
-      overflow="hidden"
     >
-      <Container maxW="container.sm" px={4} w="100%" height="100vh">
-        <Flex direction="column" height="100vh" pt={20} pb="80px" overflow="hidden">
-          <Box pt="6" flexShrink={0}>
-            <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
-              {t("seller.title")}
-            </Text>
+      <Container
+        maxW="container.sm"
+        px={4}
+        w="100%"
+        display="flex"
+        flexDirection="column"
+        height="100vh"
+      >
+        <Box
+          pt="20"
+          flexShrink={0}
+          position={"sticky"}
+          // top={"0"}
+          zIndex={10}
+          bg={"bg.primary"}
+        >
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
+            {t("seller.title")}
+          </Text>
+          <SecondaryInput
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </Box>
+        <Flex justify="center" gap="8">
+          {["new", "old"].map((typeKey) => (
+            <Box
+              key={typeKey}
+              cursor="pointer"
+              onClick={() => setFilter(typeKey)}
+              position="relative"
+              pb="2"
+            >
+              <Text
+                fontWeight="medium"
+                color={filter === typeKey ? "text.light" : "text.timer"}
+              >
+                {typeKey === "new" ? t("seller.new") : t("seller.old")}
+              </Text>
 
-            <SecondaryInput />
-
-            <Flex justify="center" gap="8">
-              {["new", "old"].map((typeKey) => (
+              {filter === typeKey && (
                 <Box
-                  key={typeKey}
-                  cursor="pointer"
-                  onClick={() => setFilter(typeKey)}
-                  position="relative"
-                  pb="2"
-                >
-                  <Text
-                    fontWeight="medium"
-                    color={filter === typeKey ? "text.light" : "text.timer"}
-                  >
-                    {typeKey === "new" ? t("seller.new") : t("seller.old")}
-                  </Text>
-
-                  {filter === typeKey && (
-                    <Box
-                      position="absolute"
-                      bottom="0"
-                      left="0"
-                      right="0"
-                      h="3px"
-                      bg="brand.main"
-                      borderRadius="full"
-                    />
-                  )}
-                </Box>
-              ))}
-            </Flex>
-          </Box>
-
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  right="0"
+                  h="3px"
+                  bg="brand.main"
+                  borderRadius="full"
+                />
+              )}
+            </Box>
+          ))}
+        </Flex>
+        <Flex
+          direction="column"
+          height="100vh"
+          pt={5}
+          pb="80px"
+          overflow="hidden"
+        >
           <Box flex="1" overflowY="auto" py="4">
             <VStack spacing="4">
               {filteredOrders.map((order) => {

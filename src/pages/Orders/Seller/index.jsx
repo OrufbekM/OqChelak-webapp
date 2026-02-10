@@ -28,45 +28,48 @@ function OrdersSeller() {
           pt="20"
           flexShrink={0}
           position={"sticky"}
-          top={"0"}
+          // top={"0"}
           zIndex={10}
           bg={"bg.primary"}
         >
           <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
             {t("ordersSeller.title")}
           </Text>
-          <SecondaryInput placeholder={t("ordersSeller.search")} onChange={(e) => setQuery(e.target.value)} />
-          <Flex justify="center" gap="8">
-            {[ "delivered","inProgress"].map((typeKey) => (
-              <Box
-                key={typeKey}
-                cursor="pointer"
-                onClick={() => setFilter(typeKey)}
-                position="relative"
-                pb="2"
-              >
-                <Text
-                  fontWeight="medium"
-                  color={filter === typeKey ? "text.light" : "text.timer"}
-                >
-                  {t(`ordersSeller.${typeKey}`)}
-                </Text>
-
-                {filter === typeKey && (
-                  <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    right="0"
-                    h="3px"
-                    bg="brand.main"
-                    borderRadius="full"
-                  />
-                )}
-              </Box>
-            ))}
-          </Flex>
+          <SecondaryInput
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
         </Box>
+        <Flex justify="center" gap="8">
+          {["delivered", "inProgress"].map((typeKey) => (
+            <Box
+              key={typeKey}
+              cursor="pointer"
+              onClick={() => setFilter(typeKey)}
+              position="relative"
+              pb="2"
+            >
+              <Text
+                fontWeight="medium"
+                color={filter === typeKey ? "text.light" : "text.timer"}
+              >
+                {t(`ordersSeller.${typeKey}`)}
+              </Text>
+
+              {filter === typeKey && (
+                <Box
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  right="0"
+                  h="3px"
+                  bg="brand.main"
+                  borderRadius="full"
+                />
+              )}
+            </Box>
+          ))}
+        </Flex>
       </Container>
       <BottomNav role={"seller"} />
     </Box>

@@ -60,7 +60,7 @@ function OrdersCustomer() {
     return demoOrders;
   });
   const [filter, setFilter] = useState(
-    searchParams.get("tab") === "orders" ? "orders" : "history"
+    searchParams.get("tab") === "orders" ? "orders" : "history",
   );
 
   const tabs = ["orders", "history"];
@@ -87,16 +87,14 @@ function OrdersCustomer() {
   const handleAccept = (id) => {
     setOrders((prev) =>
       prev.map((order) =>
-        order.id === id ? { ...order, isReceivedConfirmed: true } : order
-      )
+        order.id === id ? { ...order, isReceivedConfirmed: true } : order,
+      ),
     );
     setFilter("orders");
   };
 
   const handleReject = (id) => {
-    setOrders((prev) =>
-      prev.filter((order) => order.id !== id)
-    );
+    setOrders((prev) => prev.filter((order) => order.id !== id));
   };
 
   const getCardTitle = (order) => {
@@ -125,10 +123,10 @@ function OrdersCustomer() {
         height="100vh"
       >
         <Box
-          pt="6"
+          pt="20"
           flexShrink={0}
           position={"sticky"}
-          top={"0"}
+          // top={"0"}
           zIndex={10}
           bg={"bg.primary"}
         >
@@ -136,42 +134,42 @@ function OrdersCustomer() {
             {t("ordersCustomer.title")}
           </Text>
           <SecondaryInput
-            placeholder={t("ordersCustomer.search")}
+            value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <Flex justify="center" gap="8">
-            {tabs.map((typeKey) => (
-              <Box
-                key={typeKey}
-                cursor="pointer"
-                onClick={() => setFilter(typeKey)}
-                position="relative"
-                pb="2"
-              >
-                <Text
-                  fontWeight="medium"
-                  color={filter === typeKey ? "text.light" : "text.timer"}
-                >
-                  {typeKey === "orders"
-                    ? t("customer.orders")
-                    : t("customer.history")}
-                </Text>
-
-                {filter === typeKey && (
-                  <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    right="0"
-                    h="3px"
-                    bg="brand.main"
-                    borderRadius="full"
-                  />
-                )}
-              </Box>
-            ))}
-          </Flex>
         </Box>
+        <Flex justify="center" gap="8">
+          {tabs.map((typeKey) => (
+            <Box
+              key={typeKey}
+              cursor="pointer"
+              onClick={() => setFilter(typeKey)}
+              position="relative"
+              pb="2"
+            >
+              <Text
+                fontWeight="medium"
+                color={filter === typeKey ? "text.light" : "text.timer"}
+              >
+                {typeKey === "orders"
+                  ? t("customer.orders")
+                  : t("customer.history")}
+              </Text>
+
+              {filter === typeKey && (
+                <Box
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  right="0"
+                  h="3px"
+                  bg="brand.main"
+                  borderRadius="full"
+                />
+              )}
+            </Box>
+          ))}
+        </Flex>
         <Box flex="1" overflowY="auto" py={4} pb="90px">
           <VStack spacing={4}>
             {filteredOrders.length === 0 && (
@@ -203,7 +201,11 @@ function OrdersCustomer() {
                     justifyContent="center"
                     flexShrink={0}
                   >
-                    <Image src={order.image} alt={order.product} boxSize="70px" />
+                    <Image
+                      src={order.image}
+                      alt={order.product}
+                      boxSize="70px"
+                    />
                   </Box>
                   <Box flex="1">
                     <Text fontSize="xl" fontWeight="bold" lineHeight="1.2">
@@ -211,13 +213,21 @@ function OrdersCustomer() {
                     </Text>
                     <Text mt={1} fontSize="sm">
                       {t("ordersCustomer.quantity")}{" "}
-                      <Text as="span" color="accent.orange" fontWeight="semibold">
+                      <Text
+                        as="span"
+                        color="accent.orange"
+                        fontWeight="semibold"
+                      >
                         {order.quantity}
                       </Text>
                     </Text>
                     <Text fontSize="sm">
                       {t("ordersCustomer.date")}{" "}
-                      <Text as="span" color="accent.orange" fontWeight="semibold">
+                      <Text
+                        as="span"
+                        color="accent.orange"
+                        fontWeight="semibold"
+                      >
                         {order.date}
                       </Text>
                     </Text>
