@@ -89,6 +89,11 @@
     "cancel": "Bekor qilish",
     "save": "Saqlash"
   },
+  "meta": {
+    "home": "Bosh sahifa",
+    "product": "Mahsulot",
+    "orderLocation": "Buyurtma manzili"
+  },
   "settings": {
     "title": "Sozlamalar",
     "sections": {

@@ -1,5 +1,6 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Register from "./pages/Register/index";
 import Welcome from "./pages/Welcome/index";
 import CustomerHome from "./pages/Home/Customer/index";
@@ -18,9 +19,48 @@ import Logout from "./pages/Settings/Logout";
 import OrderLocation from "./pages/OrderLocation/index";
 import CustomerProduct from "./pages/Product/Customer/index";
 
+const APP_NAME = "Oqchelak";
+
+function PageTitleManager() {
+  const { pathname } = useLocation();
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    let pageTitle = t("welcome.title", { defaultValue: "Welcome" });
+
+    if (pathname === "/register") pageTitle = t("register.title");
+    if (pathname === "/customer-home" || pathname === "/seller-home") {
+      pageTitle = t("meta.home", { defaultValue: "Home" });
+    }
+    if (pathname === "/customer-product") {
+      pageTitle = t("meta.product", { defaultValue: "Product" });
+    }
+    if (pathname === "/seller-orders" || pathname === "/customer-orders") {
+      pageTitle = t("ordersCustomer.title");
+    }
+    if (pathname === "/order-location") {
+      pageTitle = t("meta.orderLocation", { defaultValue: "Order Location" });
+    }
+    if (pathname === "/settings") pageTitle = t("settings.title");
+    if (pathname === "/settings/profile") pageTitle = t("settings.items.profile");
+    if (pathname === "/settings/privacyPolicy") pageTitle = t("settings.items.privacyPolicy");
+    if (pathname === "/settings/billing") pageTitle = t("settings.items.billing");
+    if (pathname === "/settings/security") pageTitle = t("settings.items.security");
+    if (pathname === "/settings/language") pageTitle = t("settings.items.language");
+    if (pathname === "/settings/help") pageTitle = t("settings.items.help");
+    if (pathname === "/settings/about") pageTitle = t("settings.items.about");
+    if (pathname === "/settings/logout") pageTitle = t("settings.items.logout");
+
+    document.title = `${APP_NAME}-${pageTitle}`;
+  }, [pathname, t, i18n.language]);
+
+  return null;
+}
+
 const App = () => {
   return (
     <Router>
+      <PageTitleManager />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/register" element={<Register />} />

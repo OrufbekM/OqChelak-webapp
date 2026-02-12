@@ -12,6 +12,8 @@ const BOTTOM_NAV_HEIGHT = "90px";
 
 const Billing = () => {
   const { t } = useTranslation();
+  const [query, setQuery] = React.useState("");
+  const normalizedQuery = query.trim().toLowerCase();
 
   const STATUSES = ["paid", "pending", "failed", "canceled"];
 
@@ -27,6 +29,28 @@ const Billing = () => {
       })),
     []
   );
+
+  const filteredBills = bills.filter((bill) => {
+    if (!normalizedQuery) return true;
+
+    const localizedStatus = t(`settings.billing.status.${bill.status}`, {
+      defaultValue: bill.status,
+    }).toLowerCase();
+
+    const searchableText = [
+      bill.id,
+      bill.period,
+      bill.status,
+      localizedStatus,
+      bill.amount,
+      bill.currency,
+      bill.date,
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return searchableText.includes(normalizedQuery);
+  });
 
   return (
     <Box h="100vh" display="flex" flexDirection="column">
@@ -67,7 +91,10 @@ const Billing = () => {
               {t("settings.billing.historyTitle")}
             </Text>
 
-            <SecondaryInput />
+            <SecondaryInput
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
 
             <Box
               flex={1}
@@ -77,17 +104,23 @@ const Billing = () => {
               gap={6}
               pb={4}
             >
-              {bills.map((bill) => (
-                <BillingHistoryCard
-                  key={bill.id}
-                  period={bill.period}
-                  billId={bill.id}
-                  status={bill.status}
-                  amount={bill.amount}
-                  currency={bill.currency}
-                  date={bill.date}
-                />
-              ))}
+              {filteredBills.length === 0 ? (
+                <Text color="text.timer" textAlign="center" pt={6}>
+                  {t("settings.search.noResults")}
+                </Text>
+              ) : (
+                filteredBills.map((bill) => (
+                  <BillingHistoryCard
+                    key={bill.id}
+                    period={bill.period}
+                    billId={bill.id}
+                    status={bill.status}
+                    amount={bill.amount}
+                    currency={bill.currency}
+                    date={bill.date}
+                  />
+                ))
+              )}
             </Box>
           </Box>
         </Container>

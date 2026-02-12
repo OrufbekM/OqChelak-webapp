@@ -51,7 +51,7 @@ function OrdersSeller() {
             >
               <Text
                 fontWeight="medium"
-                color={filter === typeKey ? "text.light" : "text.timer"}
+                color={filter === typeKey ? "text.primary" : "text.timer"}
               >
                 {t(`ordersSeller.${typeKey}`)}
               </Text>

@@ -62,6 +62,7 @@ function OrdersCustomer() {
   const [filter, setFilter] = useState(
     searchParams.get("tab") === "orders" ? "orders" : "history",
   );
+  const normalizedQuery = query.trim().toLowerCase();
 
   const tabs = ["orders", "history"];
 
@@ -70,7 +71,19 @@ function OrdersCustomer() {
   }, [orders]);
 
   const filteredOrders = orders.filter((order) => {
-    const byText = order.product.toLowerCase().includes(query.toLowerCase());
+    const localizedStatus = t(`orderStatus.${order.status}`, {
+      defaultValue: order.status,
+    }).toLowerCase();
+    const searchableText = [
+      order.product,
+      order.quantity,
+      order.date,
+      order.status,
+      localizedStatus,
+    ]
+      .join(" ")
+      .toLowerCase();
+    const byText = searchableText.includes(normalizedQuery);
     if (!byText) return false;
 
     if (filter === "history") {
@@ -106,6 +119,10 @@ function OrdersCustomer() {
     }
     return t("ordersCustomer.waitingSeller");
   };
+
+  const emptyMessage = normalizedQuery
+    ? t("settings.search.noResults")
+    : t("ordersCustomer.noOrders");
 
   return (
     <Box
@@ -149,7 +166,7 @@ function OrdersCustomer() {
             >
               <Text
                 fontWeight="medium"
-                color={filter === typeKey ? "text.light" : "text.timer"}
+                color={filter === typeKey ? "text.primary" : "text.timer"}
               >
                 {typeKey === "orders"
                   ? t("customer.orders")
@@ -174,7 +191,7 @@ function OrdersCustomer() {
           <VStack spacing={4}>
             {filteredOrders.length === 0 && (
               <Text color="text.timer" textAlign="center" pt={8}>
-                {t("ordersCustomer.noOrders")}
+                {emptyMessage}
               </Text>
             )}
             {filteredOrders.map((order) => (

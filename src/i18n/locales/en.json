@@ -89,6 +89,11 @@
     "cancel": "Cancel",
     "save": "Save"
   },
+  "meta": {
+    "home": "Home",
+    "product": "Product",
+    "orderLocation": "Order Location"
+  },
   "settings": {
     "title": "Settings",
     "sections": {

@@ -77,6 +77,7 @@ const Index = () => {
   const [orders, setOrders] = useState(ordersData);
   const [filter, setFilter] = useState("new");
   const [query, setQuery] = useState("");
+  const normalizedQuery = query.trim().toLowerCase();
 
   // Timer for countdown
   useEffect(() => {
@@ -104,9 +105,23 @@ const Index = () => {
     return "accent.blue";
   };
 
-  const filteredOrders = orders.filter((o) =>
-    filter === "new" ? o.time > 0 : o.time === 0,
-  );
+  const filteredOrders = orders.filter((order) => {
+    const byTab = filter === "new" ? order.time > 0 : order.time === 0;
+    if (!byTab) return false;
+
+    if (!normalizedQuery) return true;
+
+    const searchableText = [
+      order.product,
+      order.address,
+      order.client,
+      order.price,
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return searchableText.includes(normalizedQuery);
+  });
 
   return (
     <Box
@@ -150,7 +165,7 @@ const Index = () => {
             >
               <Text
                 fontWeight="medium"
-                color={filter === typeKey ? "text.light" : "text.timer"}
+                color={filter === typeKey ? "text.primary" : "text.timer"}
               >
                 {typeKey === "new" ? t("seller.new") : t("seller.old")}
               </Text>
@@ -178,6 +193,11 @@ const Index = () => {
         >
           <Box flex="1" overflowY="auto" py="4">
             <VStack spacing="4">
+              {filteredOrders.length === 0 && (
+                <Text color="text.timer" textAlign="center" pt={8}>
+                  {t("settings.search.noResults")}
+                </Text>
+              )}
               {filteredOrders.map((order) => {
                 const progress = (order.time / INITIAL_TIME) * 100;
                 const isExpired = order.time === 0;
