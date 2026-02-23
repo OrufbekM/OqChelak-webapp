@@ -1,0 +1,190 @@
+{
+  "welcome": {
+    "title": "Welcome to Oqchelaka!",
+    "titleLine1": "Welcome to",
+    "titleLine2": "Oqchelaka!",
+    "registerButton": "Register"
+  },
+  "register": {
+    "roleQuestion": "Which one suits you better?",
+    "customer": "Customer",
+    "customerDescription": "You choose products, place orders and wait for delivery.",
+    "seller": "Seller",
+    "sellerDescription": "You accept orders, prepare them and deliver to customers.",
+    "title": "Registration",
+    "phoneLabel": "your phone number",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "phoneError": "Please enter your phone number completely",
+    "confirm": "Confirm",
+    "codeSent": "We sent a code to your number",
+    "codeNotReceived": "Didn't receive the code?",
+    "resendCode": "Resend",
+    "resendCodeIn": "Resend in:",
+    "enterName": "Enter your name:",
+    "nameLabel": "your name"
+  },
+  "customer": {
+    "title": "Products",
+    "search": "Search...",
+    "milk": "Milk",
+    "milkDescription": "If there's a lot of milk, there will be a lot of cream too.",
+    "price": "Price:",
+    "onlyProduct": "Only this for now",
+    "continueUsing": "Continue using our service",
+    "moreProducts": "surely there will be other products too =)",
+    "orders": "Accepted",
+    "history": "Pending Confirmation"
+  },
+  "seller": {
+    "title": "Orders",
+    "orders": "Orders",
+    "search": "Search...",
+    "new": "New",
+    "old": "Old",
+    "remainingTime": "remaining time:",
+    "address": "Address:",
+    "client": "Client:",
+    "price": "Price:",
+    "accept": "Accept",
+    "cancel": "Cancel"
+  },
+  "ordersCustomer": {
+    "title": "My Orders",
+    "search": "Search orders...",
+    "noOrders": "No customer orders found",
+    "confirmQuestion": "Did you order this?",
+    "thankYouPurchase": "Thank you for your purchase)",
+    "waitingSeller": "Your order is being processed by seller",
+    "quantity": "Quantity:",
+    "date": "Date:",
+    "status": "Status:",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "orderStatus": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "productPage": {
+    "title": "Fresh Whole Milk",
+    "selectVolume": "Select Volume",
+    "fatPercentage": "Fat Percentage",
+    "totalPrice": "Total Price",
+    "addToCart": "Add to Cart"
+  },
+  "ordersSeller": {
+    "title": "My Orders",
+    "search": "Search orders...",
+        "inProgress": "In progress",
+"delivered": "Delivered",
+    "cancelled": "Cancelled",
+    "noOrders": "No seller orders found"
+  },
+  "common": {
+    "search": "Search...",
+    "confirm": "Confirm",
+    "back": "Back",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "meta": {
+    "home": "Home",
+    "product": "Product",
+    "orderLocation": "Order Location"
+  },
+  "settings": {
+    "title": "Settings",
+    "sections": {
+      "account": "Account",
+      "appearance": "Appearance",
+      "more": "More"
+    },
+    "items": {
+      "profile": "Profile & Account",
+      "privacyPolicy": "Privacy Policy",
+      "billing": "Billing & Subscriptions",
+      "security": "Privacy & Security",
+      "darkMode": "Dark Mode",
+      "language": "Language",
+      "help": "Help",
+      "about": "About",
+      "logout": "Sign out"
+    },
+    "billing": {
+      "historyTitle": "Billing history",
+      "nextPaymentTitle": "Next payment",
+      "planBasic": "Basic",
+      "payNow": "Pay now",
+      "amount": "Amount",
+      "date": "Date",
+      "status": {
+        "paid": "Paid",
+        "pending": "Pending",
+        "failed": "Failed",
+        "canceled": "Canceled"
+      }
+    },
+    "profile": {
+      "greeting": "Hello👋 {{name}}",
+      "sectionTitle": "Account",
+      "editTitle": "Edit {{field}}",
+      "fields": {
+        "phone": "Phone",
+        "location": "Location",
+        "email": "Email",
+        "birthday": "Birthday",
+        "role": "Role"
+      }
+    },
+    "help": {
+      "stub": "Help content (stub)",
+      "faqTitle": "Frequently Asked Questions",
+      "faqDesc": "Common questions about using our platform",
+      "contactTitle": "Contact Support",
+      "contactDesc": "Need more help? Reach out to our support team",
+      "tutorialsTitle": "Video Tutorials",
+      "tutorialsDesc": "Step-by-step guides to help you get started",
+      "communityTitle": "Community Forum",
+      "communityDesc": "Connect with other users and share tips"
+    },
+    "about": {
+      "stub": "About content (stub)",
+      "appName": "Oqchelak",
+      "version": "Version 1.0.0",
+      "companyTitle": "About Our Company",
+      "companyDesc": "We are dedicated to providing the best service to our customers",
+      "missionTitle": "Our Mission",
+      "missionDesc": "To connect customers and sellers in the most efficient way possible",
+      "contactTitle": "Contact Us",
+      "contactDesc": "Reach out to us at contact@oqchelak.uz",
+      "termsTitle": "Terms & Conditions",
+      "termsDesc": "Learn about our policies and terms of service"
+    },
+    "search": {
+      "noResults": "No results found"
+    },
+    "security": {
+      "changePassword": "Change Password",
+      "changeEmail": "Change Email",
+      "changePhone": "Change Phone Number",
+      "twoFactorAuth": "Two-Factor Authentication",
+      "loginActivity": "Login Activity",
+      "devices": "Connected Devices",
+      "dangerZone": "Danger Zone",
+      "deleteAccount": "Delete Account",
+      "deleteAccountWarning": "Once you delete your account, there is no going back. Please be certain.",
+      "confirmDelete": "Yes, delete my account",
+      "cancelDelete": "Cancel",
+      "authTitle": "Authentication",
+      "accountInfoTitle": "Account Information",
+      "activityDevicesTitle": "Activity & Devices"
+    }
+  },
+  "privacy": {
+    "description": "We respect your privacy and are committed to protecting your personal data. Our privacy policy explains how we look after your personal data when you visit our website and tells you about your privacy rights and how the law protects you.",
+    "lastUpdated": "Last updated: January 2026",
+    "downloadButton": "Download Privacy Policy"
+  }
+}
