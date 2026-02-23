@@ -68,11 +68,11 @@
     "cancelled": "Bekor qilindi"
   },
   "productPage": {
-    "title": "Fresh Whole Milk",
-    "selectVolume": "Hajmni tanlang",
-    "fatPercentage": "Yog' foizi",
-    "totalPrice": "Umumiy narx",
-    "addToCart": "Add to Cart"
+      "title": "Fresh Whole Milk",
+      "selectVolume": "Hajmni tanlang",
+      "fatPercentage": "Yog' foizi",
+      "totalPrice": "Umumiy narx",
+      "addToCart": "Savatga qo'shish"
   },
   "ordersSeller": {
     "title": "Mening buyurtmalarim",
@@ -87,7 +87,8 @@
     "confirm": "Tasdiqlash",
     "back": "Ortga",
     "cancel": "Bekor qilish",
-    "save": "Saqlash"
+    "save": "Saqlash",
+    "currency": "so'm"
   },
   "meta": {
     "home": "Bosh sahifa",
@@ -143,7 +144,7 @@
       "faqTitle": "Tez-tez beriladigan savollar",
       "faqDesc": "Platformadan foydalanish bo'yicha kundalik savollar",
       "contactTitle": "Qo'llab-quvvatlash xizmati",
-      "contactDesc": "Qo'shimcha yordam kerakmi? Qo'llab-quvvatlash guruhihamizga murojaat qiling",
+      "contactDesc": "Qo'shimcha yordam kerakmi? Qo'llab-quvvatlash guruhimizga murojaat qiling",
       "tutorialsTitle": "Video darslar",
       "tutorialsDesc": "Boshlash uchun qadam-qadam ko'rsatmalar",
       "communityTitle": "Jamiyat forumi",
@@ -159,7 +160,7 @@
       "missionDesc": "Mijozlar va sotuvchilarni eng samarali usulda bog'lash",
       "contactTitle": "Biz bilan bog'lanish",
       "contactDesc": "Biz bilan bog'laning: contact@oqchelak.uz",
-      "termsTitle": "Shartlar va qoidalarn",
+      "termsTitle": "Shartlar va qoidalar",
       "termsDesc": "Siyosat va xizmat ko'rsatish shartlari haqida ma'lumot oling"
     },
     "search": {
@@ -174,17 +175,29 @@
       "devices": "Ulangan qurilmalar",
       "dangerZone": "Xavfli zona",
       "deleteAccount": "Hisobni o'chirish",
-      "deleteAccountWarning": "Hisobingizni o'chirib tashlaganingizdan keyin ortga qaytish yo'q. Iltimos, ishonchingiz kompil.",
+      "deleteAccountWarning": "Hisobingizni o'chirib tashlaganingizdan keyin ortga qaytish yo'q. Iltimos, ishonchingiz komil.",
       "confirmDelete": "Ha, hisobimni o'chirib tashlang",
       "cancelDelete": "Bekor qilish",
       "authTitle": "Autentifikatsiya",
       "accountInfoTitle": "Hisob ma'lumotlari",
-      "activityDevicesTitle": "Faoliyat va qurilmalar"
+      "activityDevicesTitle": "Faoliyat va qurilmalar",
+      "changePasswordInfo": "Parolni o'zgartirish funksiyasi bu yerda amalga oshiriladi",
+      "changeEmailInfo": "Emailni o'zgartirish funksiyasi bu yerda amalga oshiriladi",
+      "changePhoneInfo": "Telefon raqamini o'zgartirish funksiyasi bu yerda amalga oshiriladi",
+      "twoFactorAuthInfo": "Ikki bosqichli autentifikatsiyani sozlash bu yerda amalga oshiriladi",
+      "loginActivityInfo": "Bu yerda akkauntga kirish tarixi ko'rsatiladi",
+      "devicesInfo": "Ulangan qurilmalarni boshqarish bu yerda amalga oshiriladi",
+      "deleteAccountInfo": "Hisobni o'chirish funksiyasi bu yerda amalga oshiriladi",
+      "invalidConfirmationTitle": "Noto'g'ri tasdiqlash",
+      "invalidConfirmationDesc": "Hisobni o'chirishni tasdiqlash uchun delete so'zini kiriting"
     }
   },
   "privacy": {
-    "description": "Biz sizning shaxsiy ma\"lumotlaringizni hurmat qilamiz va ulrani himoya qilishga mas\"ulmiz. Bizning maxfiylik siyosatimiz veb-saytimizga kirganda biz sizning shaxsiy ma\"lumotlaringiz bilan qanday muomala qilishimizni tushuntiradi va sizga maxfiylik huquqlaringiz va qonun sizni qanday himoya qilishini aytadi.",
+    "description": "Biz sizning shaxsiy ma'lumotlaringizni hurmat qilamiz va ularni himoya qilishga mas'ulmiz. Bizning maxfiylik siyosatimiz veb-saytimizga kirganda biz sizning shaxsiy ma'lumotlaringiz bilan qanday muomala qilishimizni tushuntiradi va sizga maxfiylik huquqlaringiz va qonun sizni qanday himoya qilishini aytadi.",
     "lastUpdated": "Oxirgi yangilanish: Yanvar 2026",
     "downloadButton": "Maxfiylik Siyosatini Yuklab Olish"
+  },
+  "login": {
+    "title": "Kirish"
   }
 }

@@ -59,6 +59,12 @@ const BottomNav = ({ role }) => {
               location.pathname === item.path ||
               location.pathname.startsWith(item.path + "/");
 
+            const isCustomerHomeItem =
+              userRole === "customer" && item.path === "/customer-home";
+            const isOnCustomerProduct = location.pathname === "/customer-product";
+            const shouldShowActive =
+              isActive || (isCustomerHomeItem && isOnCustomerProduct);
+
             return (
               <Flex
                 key={index}
@@ -82,7 +88,7 @@ const BottomNav = ({ role }) => {
 
                   navigate(item.path);
                 }}
-                color={isActive ? "brand.main" : "text.timer"}
+                color={shouldShowActive ? "brand.main" : "text.timer"}
                 _hover={{ color: "brand.600" }}
               >
                 <Box
@@ -99,13 +105,13 @@ const BottomNav = ({ role }) => {
                     objectFit="contain"
                     maxW="24px"
                     maxH="24px"
-                    filter={isActive ? "none" : "grayscale(1) opacity(0.6)"}
+                    filter={shouldShowActive ? "none" : "grayscale(1) opacity(0.6)"}
                     transition="filter 150ms, transform 150ms"
                     _hover={{ transform: "scale(1.05)" }}
                   />
                 </Box>
 
-                {isActive && (
+                {shouldShowActive && (
                   <Box w="5px" h="5px" bg="accent.orange" borderRadius="full" />
                 )}
               </Flex>

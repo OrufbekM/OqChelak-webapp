@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
-const index = () => {
-  return (
-    <div>index</div>
-  )
-}
+const Login = () => {
+  const { t } = useTranslation();
+  return <div>{t("login.title")}</div>;
+};
 
-export default index
+export default Login;

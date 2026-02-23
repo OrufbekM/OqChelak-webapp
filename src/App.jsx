@@ -70,12 +70,6 @@ const App = () => {
         <Route path="/seller-orders" element={<OrdersSeller />} />
         <Route path="/customer-orders" element={<OrdersCustomer />} />
         <Route path="/order-location" element={<OrderLocation />} />
-        {/* Dinnaxuy djala */}
-        {/* xop */}
-        {/* Kot bla */}
-        {/* we have telegram btw🥀🥀🥀 */}
-        {/* px djala */}
-        {/* dalbayob komment yozib push qibti yeban🥀🥀🥀 */}
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/profile" element={<Profile />} />
         <Route path="/settings/privacyPolicy" element={<Privacy />} />

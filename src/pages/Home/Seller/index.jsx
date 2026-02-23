@@ -34,7 +34,7 @@ const ordersData = [
     product: "Sut 1 litr",
     address: "Neptun",
     client: "John Doe",
-    price: "11,000 som",
+    price: 11000,
     time: INITIAL_TIME,
     location: { lat: 40.7821, lng: 72.8442 },
   },
@@ -43,7 +43,7 @@ const ordersData = [
     product: "Sut 1 litr",
     address: "Yer",
     client: "John Doe",
-    price: "11,000 som",
+    price: 11000,
     time: 10 * 60,
     location: { lat: 40.7204, lng: 72.8577 },
   },
@@ -52,7 +52,7 @@ const ordersData = [
     product: "Sut 1 litr",
     address: "Mars",
     client: "John Doe",
-    price: "11,000 som",
+    price: 11000,
     time: 5 * 60,
     location: { lat: 40.7758, lng: 72.8508 },
   },
@@ -61,7 +61,7 @@ const ordersData = [
     product: "Sut 1 litr",
     address: "Quyosh",
     client: "John Doe",
-    price: "11,000 som",
+    price: 11000,
     time: 0,
     location: { lat: 40.7871, lng: 72.8419 },
   },
@@ -264,7 +264,8 @@ const Index = () => {
                           {t("seller.client")} {order.client}
                         </Text>
                         <Text fontSize="sm" fontWeight="medium">
-                          {t("seller.price")} {order.price}
+                          {t("seller.price")}{" "}
+                          {order.price.toLocaleString()} {t("common.currency")}
                         </Text>
                       </Box>
                     </Flex>

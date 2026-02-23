@@ -6,14 +6,16 @@ import "leaflet/dist/leaflet.css";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import BackButton from "@/components/BackButton";
 import { getOrderLocationMarkerIcon, TILE_LAYERS } from "@/libs/map";
+import { useTranslation } from "react-i18next";
 
 const FALLBACK_CENTER = { lat: 40.7837, lng: 72.3489 };
 
 function OrderLocation() {
   const [searchParams] = useSearchParams();
+  const { t } = useTranslation();
   const lat = Number(searchParams.get("lat"));
   const lng = Number(searchParams.get("lng"));
-  const address = searchParams.get("address") || "Address";
+  const address = searchParams.get("address") || t("seller.address");
   const isValidCoords = Number.isFinite(lat) && Number.isFinite(lng);
 
   const center = useMemo(

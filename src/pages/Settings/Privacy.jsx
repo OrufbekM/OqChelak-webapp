@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Container, VStack, Icon, Heading } from "@chakra-ui/react";
+import { Box, Text, Container, VStack, Icon } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { Download } from "lucide-react";
 import BottomNav from "@/components/MobileNav";
@@ -11,21 +11,12 @@ const Privacy = () => {
 
   const handleDownload = () => {
     const currentLang = i18n.language;
-    const fileName = `privacy-policy.pdf`;
+    const fileName = "privacy-policy.pdf";
     const fileUrl = `/assets/${fileName}`;
 
     const link = document.createElement("a");
     link.href = fileUrl;
     link.download = fileName;
-
-    link.onerror = () => {
-      if (langCode !== "en") {
-        const fallbackUrl = "/assets/privacy-policy-en.pdf";
-        link.href = fallbackUrl;
-        link.download = "privacy-policy-en.pdf";
-        link.click();
-      }
-    };
 
     link.click();
   };

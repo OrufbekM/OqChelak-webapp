@@ -17,7 +17,7 @@ const Security = () => {
   const handlePasswordChange = () => {
     toaster.create({
       title: t("settings.security.changePassword"),
-      description: "Password change functionality would be implemented here",
+      description: t("settings.security.changePasswordInfo"),
       type: "info",
       duration: 3000,
     });
@@ -26,7 +26,7 @@ const Security = () => {
   const handleEmailChange = () => {
     toaster.create({
       title: t("settings.security.changeEmail"),
-      description: "Email change functionality would be implemented here",
+      description: t("settings.security.changeEmailInfo"),
       type: "info",
       duration: 3000,
     });
@@ -35,7 +35,7 @@ const Security = () => {
   const handlePhoneChange = () => {
     toaster.create({
       title: t("settings.security.changePhone"),
-      description: "Phone number change functionality would be implemented here",
+      description: t("settings.security.changePhoneInfo"),
       type: "info",
       duration: 3000,
     });
@@ -44,7 +44,7 @@ const Security = () => {
   const handleTwoFactorAuth = () => {
     toaster.create({
       title: t("settings.security.twoFactorAuth"),
-      description: "Two-factor authentication setup would be implemented here",
+      description: t("settings.security.twoFactorAuthInfo"),
       type: "info",
       duration: 3000,
     });
@@ -53,7 +53,7 @@ const Security = () => {
   const handleLoginActivity = () => {
     toaster.create({
       title: t("settings.security.loginActivity"),
-      description: "Login activity history would be shown here",
+      description: t("settings.security.loginActivityInfo"),
       type: "info",
       duration: 3000,
     });
@@ -62,7 +62,7 @@ const Security = () => {
   const handleDevices = () => {
     toaster.create({
       title: t("settings.security.devices"),
-      description: "Connected devices management would be implemented here",
+      description: t("settings.security.devicesInfo"),
       type: "info",
       duration: 3000,
     });
@@ -76,7 +76,7 @@ const Security = () => {
     if (deleteConfirmation.toLowerCase() === "delete") {
       toaster.create({
         title: t("settings.security.deleteAccount"),
-        description: "Account deletion functionality would be implemented here",
+        description: t("settings.security.deleteAccountInfo"),
         type: "warning",
         duration: 3000,
       });
@@ -84,8 +84,8 @@ const Security = () => {
       setDeleteConfirmation("");
     } else {
       toaster.create({
-        title: "Invalid Confirmation",
-        description: 'Please type "delete" to confirm account deletion',
+        title: t("settings.security.invalidConfirmationTitle"),
+        description: t("settings.security.invalidConfirmationDesc"),
         type: "error",
         duration: 3000,
       });

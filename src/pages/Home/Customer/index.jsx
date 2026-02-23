@@ -20,9 +20,10 @@ const index = () => {
     }
   }, [navigate]);
 
-  const filteredProducts = customerProducts.filter((item) =>
-    item.name.toLowerCase().includes(query.toLowerCase()),
-  );
+  const filteredProducts = customerProducts.filter((item) => {
+    const localizedName = t(item.nameKey);
+    return localizedName.toLowerCase().includes(query.toLowerCase());
+  });
 
   return (
     <Box
@@ -69,7 +70,7 @@ const index = () => {
               <Flex align="center" gap={4}>
                 <Image
                   src={item.image}
-                  alt={item.name}
+                  alt={t(item.nameKey)}
                   boxSize="140px"
                   objectFit="contain"
                 />
@@ -80,10 +81,10 @@ const index = () => {
                     fontWeight="section.title"
                     color="text.primary"
                   >
-                    {item.name}
+                    {t(item.nameKey)}
                   </Text>
                   <Text fontSize="button.text" color="text.timer" mt={1}>
-                    {item.description}
+                    {t(item.descriptionKey)}
                   </Text>
 
                   <Text mt={2} fontSize="button.text" color="text.primary">
@@ -93,7 +94,7 @@ const index = () => {
                       color="accent.orange"
                       fontWeight="button.text"
                     >
-                      {item.price.toLocaleString()} so'm
+                      {item.price.toLocaleString()} {t("common.currency")}
                     </Text>
                   </Text>
                 </Box>

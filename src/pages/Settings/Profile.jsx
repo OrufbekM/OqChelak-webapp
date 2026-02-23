@@ -23,11 +23,11 @@ const Profile = () => {
   };
 
   const [profile, setProfile] = useState({
-    name: "Adolf Hitler",
+    name: "Oqchelak User",
     phone: "+998 20 010 09 09",
-    location: "Andijon 2-kichik daha",
-    email: "adolfhitler1889@gmail.com",
-    birthday: "1899, april 20",
+    location: "Andijan",
+    email: "user@example.com",
+    birthday: "2000-01-01",
     role: localStorage.getItem("role") || "user",
   });
 

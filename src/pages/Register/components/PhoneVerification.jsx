@@ -9,19 +9,20 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { useMask } from '@react-input/mask';
+import { useMask } from "@react-input/mask";
 import PrimaryButton from "@/components/PrimaryButton";
 import PrimaryInput from "@/components/PrimaryInput";
 import { useColorModeValue } from "@/components/ui/color-mode";
+import { toaster } from "@/components/ui/toaster";
 
 const PhoneVerification = ({ onNext, onBack }) => {
   const { t } = useTranslation();
   const [phone, setPhone] = useState("");
   const labelBg = useColorModeValue("#FFFAFA", "#1A202C");
   const containerRef = useRef(null);
-  
+
   const inputRef = useMask({
-    mask: '+998 __ ___ __ __',
+    mask: "+998 __ ___ __ __",
     replacement: { _: /\d/ },
   });
 
@@ -30,14 +31,20 @@ const PhoneVerification = ({ onNext, onBack }) => {
     if (digitsOnly.length >= 12) {
       onNext(phone);
     } else {
-      alert(t("register.phoneError"));
+      toaster.create({
+        id: "phone-error",
+        type: "error",
+        title: t("register.phoneError"),
+        closable: true,
+      });
     }
   };
 
   useEffect(() => {
     const handleResize = () => {
       if (containerRef.current) {
-        const viewportHeight = window.visualViewport?.height || window.innerHeight;
+        const viewportHeight =
+          window.visualViewport?.height || window.innerHeight;
         containerRef.current.style.minHeight = `${viewportHeight}px`;
       }
     };
@@ -51,7 +58,7 @@ const PhoneVerification = ({ onNext, onBack }) => {
     window.addEventListener("resize", handleResize);
     window.addEventListener("orientationchange", handleResize);
     window.addEventListener("keydown", handleKeyDown);
-    
+
     if (window.visualViewport) {
       window.visualViewport.addEventListener("resize", handleResize);
     }
@@ -148,7 +155,9 @@ const PhoneVerification = ({ onNext, onBack }) => {
             bg="bg.primary"
             pt={4}
           >
-            <PrimaryButton onClick={handleSendCode}>{t("register.confirm")}</PrimaryButton>
+            <PrimaryButton onClick={handleSendCode}>
+              {t("register.confirm")}
+            </PrimaryButton>
           </Box>
         </Flex>
       </Container>

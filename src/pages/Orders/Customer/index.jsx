@@ -12,33 +12,35 @@ import {
 import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import OrderStatusBadge from "@/components/OrderStatusBadge";
 import { loadCustomerOrders, saveCustomerOrders } from "@/utils/customerOrders";
 
 const demoOrders = [
   {
     id: 1001,
-    product: "Milk",
+    product: "Sut",
     quantity: "1 litr",
-    date: "17-avgust, 2026",
+    price: 11000,
+    date: "2026-08-17",
     status: "pending",
     image: "/images/milk.png",
     isReceivedConfirmed: false,
   },
   {
     id: 1002,
-    product: "Milk",
+    product: "Sut",
     quantity: "2 litr",
-    date: "18-avgust, 2026",
+    price: 22000,
+    date: "2026-08-18",
     status: "processing",
     image: "/images/milk.png",
     isReceivedConfirmed: false,
   },
   {
     id: 1003,
-    product: "Milk",
+    product: "Sut",
     quantity: "1 litr",
-    date: "19-avgust, 2026",
+    price: 11000,
+    date: "2026-08-19",
     status: "completed",
     image: "/images/milk.png",
     isReceivedConfirmed: false,
@@ -201,14 +203,14 @@ function OrdersCustomer() {
                 bg={
                   order.status === "completed" && order.isReceivedConfirmed
                     ? "green.700"
-                    : "accent.blueCard"
+                    : "product.milk.bg"
                 }
                 color="text.light"
                 borderRadius="xl"
                 overflow="hidden"
               >
                 <Flex p={4} gap={3}>
-                  <Box
+                  {/* <Box
                     w="88px"
                     h="88px"
                     borderRadius="lg"
@@ -218,17 +220,30 @@ function OrdersCustomer() {
                     justifyContent="center"
                     flexShrink={0}
                   >
-                    <Image
-                      src={order.image}
-                      alt={order.product}
-                      boxSize="70px"
-                    />
-                  </Box>
+                  </Box> */}
+                  <Image
+                    src={order.image}
+                    alt={order.product}
+                    boxSize={{ base: "105px", sm: "155px", md: "155px", lg: "155px", xl: "155px" }}
+                    objectFit="contain"
+                  />
                   <Box flex="1">
-                    <Text fontSize="xl" fontWeight="bold" lineHeight="1.2">
-                      {getCardTitle(order)}
+                    <Text fontSize="2xl" fontWeight="bold" lineHeight="1.2">
+                      {order.product}
                     </Text>
-                    <Text mt={1} fontSize="sm">
+                    {typeof order.price === "number" && (
+                      <Text mt={1} fontSize="sm">
+                        {t("customer.price")}{" "}
+                        <Text
+                          as="span"
+                          color="accent.orange"
+                          fontWeight="semibold"
+                        >
+                          {order.price.toLocaleString()} {t("common.currency")}
+                        </Text>
+                      </Text>
+                    )}
+                    <Text fontSize="sm">
                       {t("ordersCustomer.quantity")}{" "}
                       <Text
                         as="span"
@@ -248,9 +263,16 @@ function OrdersCustomer() {
                         {order.date}
                       </Text>
                     </Text>
-                    <Flex mt={2} align="center" justify="flex-end" gap={2}>
-                      <OrderStatusBadge status={order.status} />
-                    </Flex>
+                    <Text fontSize="sm">
+                      {t("ordersCustomer.status")}{" "}
+                      <Text
+                        as="span"
+                        color="accent.orange"
+                        fontWeight="semibold"
+                      >
+                        {t(`orderStatus.${order.status}`)}
+                      </Text>
+                    </Text>
                   </Box>
                 </Flex>
                 {order.status === "completed" && !order.isReceivedConfirmed && (
