@@ -5,7 +5,6 @@ import { Toaster } from '@/components/ui/toaster'
 import App from './App.jsx'
 import './i18n/config'
 
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider>

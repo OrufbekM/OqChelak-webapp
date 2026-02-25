@@ -13,6 +13,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import BottomNav from "@/components/MobileNav";
 import { appendCustomerOrder } from "@/utils/customerOrders";
 import { customerProducts } from "@/data/products";
+import PrimaryButton from "@/components/PrimaryButton";
 
 const volumes = ["1L", "2L", "3L"];
 const fats = ["0% Skimmed", "2.5% Semi", "3.2% Whole"];
@@ -37,7 +38,8 @@ function CustomerProduct() {
   const [selectedFat, setSelectedFat] = useState("2.5% Semi");
   const productId = searchParams.get("id");
   const product =
-    customerProducts.find((item) => item.id === productId) || customerProducts[0];
+    customerProducts.find((item) => item.id === productId) ||
+    customerProducts[0];
 
   useEffect(() => {
     const storedRole = localStorage.getItem("role");
@@ -50,15 +52,21 @@ function CustomerProduct() {
 
   const totalPrice = useMemo(
     () => priceByVolume[selectedVolume] || priceByVolume["1L"],
-    [selectedVolume]
+    [selectedVolume],
   );
 
   const handleAddToCart = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
     const order = {
       id: Date.now(),
-      product: product.name,
+      product: t(product.nameKey),
       quantity: quantityByVolume[selectedVolume] || "1 litr",
-      date: new Date().toLocaleDateString(i18n.language || "uz-UZ"),
+      price: totalPrice,
+      date: `${year}-${month}-${day}`,
       status: "pending",
       image: product.image,
       fat: selectedFat,
@@ -70,7 +78,12 @@ function CustomerProduct() {
   };
 
   return (
-    <Box minH="100vh" display="flex" alignItems="center" justifyContent="center">
+    <Box
+      minH="100vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
       <Container
         maxW="container.sm"
         px={4}
@@ -79,20 +92,31 @@ function CustomerProduct() {
         flexDirection="column"
         h="100vh"
       >
-        <Box py={6} pb="90px" overflowY="auto">
+        <Box py={6} pb="90px" overflowY="auto" flex="1">
           <Box borderRadius="2xl" overflow="hidden" position="relative" mb={6}>
-            <Image
-              src={product.coverImage || product.image}
-              fallbackSrc={product.image}
-              alt={product.name}
-              w="100%"
-              h="220px"
-              objectFit="cover"
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = product.image;
-              }}
-            />
+            <Box position="relative" w="100%" h="220px" overflow="hidden">
+              <Image
+                src={product.coverImage || product.image}
+                fallbackSrc={product.image}
+                alt={t(product.nameKey)}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = product.image;
+                }}
+              />
+
+              <Box
+                position="absolute"
+                top="0"
+                left="0"
+                w="100%"
+                h="100%"
+                bg="blackAlpha.600"
+              />
+            </Box>
             <Box position="absolute" inset="0" bg="blackAlpha.300" />
             <VStack
               align="flex-start"
@@ -103,9 +127,9 @@ function CustomerProduct() {
               bottom={4}
             >
               <Text fontSize="3xl" color="white" fontWeight="bold">
-                {product.name}
+                {t(product.nameKey)}
               </Text>
-              <Text color="whiteAlpha.800">{product.description}</Text>
+              <Text color="whiteAlpha.800">{t(product.descriptionKey)}</Text>
             </VStack>
           </Box>
 
@@ -137,56 +161,25 @@ function CustomerProduct() {
               </Button>
             ))}
           </Flex>
+        </Box>
 
-          <Text fontSize="sm" fontWeight="bold" mb={3}>
-            {t("productPage.fatPercentage")}
-          </Text>
-          <Flex gap={3} mb={8}>
-            {fats.map((fat) => (
-              <Button
-                key={fat}
-                flex={1}
-                h="44px"
-                borderRadius="xl"
-                bg={selectedFat === fat ? "brand.main" : "white"}
-                color={selectedFat === fat ? "white" : "text.primary"}
-                borderWidth="1px"
-                borderColor={"gray.200"}
-                _dark={{
-                  bg: selectedFat === fat ? "brand.main" : "gray.700",
-                  color: selectedFat === fat ? "white" : "whiteAlpha.900",
-                  borderColor: selectedFat === fat ? "brand.main" : "whiteAlpha.300",
-                }}
-                _hover={{
-                  bg: "brand.main",
-                }}
-                onClick={() => setSelectedFat(fat)}
-              >
-                {fat}
-              </Button>
-            ))}
-          </Flex>
-
+        <Box
+          mt="auto"
+          pb="80px"
+          pt={3}
+        >
           <Box mb={3}>
             <Text color="text.timer" fontSize="sm">
               {t("productPage.totalPrice")}
             </Text>
             <Text fontSize="3xl" fontWeight="bold">
-              {totalPrice.toLocaleString()} so'm
+              {totalPrice.toLocaleString()} {t("common.currency")}
             </Text>
           </Box>
 
-          <Button
-            w="100%"
-            h="52px"
-            borderRadius="xl"
-            bg="brand.main"
-            color="white"
-            onClick={handleAddToCart}
-            _hover={{ bg: "blue.600" }}
-          >
+          <PrimaryButton full onClick={handleAddToCart}>
             {t("productPage.addToCart")}
-          </Button>
+          </PrimaryButton>
         </Box>
       </Container>
       <BottomNav role="customer" />

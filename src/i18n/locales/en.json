@@ -87,7 +87,8 @@
     "confirm": "Confirm",
     "back": "Back",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "currency": "UZS"
   },
   "meta": {
     "home": "Home",
@@ -136,7 +137,9 @@
         "email": "Email",
         "birthday": "Birthday",
         "role": "Role"
-      }
+      },
+      "switchToCustomer": "Switch to customer",
+      "switchToSeller": "Switch to seller"
     },
     "help": {
       "stub": "Help content (stub)",
@@ -179,8 +182,20 @@
       "cancelDelete": "Cancel",
       "authTitle": "Authentication",
       "accountInfoTitle": "Account Information",
-      "activityDevicesTitle": "Activity & Devices"
+      "activityDevicesTitle": "Activity & Devices",
+      "changePasswordInfo": "Password change functionality would be implemented here",
+      "changeEmailInfo": "Email change functionality would be implemented here",
+      "changePhoneInfo": "Phone number change functionality would be implemented here",
+      "twoFactorAuthInfo": "Two-factor authentication setup would be implemented here",
+      "loginActivityInfo": "Login activity history would be shown here",
+      "devicesInfo": "Connected devices management would be implemented here",
+      "deleteAccountInfo": "Account deletion functionality would be implemented here",
+      "invalidConfirmationTitle": "Invalid Confirmation",
+      "invalidConfirmationDesc": "Please type delete to confirm account deletion"
     }
+  },
+  "login": {
+    "title": "Login"
   },
   "privacy": {
     "description": "We respect your privacy and are committed to protecting your personal data. Our privacy policy explains how we look after your personal data when you visit our website and tells you about your privacy rights and how the law protects you.",

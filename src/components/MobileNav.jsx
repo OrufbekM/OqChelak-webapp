@@ -28,6 +28,10 @@ const BottomNav = ({ role }) => {
             : "/",
     },
     {
+      icon: "User.svg",
+      path: "/settings/profile",
+    },
+    {
       icon: "Settings.svg",
       path: "/settings",
     },
@@ -55,9 +59,16 @@ const BottomNav = ({ role }) => {
           px={4}
         >
           {navItems.map((item, index) => {
+            const isProfilePath = location.pathname === "/settings/profile";
             const isActive =
-              location.pathname === item.path ||
-              location.pathname.startsWith(item.path + "/");
+              item.path === "/settings/profile"
+                ? isProfilePath
+                : item.path === "/settings"
+                  ? (location.pathname === "/settings" ||
+                      location.pathname.startsWith("/settings/")) &&
+                    !isProfilePath
+                  : location.pathname === item.path ||
+                    location.pathname.startsWith(item.path + "/");
 
             return (
               <Flex
