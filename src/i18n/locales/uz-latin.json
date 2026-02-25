@@ -12,7 +12,7 @@
     "seller": "Sotuvchi",
     "sellerDescription": "Siz buyurtmalarni qabul qilasiz, tayyorlaysiz va mijozlarga yetkazib berasiz.",
     "title": "Ro'yxatdan o'tish",
-    "phoneLabel": "telefon raqamingiz",
+    "phoneLabel": "Telefon raqamingiz",
     "phonePlaceholder": "+998 90 123 45 67",
     "phoneError": "Iltimos, telefon raqamingizni to'liq kiriting",
     "confirm": "Tasdiqlash",
@@ -137,7 +137,9 @@
         "email": "Email",
         "birthday": "Tug‘ilgan sana",
         "role": "Rol"
-      }
+      },
+      "switchToCustomer": "Xaridorga o'tish",
+      "switchToSeller": "Sotuvchiga o'tish"
     },
     "help": {
       "stub": "Yordam (vaqtinchalik)",

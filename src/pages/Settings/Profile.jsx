@@ -8,19 +8,15 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
-import BackButton from "@/components/BackButton";
 import { Pencil, Phone, MapPin, Mail, Calendar, User } from "lucide-react";
 import SettingsSection from "./components/SettingsSection";
 import SettingsItem from "./components/SettingsItem";
 import EditFieldDrawer from "./components/EditFieldDrawer";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const { i18n, t } = useTranslation();
-  const [currentLang, setCurrentLang] = useState(i18n.language || "uz-latin");
-
-  const setLang = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [profile, setProfile] = useState({
     name: "Oqchelak User",
@@ -28,7 +24,7 @@ const Profile = () => {
     location: "Andijan",
     email: "user@example.com",
     birthday: "2000-01-01",
-    role: localStorage.getItem("role") || "user",
+    role: localStorage.getItem("role") || "customer",
   });
 
   const saveProfile = (next) => {
@@ -58,12 +54,19 @@ const Profile = () => {
     setDrawerOpen(false);
   };
 
+  const role = profile.role === "seller" ? "seller" : "customer";
+  const switchToRole = role === "seller" ? "customer" : "seller";
+
+  const handleRoleSwitch = () => {
+    saveProfile({ role: switchToRole });
+    navigate(switchToRole === "seller" ? "/seller-home" : "/customer-home");
+  };
+
   const items = [
     { key: "phone", label: t("settings.profile.fields.phone"), icon: Phone },
     { key: "location", label: t("settings.profile.fields.location"), icon: MapPin },
     { key: "email", label: t("settings.profile.fields.email"), icon: Mail },
     { key: "birthday", label: t("settings.profile.fields.birthday"), icon: Calendar },
-    { key: "role", label: t("settings.profile.fields.role"), icon: User },
   ];
 
   return (
@@ -83,9 +86,8 @@ const Profile = () => {
         top="0"
         zIndex={10}
         display={"flex"}
-        justifyContent={"space-between"}
+        justifyContent={"center"}
       >
-        <BackButton />
         <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
           {t("settings.items.profile")}
         </Text>
@@ -133,6 +135,18 @@ const Profile = () => {
                 left={it.icon ? <it.icon size={20} /> : undefined}
               />
             ))}
+            <SettingsItem
+              key="role-switch"
+              label={t("settings.profile.fields.role")}
+              value={
+                role === "seller"
+                  ? t("settings.profile.switchToCustomer")
+                  : t("settings.profile.switchToSeller")
+              }
+              right="arrow"
+              onClick={handleRoleSwitch}
+              left={<User size={20} />}
+            />
           </SettingsSection>
         </Box>
       </Box>

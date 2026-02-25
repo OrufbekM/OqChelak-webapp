@@ -137,7 +137,9 @@
         "email": "Email",
         "birthday": "Birthday",
         "role": "Role"
-      }
+      },
+      "switchToCustomer": "Switch to customer",
+      "switchToSeller": "Switch to seller"
     },
     "help": {
       "stub": "Help content (stub)",

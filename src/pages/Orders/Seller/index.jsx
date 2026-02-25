@@ -96,14 +96,14 @@ function OrdersSeller() {
         height="100vh"
       >
         <Box
-          pt="20"
+          pt="8"
           flexShrink={0}
           position={"sticky"}
-          // top={"0"}
+          top={"0"}
           zIndex={10}
           bg={"bg.primary"}
         >
-          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="6">
             {t("ordersSeller.title")}
           </Text>
           <SecondaryInput

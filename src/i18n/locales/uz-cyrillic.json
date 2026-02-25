@@ -137,7 +137,9 @@
         "email": "Email",
         "birthday": "Туғилган сана",
         "role": "Рол"
-      }
+      },
+      "switchToCustomer": "Харидорга ўтиш",
+      "switchToSeller": "Сотувчига ўтиш"
     },
     "help": {
       "stub": "Ёрдам (вақтинчалик)",

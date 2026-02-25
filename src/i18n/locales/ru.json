@@ -137,7 +137,9 @@
         "email": "Email",
         "birthday": "Дата рождения",
         "role": "Роль"
-      }
+      },
+      "switchToCustomer": "Переключиться на покупателя",
+      "switchToSeller": "Переключиться на продавца"
     },
       "search": {
         "noResults": "Ничего не найдено"

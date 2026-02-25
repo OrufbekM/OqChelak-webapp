@@ -28,6 +28,10 @@ const BottomNav = ({ role }) => {
             : "/",
     },
     {
+      icon: "User.svg",
+      path: "/settings/profile",
+    },
+    {
       icon: "Settings.svg",
       path: "/settings",
     },
@@ -55,15 +59,16 @@ const BottomNav = ({ role }) => {
           px={4}
         >
           {navItems.map((item, index) => {
+            const isProfilePath = location.pathname === "/settings/profile";
             const isActive =
-              location.pathname === item.path ||
-              location.pathname.startsWith(item.path + "/");
-
-            const isCustomerHomeItem =
-              userRole === "customer" && item.path === "/customer-home";
-            const isOnCustomerProduct = location.pathname === "/customer-product";
-            const shouldShowActive =
-              isActive || (isCustomerHomeItem && isOnCustomerProduct);
+              item.path === "/settings/profile"
+                ? isProfilePath
+                : item.path === "/settings"
+                  ? (location.pathname === "/settings" ||
+                      location.pathname.startsWith("/settings/")) &&
+                    !isProfilePath
+                  : location.pathname === item.path ||
+                    location.pathname.startsWith(item.path + "/");
 
             return (
               <Flex
@@ -88,7 +93,7 @@ const BottomNav = ({ role }) => {
 
                   navigate(item.path);
                 }}
-                color={shouldShowActive ? "brand.main" : "text.timer"}
+                color={isActive ? "brand.main" : "text.timer"}
                 _hover={{ color: "brand.600" }}
               >
                 <Box
@@ -105,13 +110,13 @@ const BottomNav = ({ role }) => {
                     objectFit="contain"
                     maxW="24px"
                     maxH="24px"
-                    filter={shouldShowActive ? "none" : "grayscale(1) opacity(0.6)"}
+                    filter={isActive ? "none" : "grayscale(1) opacity(0.6)"}
                     transition="filter 150ms, transform 150ms"
                     _hover={{ transform: "scale(1.05)" }}
                   />
                 </Box>
 
-                {shouldShowActive && (
+                {isActive && (
                   <Box w="5px" h="5px" bg="accent.orange" borderRadius="full" />
                 )}
               </Flex>

@@ -3,7 +3,7 @@ import SecondaryInput from "@/components/SecondaryInput";
 import { Container, Text, Box, Flex, List } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { User, Shield, CreditCard, Palette, Globe, HelpCircle, Info, LogOut, Lock } from "lucide-react";
+import { Shield, CreditCard, Palette, Globe, HelpCircle, Info, LogOut, Lock } from "lucide-react";
 import SettingsSection from "./components/SettingsSection";
 import SettingsItem from "./components/SettingsItem";
 
@@ -20,7 +20,6 @@ const Settings = () => {
     {
       key: "account",
       items: [
-        { key: "profile", right: "arrow", icon: User },
         { key: "privacyPolicy", right: "arrow", icon: Shield },
         { key: "billing", right: "arrow", icon: CreditCard },
         { key: "security", right: "arrow", icon: Lock },
@@ -67,14 +66,14 @@ const Settings = () => {
         height="100vh"
       >
         <Box
-          pt="20"
+          pt="8"
           flexShrink={0}
           position={"sticky"}
-          // top={"0"}
+          top={"0"}
           zIndex={10}
           bg={"bg.primary"}
         >
-          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="10">
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="6">
             {t("settings.title")}
           </Text>
           <SecondaryInput value={query} onChange={(e) => setQuery(e.target.value)} />
