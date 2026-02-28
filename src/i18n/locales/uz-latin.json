@@ -46,7 +46,17 @@
     "client": "Mijoz:",
     "price": "Narx:",
     "accept": "Qabul qilish",
-    "cancel": "Bekor qilish"
+    "cancel": "Bekor qilish",
+    "confirmAcceptTitle": "Buyurtmani qabul qilasizmi?",
+    "confirmCancelTitle": "Buyurtmani bekor qilasizmi?",
+    "confirmActionDescription": "Ushbu amalni tasdiqlang.",
+    "productMilk1L": "Sut 1 litr",
+    "addressNeptun": "Neptun",
+    "addressYer": "Yer",
+    "addressMars": "Mars",
+    "addressSun": "Quyosh",
+    "clientJohnDoe": "John Doe",
+    "imageMilkAlt": "Sut"
   },
   "ordersCustomer": {
     "title": "Buyurtmalarim",
@@ -134,7 +144,7 @@
       "fields": {
         "phone": "Telefon",
         "location": "Manzil",
-        "email": "Email",
+        "email": "E-pochta",
         "birthday": "Tug‘ilgan sana",
         "role": "Rol"
       },

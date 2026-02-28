@@ -1,4 +1,4 @@
-﻿{
+{
   "welcome": {
     "title": "Добро пожаловать в Oqchelaka!",
     "titleLine1": "Добро пожаловать",
@@ -46,7 +46,17 @@
     "client": "Клиент:",
     "price": "Цена:",
     "accept": "Принять",
-    "cancel": "Отменить"
+    "cancel": "Отменить",
+    "confirmAcceptTitle": "Принять этот заказ?",
+    "confirmCancelTitle": "Отменить этот заказ?",
+    "confirmActionDescription": "Пожалуйста, подтвердите это действие.",
+    "productMilk1L": "Молоко 1 л",
+    "addressNeptun": "Нептун",
+    "addressYer": "Земля",
+    "addressMars": "Марс",
+    "addressSun": "Солнце",
+    "clientJohnDoe": "John Doe",
+    "imageMilkAlt": "Молоко"
   },
   "ordersCustomer": {
     "title": "Мои заказы",
@@ -134,7 +144,7 @@
       "fields": {
         "phone": "Телефон",
         "location": "Адрес",
-        "email": "Email",
+        "email": "Э-почта",
         "birthday": "Дата рождения",
         "role": "Роль"
       },

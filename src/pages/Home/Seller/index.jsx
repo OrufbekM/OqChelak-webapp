@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
+import PrimaryModal from "@/components/PrimaryModal";
 import SecondaryInput from "@/components/SecondaryInput";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
@@ -31,36 +32,36 @@ function useSellerGuard(navigate) {
 const ordersData = [
   {
     id: 1,
-    product: "Sut 1 litr",
-    address: "Neptun",
-    client: "John Doe",
+    productKey: "seller.productMilk1L",
+    addressKey: "seller.addressNeptun",
+    clientKey: "seller.clientJohnDoe",
     price: 11000,
     time: INITIAL_TIME,
     location: { lat: 40.7821, lng: 72.8442 },
   },
   {
     id: 2,
-    product: "Sut 1 litr",
-    address: "Yer",
-    client: "John Doe",
+    productKey: "seller.productMilk1L",
+    addressKey: "seller.addressYer",
+    clientKey: "seller.clientJohnDoe",
     price: 11000,
     time: 10 * 60,
     location: { lat: 40.7204, lng: 72.8577 },
   },
   {
     id: 3,
-    product: "Sut 1 litr",
-    address: "Mars",
-    client: "John Doe",
+    productKey: "seller.productMilk1L",
+    addressKey: "seller.addressMars",
+    clientKey: "seller.clientJohnDoe",
     price: 11000,
     time: 5 * 60,
     location: { lat: 40.7758, lng: 72.8508 },
   },
   {
     id: 4,
-    product: "Sut 1 litr",
-    address: "Quyosh",
-    client: "John Doe",
+    productKey: "seller.productMilk1L",
+    addressKey: "seller.addressSun",
+    clientKey: "seller.clientJohnDoe",
     price: 11000,
     time: 0,
     location: { lat: 40.7871, lng: 72.8419 },
@@ -76,6 +77,9 @@ const Index = () => {
 
   const [orders, setOrders] = useState(ordersData);
   const [query, setQuery] = useState("");
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [pendingAction, setPendingAction] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const normalizedQuery = query.trim().toLowerCase();
 
   // Timer for countdown
@@ -109,10 +113,14 @@ const Index = () => {
 
     if (!normalizedQuery) return true;
 
+    const productText = t(order.productKey);
+    const addressText = t(order.addressKey);
+    const clientText = t(order.clientKey);
+
     const searchableText = [
-      order.product,
-      order.address,
-      order.client,
+      productText,
+      addressText,
+      clientText,
       order.price,
     ]
       .join(" ")
@@ -120,6 +128,41 @@ const Index = () => {
 
     return searchableText.includes(normalizedQuery);
   });
+
+  const openConfirmationModal = (order, action) => {
+    setSelectedOrder(order);
+    setPendingAction(action);
+    setIsModalOpen(true);
+  };
+
+  const closeConfirmationModal = () => {
+    setIsModalOpen(false);
+    setSelectedOrder(null);
+    setPendingAction(null);
+  };
+
+  const handleConfirmAction = () => {
+    if (!selectedOrder || !pendingAction) return;
+
+    setOrders((prevOrders) =>
+      prevOrders.filter((order) => order.id !== selectedOrder.id),
+    );
+    closeConfirmationModal();
+  };
+
+  const modalTitle =
+    pendingAction === "accept"
+      ? t("seller.confirmAcceptTitle")
+      : t("seller.confirmCancelTitle");
+
+  const modalDescription = selectedOrder
+    ? `${t(selectedOrder.productKey)} • ${t(
+        selectedOrder.addressKey,
+      )} • ${selectedOrder.price.toLocaleString()} ${t("common.currency")}`
+    : "";
+
+  const confirmLabel =
+    pendingAction === "accept" ? t("seller.accept") : t("seller.cancel");
 
   return (
     <Box
@@ -167,6 +210,9 @@ const Index = () => {
                 </Text>
               )}
               {filteredOrders.map((order) => {
+                const productText = t(order.productKey);
+                const addressText = t(order.addressKey);
+                const clientText = t(order.clientKey);
                 const progress = (order.time / INITIAL_TIME) * 100;
                 const isExpired = order.time === 0;
 
@@ -198,12 +244,15 @@ const Index = () => {
                         borderRadius="lg"
                         bg="product.milk.bg"
                       >
-                        <Image src="/images/milk.png" alt="milk" />
+                        <Image
+                          src="/images/milk.png"
+                          alt={t("seller.imageMilkAlt")}
+                        />
                       </Flex>
 
                       <Box flex="1">
                         <Flex justify="space-between">
-                          <Text fontWeight="semibold">{order.product}</Text>
+                          <Text fontWeight="semibold">{productText}</Text>
                           <Text fontSize="sm" color="text.timer">
                             {t("seller.remainingTime")}{" "}
                             <Text
@@ -220,20 +269,22 @@ const Index = () => {
                           {t("seller.address")}{" "}
                           <ChakraLink
                             as={RouterLink}
-                            to={`/order-location?lat=${order.location.lat}&lng=${order.location.lng}&address=${encodeURIComponent(order.address)}`}
+                            to={`/order-location?lat=${order.location.lat}&lng=${order.location.lng}&address=${encodeURIComponent(
+                              addressText,
+                            )}`}
                             color="brand.main"
                             textDecoration="underline"
                             textUnderlineOffset="2px"
                           >
-                            {order.address}
+                            {addressText}
                           </ChakraLink>
                         </Text>
                         <Text fontSize="sm">
-                          {t("seller.client")} {order.client}
+                          {t("seller.client")} {clientText}
                         </Text>
                         <Text fontSize="sm" fontWeight="medium">
-                          {t("seller.price")}{" "}
-                          {order.price.toLocaleString()} {t("common.currency")}
+                          {t("seller.price")} {order.price.toLocaleString()}{" "}
+                          {t("common.currency")}
                         </Text>
                       </Box>
                     </Flex>
@@ -246,6 +297,7 @@ const Index = () => {
                           borderRadius="0"
                           bg="accent.blue"
                           color="text.light"
+                          onClick={() => openConfirmationModal(order, "accept")}
                         >
                           {t("seller.accept")}
                         </Button>
@@ -254,6 +306,7 @@ const Index = () => {
                           borderRadius="0"
                           bg="accent.orange"
                           color="text.light"
+                          onClick={() => openConfirmationModal(order, "cancel")}
                         >
                           {t("seller.cancel")}
                         </Button>
@@ -266,6 +319,30 @@ const Index = () => {
           </Box>
         </Flex>
       </Container>
+
+      <PrimaryModal
+        open={isModalOpen}
+        onOpenChange={(open) => {
+          if (!open) closeConfirmationModal();
+        }}
+        title={modalTitle}
+        description={modalDescription}
+        secondaryActionLabel={t("common.back")}
+        onSecondaryAction={closeConfirmationModal}
+        primaryActionLabel={confirmLabel}
+        onPrimaryAction={handleConfirmAction}
+        primaryActionProps={{
+          bg: pendingAction === "accept" ? "accent.blue" : "accent.orange",
+          _hover: {
+            opacity: 0.9,
+          },
+        }}
+      >
+        <Text fontSize="sm" color="text.timer">
+          {t("seller.confirmActionDescription")}
+        </Text>
+      </PrimaryModal>
+
       <BottomNav role="seller" />
     </Box>
   );

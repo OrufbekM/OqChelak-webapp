@@ -1,4 +1,4 @@
-﻿{
+{
   "welcome": {
     "title": "Оқчелака хуш келибсиз!",
     "titleLine1": "Оқчелака хуш",
@@ -46,7 +46,17 @@
     "client": "Мижоз:",
     "price": "Нарх:",
     "accept": "Қабул қилиш",
-    "cancel": "Бекор қилиш"
+    "cancel": "Бекор қилиш",
+    "confirmAcceptTitle": "Буюртмани қабул қиласизми?",
+    "confirmCancelTitle": "Буюртмани бекор қиласизми?",
+    "confirmActionDescription": "Ушбу амални тасдиқланг.",
+    "productMilk1L": "Сут 1 литр",
+    "addressNeptun": "Нептун",
+    "addressYer": "Ер",
+    "addressMars": "Марс",
+    "addressSun": "Қуёш",
+    "clientJohnDoe": "John Doe",
+    "imageMilkAlt": "Сут"
   },
   "ordersCustomer": {
     "title": "Буюртмаларим",
@@ -134,7 +144,7 @@
       "fields": {
         "phone": "Телефон",
         "location": "Манзил",
-        "email": "Email",
+        "email": "Э-почта",
         "birthday": "Туғилган сана",
         "role": "Рол"
       },

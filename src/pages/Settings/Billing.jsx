@@ -25,7 +25,7 @@ const Billing = () => {
         status: STATUSES[Math.floor(Math.random() * STATUSES.length)],
         amount: 12000,
         currency: "UZS",
-        date: "2001-11-09",
+        date: "2001-09-11",
       })),
     []
   );

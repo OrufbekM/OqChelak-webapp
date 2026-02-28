@@ -163,6 +163,7 @@ const Profile = () => {
         value={editingValue}
         onChangeValue={setEditingValue}
         onSave={handleSave}
+        inputType={editingField?.key === "birthday" ? "date" : "text"}
         cancelText={t("common.cancel")}
         saveText={t("common.save")}
       />

@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Input, VStack, Drawer, Text } from "@chakra-ui/react";
+import CustomDatePicker from "@/components/DatePicker";
 
 function EditFieldDrawer({
   open,
@@ -12,6 +13,7 @@ function EditFieldDrawer({
   onSave,
   cancelText,
   saveText,
+  inputType = "text",
 }) {
   return (
     <Drawer.Root placement={placement} open={open} onOpenChange={onOpenChange}>
@@ -30,13 +32,24 @@ function EditFieldDrawer({
         <Drawer.Body>
           <VStack gap={4} align="stretch">
             <Box>
-              <Text fontSize="sm" fontWeight="semibold" mb={2}>
-                {label}
-              </Text>
-              <Input
-                value={value}
-                onChange={(e) => onChangeValue?.(e.target.value)}
-              />
+              {inputType === "date" ? (
+                <CustomDatePicker
+                  label={label}
+                  value={value}
+                  onChange={onChangeValue}
+                  width="100%"
+                />
+              ) : (
+                <>
+                  <Text fontSize="sm" fontWeight="semibold" mb={2}>
+                    {label}
+                  </Text>
+                  <Input
+                    value={value}
+                    onChange={(e) => onChangeValue?.(e.target.value)}
+                  />
+                </>
+              )}
             </Box>
           </VStack>
         </Drawer.Body>
