@@ -1,6 +1,7 @@
 import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import BackButton from "@/components/BackButton";
 import RoleCards from "./components/RoleCards";
 import PhoneVerification from "./components/PhoneVerification";
 import VerifyCode from "./components/VerifyCode";
@@ -45,6 +46,18 @@ function Register() {
   const handleNameNext = (name) => {
     setUserName(name);
     console.log("Registration complete:", { userType, phoneNumber, name });
+  };
+
+  const handleNameBack = () => {
+    setStep("verify");
+  };
+
+  const getBackButtonProps = () => {
+    if (step === "role") return {};
+    if (step === "phone") return { onClick: handlePhoneBack };
+    if (step === "verify") return { onClick: handleVerifyBack };
+    if (step === "name") return { onClick: handleNameBack };
+    return {};
   };
 
   const renderStep = () => {
@@ -113,7 +126,21 @@ function Register() {
     }
   };
 
-  return renderStep();
+  return (
+    <Box position="relative" minH="100vh">
+      {step !== "role" && (
+        <Box
+          position="absolute"
+          top={4}
+          left={4}
+          zIndex={10}
+        >
+          <BackButton {...getBackButtonProps()} />
+        </Box>
+      )}
+      {renderStep()}
+    </Box>
+  );
 }
 
 export default Register;

@@ -8,7 +8,21 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import BottomNav from "@/components/MobileNav";
-import { Pencil, Phone, MapPin, Mail, Calendar, User } from "lucide-react";
+import {
+  Pencil,
+  Phone,
+  MapPin,
+  Mail,
+  Calendar,
+  User,
+  Shield,
+  CreditCard,
+  Palette,
+  Globe,
+  HelpCircle,
+  Info,
+  LogOut,
+} from "lucide-react";
 import SettingsSection from "./components/SettingsSection";
 import SettingsItem from "./components/SettingsItem";
 import EditFieldDrawer from "./components/EditFieldDrawer";
@@ -67,6 +81,29 @@ const Profile = () => {
     { key: "location", label: t("settings.profile.fields.location"), icon: MapPin },
     { key: "email", label: t("settings.profile.fields.email"), icon: Mail },
     { key: "birthday", label: t("settings.profile.fields.birthday"), icon: Calendar },
+  ];
+
+  const accountExtraItems = [
+    { key: "privacyPolicy", right: "arrow", icon: Shield },
+    { key: "billing", right: "arrow", icon: CreditCard },
+  ];
+
+  const settingsSections = [
+    {
+      key: "appearance",
+      items: [
+        { key: "darkMode", right: "switch", icon: Palette },
+        { key: "language", right: "arrow", icon: Globe },
+      ],
+    },
+    {
+      key: "more",
+      items: [
+        { key: "help", right: "arrow", icon: HelpCircle },
+        { key: "about", right: "arrow", icon: Info },
+        { key: "logout", danger: true, icon: LogOut },
+      ],
+    },
   ];
 
   return (
@@ -147,7 +184,35 @@ const Profile = () => {
               onClick={handleRoleSwitch}
               left={<User size={20} />}
             />
+            {accountExtraItems.map((it) => (
+              <SettingsItem
+                key={it.key}
+                label={t(`settings.items.${it.key}`)}
+                right={it.right}
+                danger={it.danger}
+                to={`/settings/${it.key}`}
+                left={it.icon ? <it.icon size={20} /> : undefined}
+              />
+            ))}
           </SettingsSection>
+
+          {settingsSections.map((section) => (
+            <SettingsSection
+              key={section.key}
+              title={t(`settings.sections.${section.key}`)}
+            >
+              {section.items.map((it) => (
+                <SettingsItem
+                  key={it.key}
+                  label={t(`settings.items.${it.key}`)}
+                  right={it.right}
+                  danger={it.danger}
+                  to={`/settings/${it.key}`}
+                  left={it.icon ? <it.icon size={20} /> : undefined}
+                />
+              ))}
+            </SettingsSection>
+          ))}
         </Box>
       </Box>
 

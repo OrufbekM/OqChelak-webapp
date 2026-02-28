@@ -1,8 +1,8 @@
 {
   "welcome": {
-    "title": "Welcome to Oqchelaka!",
+    "title": "Welcome to Oqchelak!",
     "titleLine1": "Welcome to",
-    "titleLine2": "Oqchelaka!",
+    "titleLine2": "Oqchelak!",
     "registerButton": "Register"
   },
   "register": {
@@ -36,7 +36,11 @@
     "history": "Pending Confirmation"
   },
   "seller": {
-    "title": "Orders",
+    "title": "Products",
+    "milk2L": "Milk 2L",
+    "placeOrder": "Place order",
+    "perMonth": "/month",
+    "reviews": "reviews",
     "orders": "Orders",
     "search": "Search...",
     "new": "New",
@@ -99,6 +103,12 @@
     "cancel": "Cancel",
     "save": "Save",
     "currency": "UZS"
+  },
+  "nav": {
+    "orders": "Orders",
+    "home": "Home",
+    "profile": "Profile",
+    "settings": "Settings"
   },
   "meta": {
     "home": "Home",

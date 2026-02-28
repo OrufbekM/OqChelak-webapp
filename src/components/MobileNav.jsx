@@ -1,16 +1,19 @@
 import React from "react";
-import { Box, Flex, Image, Container } from "@chakra-ui/react";
+import { Box, Flex, Image, Container, Text } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const BottomNav = ({ role }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const userRole = role || localStorage.getItem("role");
 
   const navItems = [
     {
       icon: "Package.svg",
+      labelKey: "nav.orders",
       path:
         userRole === "customer"
           ? "/customer-orders"
@@ -20,6 +23,7 @@ const BottomNav = ({ role }) => {
     },
     {
       icon: "Home.svg",
+      labelKey: "nav.home",
       path:
         userRole === "customer"
           ? "/customer-home"
@@ -29,11 +33,8 @@ const BottomNav = ({ role }) => {
     },
     {
       icon: "User.svg",
+      labelKey: "nav.profile",
       path: "/settings/profile",
-    },
-    {
-      icon: "Settings.svg",
-      path: "/settings",
     },
   ];
 
@@ -46,7 +47,7 @@ const BottomNav = ({ role }) => {
       bg="bg.secondary"
       borderTop="1px solid"
       borderColor="accent.blueBorder"
-      px={4}
+      px={0}
       py={3}
       zIndex={100}
     >
@@ -56,7 +57,7 @@ const BottomNav = ({ role }) => {
           mx="auto"
           justify="space-between"
           align="center"
-          px={4}
+          px={0}
         >
           {navItems.map((item, index) => {
             const isProfilePath = location.pathname === "/settings/profile";
@@ -73,8 +74,11 @@ const BottomNav = ({ role }) => {
             return (
               <Flex
                 key={index}
+                flex={1}
+                minW={0}
                 direction="column"
                 align="center"
+                justify="center"
                 gap={0.5}
                 cursor="pointer"
                 onClick={() => {
@@ -116,9 +120,16 @@ const BottomNav = ({ role }) => {
                   />
                 </Box>
 
-                {isActive && (
-                  <Box w="5px" h="5px" bg="accent.orange" borderRadius="full" />
-                )}
+                <Text
+                  fontSize="xs"
+                  fontWeight={isActive ? "semibold" : "normal"}
+                  noOfLines={1}
+                  textAlign="center"
+                  whiteSpace="nowrap"
+                  w="100%"
+                >
+                  {t(item.labelKey)}
+                </Text>
               </Flex>
             );
           })}

@@ -4,9 +4,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-function BackButton() {
+function BackButton({ onClick }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const handleClick = () => (onClick ? onClick() : navigate(-1));
   return (
     <Button
       bg={"brand.main"}
@@ -25,7 +26,7 @@ function BackButton() {
         transform: "scale(0.9)",
         boxShadow: "md",
       }}
-      onClick={() => navigate(-1)}
+      onClick={handleClick}
       transition="all 0.2s ease-in-out"
     >
       <ArrowLeft /> {t("common.back")}

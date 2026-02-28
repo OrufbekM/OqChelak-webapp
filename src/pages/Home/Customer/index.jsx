@@ -1,15 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, Text, Image, Container } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  Image,
+  Container,
+  SimpleGrid,
+  Icon,
+} from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { ShoppingBag } from "lucide-react";
 import BottomNav from "@/components/MobileNav";
 import SecondaryInput from "@/components/SecondaryInput";
 import { useNavigate } from "react-router-dom";
-import { customerProducts } from "@/data/products";
 
-const index = () => {
+const Index = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
+
+  // TODO: Replace with backend response when customer home products API is ready.
+  const customerHomeProducts = [
+    {
+      id: "milk-1",
+      nameKey: "customer.milk",
+      descriptionKey: "customer.milkDescription",
+      price: 11000,
+      originalPrice: 11500,
+      image: "/images/milk.png",
+      rating: 4.9,
+      reviewsCount: 40310,
+    },
+  ];
 
   useEffect(() => {
     const storedRole = localStorage.getItem("role");
@@ -20,7 +42,7 @@ const index = () => {
     }
   }, [navigate]);
 
-  const filteredProducts = customerProducts.filter((item) => {
+  const filteredProducts = customerHomeProducts.filter((item) => {
     const localizedName = t(item.nameKey);
     return localizedName.toLowerCase().includes(query.toLowerCase());
   });
@@ -43,10 +65,10 @@ const index = () => {
         <Box
           pt="8"
           flexShrink={0}
-          position={"sticky"}
-          top={"0"}
+          position="sticky"
+          top="0"
           zIndex={10}
-          bg={"bg.primary"}
+          bg="bg.primary"
         >
           <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="6">
             {t("customer.title")}
@@ -56,71 +78,119 @@ const index = () => {
             onChange={(e) => setQuery(e.target.value)}
           />
         </Box>
-        <Box minH="100vh" pb="80px">
-          {filteredProducts.map((item) => (
-            <Box
-              key={item.id}
-              bg="product.milk.bg"
-              borderRadius="xl"
-              p={4}
-              m={4}
-              cursor="pointer"
-              onClick={() => navigate(`/customer-product?id=${item.id}`)}
-            >
-              <Flex align="center" gap={4}>
-                <Image
-                  src={item.image}
-                  alt={t(item.nameKey)}
-                  boxSize="140px"
-                  objectFit="contain"
-                />
 
-                <Box>
-                  <Text
-                    fontSize="section.title"
-                    fontWeight="section.title"
-                    color="text.primary"
-                  >
-                    {t(item.nameKey)}
-                  </Text>
-                  <Text fontSize="button.text" color="text.timer" mt={1}>
-                    {t(item.descriptionKey)}
-                  </Text>
-
-                  <Text mt={2} fontSize="button.text" color="text.primary">
-                    {t("customer.price")}{" "}
-                    <Text
-                      as="span"
-                      color="accent.orange"
-                      fontWeight="button.text"
-                    >
-                      {item.price.toLocaleString()} {t("common.currency")}
-                    </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </Box>
-          ))}
-
-          <Flex
-            flex={1}
-            align="center"
-            justify="center"
-            textAlign="center"
-            px={6}
-            mt={20}
-          >
-            <Text color="text.timer" fontSize="button.text">
-              {t("customer.onlyProduct")} <br />
-              {t("customer.continueUsing")} <br />
-              {t("customer.moreProducts")}
+        <Box
+          flex="1"
+          overflowY="auto"
+          py="3"
+          pb="80px"
+        >
+          {filteredProducts.length === 0 ? (
+            <Text color="text.timer" textAlign="center" pt={8}>
+              {t("settings.search.noResults")}
             </Text>
-          </Flex>
+          ) : (
+            <SimpleGrid columns={2} spacing={3} px={0.5}>
+              {filteredProducts.map((item) => {
+                return (
+                  <Box
+                    key={item.id}
+                    bg="bg.secondary"
+                    _dark={{ boxShadow: "0 8px 24px rgba(0, 0, 0, 0.45)" }}
+                    borderRadius="18px"
+                    overflow="hidden"
+                    boxShadow="0 8px 20px rgba(22, 21, 37, 0.08)"
+                    cursor="pointer"
+                    onClick={() =>
+                      navigate(`/customer-product?id=${item.id}`)
+                    }
+                  >
+                    <Box
+                      position="relative"
+                      h="180px"
+                      bg="product.milk.bg"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      borderRadius="16px"
+                      m={1.5}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={t(item.nameKey)}
+                        maxH="145px"
+                        objectFit="contain"
+                      />
+                    </Box>
+
+                    <Box px={2.5} pb={2.5}>
+                      <Text
+                        fontSize="xl"
+                        fontWeight="bold"
+                        color="text.primary"
+                        lineHeight="1.2"
+                        mb={1}
+                        noOfLines={2}
+                      >
+                        {t(item.nameKey)}
+                      </Text>
+                      <Flex align="center" gap={1} mb={2}>
+                        <Text
+                          fontSize="2xl"
+                          fontWeight="bold"
+                          color="brand.main"
+                          lineHeight="1.1"
+                        >
+                          {item.price.toLocaleString()}
+                        </Text>
+                        <Text fontSize="md" fontWeight="semibold" color="text.primary">
+                          {t("common.currency")}
+                        </Text>
+                      </Flex>
+
+                      <Text
+                        fontSize="md"
+                        fontWeight="medium"
+                        color="text.primary"
+                        noOfLines={2}
+                        mb={1}
+                      >
+                        {t(item.descriptionKey)}
+                      </Text>
+
+                      <Flex
+                        as="button"
+                        w="100%"
+                        align="center"
+                        justify="center"
+                        gap={2}
+                        bg="accent.blue"
+                        _dark={{ bg: "accent.blueDarkAlt" }}
+                        color="text.light"
+                        py={2.5}
+                        borderRadius="12px"
+                        fontWeight="semibold"
+                        fontSize="md"
+                        _hover={{ bg: "brand.main" }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/customer-product?id=${item.id}`);
+                        }}
+                      >
+                        <Icon as={ShoppingBag} boxSize={4} />
+                        {t("seller.placeOrder")}
+                      </Flex>
+                    </Box>
+                  </Box>
+                );
+              })}
+            </SimpleGrid>
+          )}
         </Box>
       </Container>
-      <BottomNav role={"customer"} />
+      <BottomNav role="customer" />
     </Box>
   );
 };
 
-export default index;
+export default Index;
