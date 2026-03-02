@@ -1,7 +1,7 @@
 {
   "welcome": {
-    "title": "Oqchelaka xush kelibsiz!",
-    "titleLine1": "Oqchelaka xush",
+    "title": "Oqchelakga xush kelibsiz!",
+    "titleLine1": "Oqchelakga xush",
     "titleLine2": "kelibsiz!",
     "registerButton": "Ro'yxatdan o'tish"
   },
@@ -21,13 +21,13 @@
     "resendCode": "Yangisini olish",
     "resendCodeIn": "Yangisini olish:",
     "enterName": "Ismingizni kiriting:",
-    "nameLabel": "ismingiz"
+    "nameLabel": "Ismingiz"
   },
   "customer": {
     "title": "Mahsulotlar",
     "search": "Qidiruv...",
     "milk": "Sut",
-    "milkDescription": "Sut ko'p bo'lsa, qaymoqi ham ko'p bo'ladi.",
+    "milkDescription": "Har tomchi sutda tabiiy foyda bor.",
     "price": "Narxi:",
     "onlyProduct": "Hozircha faqat shu",
     "continueUsing": "Bizdan foydalanishni davom eting",
@@ -36,7 +36,11 @@
     "history": "Tasdiqlanmoqda"
   },
   "seller": {
-    "title": "Buyurtmalar",
+    "title": "Mahsulotlar",
+    "milk2L": "Sut 2 litr",
+    "placeOrder": "Buyurtma berish",
+    "perMonth": "so'm/oyiga",
+    "reviews": "sharhlar",
     "orders": "Buyurtmalar",
     "search": "Qidiruv...",
     "new": "Yangi",
@@ -46,7 +50,17 @@
     "client": "Mijoz:",
     "price": "Narx:",
     "accept": "Qabul qilish",
-    "cancel": "Bekor qilish"
+    "cancel": "Bekor qilish",
+    "confirmAcceptTitle": "Buyurtmani qabul qilasizmi?",
+    "confirmCancelTitle": "Buyurtmani bekor qilasizmi?",
+    "confirmActionDescription": "Ushbu amalni tasdiqlang.",
+    "productMilk1L": "Sut 1 litr",
+    "addressNeptun": "Neptun",
+    "addressYer": "Yer",
+    "addressMars": "Mars",
+    "addressSun": "Quyosh",
+    "clientJohnDoe": "John Doe",
+    "imageMilkAlt": "Sut"
   },
   "ordersCustomer": {
     "title": "Buyurtmalarim",
@@ -89,6 +103,12 @@
     "cancel": "Bekor qilish",
     "save": "Saqlash",
     "currency": "so'm"
+  },
+  "nav": {
+    "orders": "Buyurtmalar",
+    "home": "Bosh sahifa",
+    "profile": "Profil",
+    "settings": "Sozlamalar"
   },
   "meta": {
     "home": "Bosh sahifa",
@@ -134,7 +154,7 @@
       "fields": {
         "phone": "Telefon",
         "location": "Manzil",
-        "email": "Email",
+        "email": "E-pochta",
         "birthday": "Tug‘ilgan sana",
         "role": "Rol"
       },

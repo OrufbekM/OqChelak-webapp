@@ -1,8 +1,8 @@
 {
   "welcome": {
-    "title": "Welcome to Oqchelaka!",
+    "title": "Welcome to Oqchelak!",
     "titleLine1": "Welcome to",
-    "titleLine2": "Oqchelaka!",
+    "titleLine2": "Oqchelak!",
     "registerButton": "Register"
   },
   "register": {
@@ -36,7 +36,11 @@
     "history": "Pending Confirmation"
   },
   "seller": {
-    "title": "Orders",
+    "title": "Products",
+    "milk2L": "Milk 2L",
+    "placeOrder": "Place order",
+    "perMonth": "/month",
+    "reviews": "reviews",
     "orders": "Orders",
     "search": "Search...",
     "new": "New",
@@ -46,7 +50,17 @@
     "client": "Client:",
     "price": "Price:",
     "accept": "Accept",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "confirmAcceptTitle": "Do you want to accept this order?",
+    "confirmCancelTitle": "Do you want to cancel this order?",
+    "confirmActionDescription": "Please confirm this action.",
+    "productMilk1L": "Milk 1L",
+    "addressNeptun": "Neptun",
+    "addressYer": "Earth",
+    "addressMars": "Mars",
+    "addressSun": "Sun",
+    "clientJohnDoe": "John Doe",
+    "imageMilkAlt": "Milk"
   },
   "ordersCustomer": {
     "title": "My Orders",
@@ -89,6 +103,12 @@
     "cancel": "Cancel",
     "save": "Save",
     "currency": "UZS"
+  },
+  "nav": {
+    "orders": "Orders",
+    "home": "Home",
+    "profile": "Profile",
+    "settings": "Settings"
   },
   "meta": {
     "home": "Home",

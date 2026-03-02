@@ -1,8 +1,8 @@
-﻿{
+{
   "welcome": {
-    "title": "Добро пожаловать в Oqchelaka!",
+    "title": "Добро пожаловать в Oqchelak!",
     "titleLine1": "Добро пожаловать",
-    "titleLine2": "в Oqchelaka!",
+    "titleLine2": "в Oqchelak!",
     "registerButton": "Регистрация"
   },
   "register": {
@@ -36,7 +36,11 @@
     "history": "На подтверждении"
   },
   "seller": {
-    "title": "Заказы",
+    "title": "Товары",
+    "milk2L": "Молоко 2 л",
+    "placeOrder": "Оформить заказ",
+    "perMonth": "/мес",
+    "reviews": "отзывов",
     "orders": "Заказы",
     "search": "Поиск...",
     "new": "Новые",
@@ -46,7 +50,17 @@
     "client": "Клиент:",
     "price": "Цена:",
     "accept": "Принять",
-    "cancel": "Отменить"
+    "cancel": "Отменить",
+    "confirmAcceptTitle": "Принять этот заказ?",
+    "confirmCancelTitle": "Отменить этот заказ?",
+    "confirmActionDescription": "Пожалуйста, подтвердите это действие.",
+    "productMilk1L": "Молоко 1 л",
+    "addressNeptun": "Нептун",
+    "addressYer": "Земля",
+    "addressMars": "Марс",
+    "addressSun": "Солнце",
+    "clientJohnDoe": "John Doe",
+    "imageMilkAlt": "Молоко"
   },
   "ordersCustomer": {
     "title": "Мои заказы",
@@ -89,6 +103,12 @@
     "cancel": "Отменить",
     "save": "Сохранить",
     "currency": "сум"
+  },
+  "nav": {
+    "orders": "Заказы",
+    "home": "Главная",
+    "profile": "Профиль",
+    "settings": "Настройки"
   },
   "meta": {
     "home": "Главная",
@@ -134,7 +154,7 @@
       "fields": {
         "phone": "Телефон",
         "location": "Адрес",
-        "email": "Email",
+        "email": "Э-почта",
         "birthday": "Дата рождения",
         "role": "Роль"
       },
