@@ -98,7 +98,6 @@ const BottomNav = ({ role }) => {
                   navigate(item.path);
                 }}
                 color={isActive ? "brand.main" : "text.timer"}
-                _hover={{ color: "brand.600" }}
               >
                 <Box
                   w="40px"
@@ -127,6 +126,7 @@ const BottomNav = ({ role }) => {
                   textAlign="center"
                   whiteSpace="nowrap"
                   w="100%"
+                  
                 >
                   {t(item.labelKey)}
                 </Text>

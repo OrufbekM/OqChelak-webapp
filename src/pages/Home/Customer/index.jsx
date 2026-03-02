@@ -63,14 +63,19 @@ const Index = () => {
         height="100vh"
       >
         <Box
-          pt="8"
+          pt={{ base: 6, md: 8 }}
           flexShrink={0}
           position="sticky"
           top="0"
           zIndex={10}
           bg="bg.primary"
         >
-          <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb="6">
+          <Text
+            fontSize={{ base: "xl", md: "2xl" }}
+            fontWeight="bold"
+            textAlign="center"
+            pb={{ base: 4, md: 6 }}
+          >
             {t("customer.title")}
           </Text>
           <SecondaryInput
@@ -90,7 +95,11 @@ const Index = () => {
               {t("settings.search.noResults")}
             </Text>
           ) : (
-            <SimpleGrid columns={2} spacing={3} px={0.5}>
+            <SimpleGrid
+              columns={{ base: 2, md: 2 }}
+              spacing={{ base: 3, md: 4 }}
+              px={{ base: 0, md: 0.5 }}
+            >
               {filteredProducts.map((item) => {
                 return (
                   <Box
@@ -107,7 +116,7 @@ const Index = () => {
                   >
                     <Box
                       position="relative"
-                      h="180px"
+                      h={{ base: "140px", md: "180px" }}
                       bg="product.milk.bg"
                       display="flex"
                       alignItems="center"
@@ -125,7 +134,7 @@ const Index = () => {
 
                     <Box px={2.5} pb={2.5}>
                       <Text
-                        fontSize="xl"
+                        fontSize={{ base: "lg", md: "xl" }}
                         fontWeight="bold"
                         color="text.primary"
                         lineHeight="1.2"
@@ -136,20 +145,24 @@ const Index = () => {
                       </Text>
                       <Flex align="center" gap={1} mb={2}>
                         <Text
-                          fontSize="2xl"
+                          fontSize={{ base: "xl", md: "2xl" }}
                           fontWeight="bold"
                           color="brand.main"
                           lineHeight="1.1"
                         >
                           {item.price.toLocaleString()}
                         </Text>
-                        <Text fontSize="md" fontWeight="semibold" color="text.primary">
+                        <Text
+                          fontSize={{ base: "sm", md: "md" }}
+                          fontWeight="semibold"
+                          color="text.primary"
+                        >
                           {t("common.currency")}
                         </Text>
                       </Flex>
 
                       <Text
-                        fontSize="md"
+                        fontSize={{ base: "sm", md: "md" }}
                         fontWeight="medium"
                         color="text.primary"
                         noOfLines={2}
@@ -167,10 +180,10 @@ const Index = () => {
                         bg="accent.blue"
                         _dark={{ bg: "accent.blueDarkAlt" }}
                         color="text.light"
-                        py={2.5}
+                        py={{ base: 2, md: 2.5 }}
                         borderRadius="12px"
                         fontWeight="semibold"
-                        fontSize="md"
+                        fontSize={{ base: "sm", md: "md" }}
                         _hover={{ bg: "brand.main" }}
                         onClick={(e) => {
                           e.stopPropagation();

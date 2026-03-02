@@ -49,7 +49,9 @@ const Profile = () => {
         localStorage.setItem("role", String(next.role));
       }
       localStorage.setItem("profile", JSON.stringify(merged));
-    } catch (e) {}
+    } catch {
+      return;
+    }
   };
 
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -75,6 +77,23 @@ const Profile = () => {
     saveProfile({ role: switchToRole });
     navigate(switchToRole === "seller" ? "/seller-home" : "/customer-home");
   };
+
+  const uzbekistanRegions = [
+    "Andijon",
+    "Buxoro",
+    "Farg'ona",
+    "Jizzax",
+    "Xorazm",
+    "Namangan",
+    "Navoiy",
+    "Qashqadaryo",
+    "Samarqand",
+    "Sirdaryo",
+    "Surxondaryo",
+    "Toshkent viloyati",
+    "Toshkent shahri",
+    "Qoraqalpog'iston Respublikasi",
+  ];
 
   const items = [
     { key: "phone", label: t("settings.profile.fields.phone"), icon: Phone },
@@ -229,6 +248,8 @@ const Profile = () => {
         onChangeValue={setEditingValue}
         onSave={handleSave}
         inputType={editingField?.key === "birthday" ? "date" : "text"}
+        isLocationField={editingField?.key === "location"}
+        locationOptions={uzbekistanRegions}
         cancelText={t("common.cancel")}
         saveText={t("common.save")}
       />
